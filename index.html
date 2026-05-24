@@ -118,6 +118,14 @@
   .quiz-body { flex: 1; overflow-y: auto; padding: 20px; -webkit-overflow-scrolling: touch; }
   .q-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
   .q-num { color: var(--accent); }
+  
+  .q-passage-details { margin-bottom: 12px; }
+  .q-passage-details[open] .q-passage-summary { color: var(--accent); }
+  .q-passage-summary { font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; list-style: none; display: flex; align-items: center; gap: 6px; -webkit-tap-highlight-color: transparent; user-select: none; }
+  .q-passage-summary::-webkit-details-marker { display: none; }
+  .q-passage-details[open] .q-passage-summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; }
+  .q-passage-details[open] .q-passage { border-top-left-radius: 0; border-top-right-radius: 0; margin-bottom: 0; border-top: none; }
+  .q-passage-details .q-passage { margin-bottom: 0; border-radius: 0 0 10px 10px; }
   .q-passage { font-size: 13px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; line-height: 1.8; white-space: pre-wrap; }
   .q-text { font-size: 15px; line-height: 1.7; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
   .q-choices { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
@@ -174,6 +182,35 @@
   .review-exp-label { font-size: 10px; color: var(--accent); font-family: var(--mono); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
   .result-done-btn { width: 100%; padding: 16px; border-radius: 14px; background: var(--accent); color: #fff; border: none; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 4px; }
   .result-done-btn:active { opacity: 0.85; }
+
+  .vocab-body { flex: 1; overflow-y: auto; padding: 20px; -webkit-overflow-scrolling: touch; }
+  .vocab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 32px 20px; text-align: center; margin-bottom: 16px; min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .vocab-word { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .vocab-pos { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-bottom: 16px; }
+  .vocab-meaning { font-size: 18px; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .vocab-example { font-size: 13px; color: var(--muted); line-height: 1.6; font-style: italic; }
+  .vocab-example-ja { font-size: 12px; color: var(--muted); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.5; width: 100%; text-align: center; }
+  .vocab-progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .vocab-progress-label { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+  .vocab-nav { display: flex; gap: 10px; }
+  .vocab-btn { flex: 1; padding: 14px; border-radius: 12px; border: 1.5px solid var(--border); background: var(--surface); color: var(--text); font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; }
+  .vocab-btn:active { opacity: 0.85; }
+  .vocab-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .vocab-done-msg { text-align: center; padding: 20px; }
+  .vocab-launch { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: rgba(37,99,235,0.06); border: 1px solid rgba(37,99,235,0.15); border-radius: 14px; margin-bottom: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .vocab-launch:active { opacity: 0.8; }
+  .vocab-launch-icon { width: 34px; height: 34px; border-radius: 8px; background: #7c3aed; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .vocab-launch-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; }
+  .vocab-launch-body { flex: 1; }
+  .vocab-launch-name { font-size: 14px; font-weight: 500; color: #7c3aed; }
+  .vocab-launch-hint { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .vocab-launch-time { font-family: var(--mono); font-size: 11px; color: #7c3aed; background: rgba(124,58,237,0.08); padding: 3px 8px; border-radius: 6px; flex-shrink: 0; }
+  .vocab-launch.done { background: var(--success-dim); border-color: rgba(22,163,74,0.2); cursor: default; }
+  .vocab-launch.done .vocab-launch-icon { background: var(--success); }
+  .vocab-launch.done .vocab-launch-name { color: var(--success); }
+  .vocab-launch.done .vocab-launch-time { background: rgba(22,163,74,0.1); color: var(--success); }
+  .q-translation { font-size: 12px; color: var(--muted); background: var(--surface2); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; line-height: 1.6; }
+  .review-translation { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.5; background: var(--surface2); border-radius: 6px; padding: 6px 8px; }
 </style>
 </head>
 <body>
@@ -220,6 +257,13 @@
   </div>
 </div>
 
+<!-- VOCAB -->
+<div class="screen" id="screen-vocab">
+  <div class="quiz-header"><button class="quiz-back" onclick="exitVocab()"><svg viewBox="0 0 16 16"><polyline points="10,3 5,8 10,13"/></svg>戻る</button><span class="quiz-title-text">単語学習</span></div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="vocab-prog-fill"></div></div>
+  <div class="vocab-body" id="vocab-body"></div>
+</div>
+
 <!-- QUIZ -->
 <div class="screen" id="screen-quiz">
   <div class="quiz-header">
@@ -244,131 +288,598 @@
 </div>
 
 <script>
-// ===== 問題バンク =====
+const VOCAB_BANK = [
+  {word:'allocate',pos:'動詞',meaning:'割り当てる・配分する',example:'We need to allocate more resources to this project.',example_ja:'このプロジェクトにもっとリソースを割り当てる必要があります。'},
+  {word:'collaborate',pos:'動詞',meaning:'協力する・共同作業する',example:'The two teams collaborated on the new product launch.',example_ja:'2つのチームは新製品の発売に向けて協力しました。'},
+  {word:'implement',pos:'動詞',meaning:'実施する・導入する',example:'The company will implement the new policy next month.',example_ja:'会社は来月、新しい方針を実施する予定です。'},
+  {word:'negotiate',pos:'動詞',meaning:'交渉する',example:'We need to negotiate better terms with the supplier.',example_ja:'サプライヤーとより良い条件で交渉する必要があります。'},
+  {word:'evaluate',pos:'動詞',meaning:'評価する・査定する',example:'We will evaluate the results at the end of the quarter.',example_ja:'四半期末に結果を評価します。'},
+  {word:'facilitate',pos:'動詞',meaning:'促進する・円滑にする',example:'The new software will facilitate communication between departments.',example_ja:'新しいソフトウェアは部門間のコミュニケーションを促進します。'},
+  {word:'delegate',pos:'動詞',meaning:'委任する・任せる',example:'A good manager knows how to delegate tasks.',example_ja:'優れたマネージャーはタスクを委任する方法を知っています。'},
+  {word:'launch',pos:'動詞',meaning:'発売する・開始する',example:'The company will launch a new product next spring.',example_ja:'会社は来春に新製品を発売する予定です。'},
+  {word:'monitor',pos:'動詞',meaning:'監視する・追跡する',example:'We closely monitor customer feedback.',example_ja:'顧客のフィードバックを綿密に監視しています。'},
+  {word:'notify',pos:'動詞',meaning:'通知する・知らせる',example:'Please notify your supervisor if you will be absent.',example_ja:'欠席する場合は上司に通知してください。'},
+  {word:'reimburse',pos:'動詞',meaning:'払い戻す・弁済する',example:'The company will reimburse your travel expenses.',example_ja:'会社は出張費を払い戻します。'},
+  {word:'submit',pos:'動詞',meaning:'提出する・送付する',example:'Please submit your application by the deadline.',example_ja:'締め切りまでに申請書を提出してください。'},
+  {word:'accomplish',pos:'動詞',meaning:'達成する・成し遂げる',example:'We accomplished all of our goals this year.',example_ja:'今年は全ての目標を達成しました。'},
+  {word:'assist',pos:'動詞',meaning:'手伝う・支援する',example:'I will assist you with the paperwork.',example_ja:'書類作業を手伝います。'},
+  {word:'authorize',pos:'動詞',meaning:'許可する・認可する',example:'Only managers are authorized to approve expenses.',example_ja:'マネージャーだけが経費を承認する権限を持っています。'},
+  {word:'confirm',pos:'動詞',meaning:'確認する・確定する',example:'Please confirm your attendance by email.',example_ja:'メールで出席を確認してください。'},
+  {word:'coordinate',pos:'動詞',meaning:'調整する・まとめる',example:'She will coordinate the event planning.',example_ja:'彼女がイベントの計画を調整します。'},
+  {word:'dedicate',pos:'動詞',meaning:'専念させる・捧げる',example:'She dedicated herself to improving customer service.',example_ja:'彼女は顧客サービスの改善に専念しました。'},
+  {word:'determine',pos:'動詞',meaning:'決定する・判断する',example:'We need to determine the cause of the problem.',example_ja:'問題の原因を特定する必要があります。'},
+  {word:'eliminate',pos:'動詞',meaning:'排除する・取り除く',example:'We are working to eliminate inefficiencies.',example_ja:'非効率を排除するために取り組んでいます。'},
+  {word:'emphasize',pos:'動詞',meaning:'強調する・重点を置く',example:'The manager emphasized the importance of teamwork.',example_ja:'マネージャーはチームワークの重要性を強調しました。'},
+  {word:'establish',pos:'動詞',meaning:'設立する・確立する',example:'The company was established in 1990.',example_ja:'会社は1990年に設立されました。'},
+  {word:'exceed',pos:'動詞',meaning:'超える・上回る',example:'Sales exceeded our expectations this quarter.',example_ja:'今四半期は売上が期待を上回りました。'},
+  {word:'expand',pos:'動詞',meaning:'拡大する・拡張する',example:'The company plans to expand into Asian markets.',example_ja:'会社はアジア市場に進出する計画があります。'},
+  {word:'fulfill',pos:'動詞',meaning:'果たす・満たす',example:'We are committed to fulfilling all client requirements.',example_ja:'すべてのクライアントの要件を満たすことに取り組んでいます。'},
+  {word:'generate',pos:'動詞',meaning:'生み出す・発生させる',example:'The new campaign generated a lot of interest.',example_ja:'新しいキャンペーンは大きな関心を生み出しました。'},
+  {word:'guarantee',pos:'動詞',meaning:'保証する・保障する',example:'We guarantee delivery within 3 business days.',example_ja:'3営業日以内の配送を保証します。'},
+  {word:'highlight',pos:'動詞',meaning:'強調する・目立たせる',example:'The report highlights key areas for improvement.',example_ja:'レポートは改善すべき重要な分野を強調しています。'},
+  {word:'inform',pos:'動詞',meaning:'知らせる・通知する',example:'Please inform all team members of the schedule change.',example_ja:'スケジュール変更についてすべてのチームメンバーに通知してください。'},
+  {word:'intend',pos:'動詞',meaning:'意図する・つもりである',example:'We intend to open a new branch next year.',example_ja:'来年新しい支店を開設するつもりです。'},
+  {word:'minimize',pos:'動詞',meaning:'最小限にする',example:'We are working to minimize waste.',example_ja:'廃棄物を最小限にするために取り組んでいます。'},
+  {word:'obtain',pos:'動詞',meaning:'取得する・入手する',example:'You need to obtain permission before starting.',example_ja:'始める前に許可を取得する必要があります。'},
+  {word:'optimize',pos:'動詞',meaning:'最適化する',example:'We need to optimize our supply chain.',example_ja:'サプライチェーンを最適化する必要があります。'},
+  {word:'oversee',pos:'動詞',meaning:'監督する・管理する',example:'He will oversee the entire construction project.',example_ja:'彼は建設プロジェクト全体を監督します。'},
+  {word:'postpone',pos:'動詞',meaning:'延期する・先送りする',example:'We had to postpone the meeting due to bad weather.',example_ja:'悪天候のため会議を延期しなければなりませんでした。'},
+  {word:'promote',pos:'動詞',meaning:'昇進させる・宣伝する',example:'He was promoted to senior manager last year.',example_ja:'彼は昨年シニアマネージャーに昇進しました。'},
+  {word:'recruit',pos:'動詞',meaning:'採用する・募集する',example:'We are actively recruiting new engineers.',example_ja:'新しいエンジニアを積極的に採用しています。'},
+  {word:'reduce',pos:'動詞',meaning:'削減する・減らす',example:'We need to reduce operational costs.',example_ja:'運営コストを削減する必要があります。'},
+  {word:'relocate',pos:'動詞',meaning:'移転する・移動させる',example:'The office will relocate to a new building next year.',example_ja:'オフィスは来年新しいビルに移転します。'},
+  {word:'renew',pos:'動詞',meaning:'更新する・再開する',example:'Please renew your subscription before it expires.',example_ja:'期限が切れる前にサブスクリプションを更新してください。'},
+  {word:'represent',pos:'動詞',meaning:'代表する・表す',example:'She will represent the company at the conference.',example_ja:'彼女は会議で会社を代表します。'},
+  {word:'resolve',pos:'動詞',meaning:'解決する・決意する',example:'We resolved the issue quickly.',example_ja:'問題を素早く解決しました。'},
+  {word:'retain',pos:'動詞',meaning:'保持する・維持する',example:'The company focuses on retaining talented employees.',example_ja:'会社は優秀な社員の確保に注力しています。'},
+  {word:'review',pos:'動詞',meaning:'見直す・審査する',example:'Please review the contract before signing.',example_ja:'署名する前に契約書を見直してください。'},
+  {word:'revise',pos:'動詞',meaning:'改訂する・修正する',example:'We need to revise the plan based on new data.',example_ja:'新しいデータに基づいてプランを修正する必要があります。'},
+  {word:'streamline',pos:'動詞',meaning:'合理化する・効率化する',example:'We are trying to streamline our operations.',example_ja:'業務を合理化しようとしています。'},
+  {word:'transfer',pos:'動詞',meaning:'移動する・転勤する',example:'She was transferred to the Tokyo office.',example_ja:'彼女は東京のオフィスに転勤になりました。'},
+  {word:'verify',pos:'動詞',meaning:'確認する・証明する',example:'Please verify your email address.',example_ja:'メールアドレスを確認してください。'},
+  {word:'acknowledge',pos:'動詞',meaning:'認める・承認する',example:'Please acknowledge receipt of this email.',example_ja:'このメールの受領を確認してください。'},
+  {word:'comply',pos:'動詞',meaning:'従う・応じる',example:'All staff must comply with safety regulations.',example_ja:'全スタッフは安全規則に従わなければなりません。'},
+  {word:'disburse',pos:'動詞',meaning:'支払う・分配する',example:'The funds will be disbursed next month.',example_ja:'資金は来月支払われます。'},
+  {word:'disclose',pos:'動詞',meaning:'開示する・公表する',example:'The company must disclose its financial results.',example_ja:'会社は財務結果を開示しなければなりません。'},
+  {word:'dispatch',pos:'動詞',meaning:'発送する・派遣する',example:'The order was dispatched yesterday.',example_ja:'注文品は昨日発送されました。'},
+  {word:'enhance',pos:'動詞',meaning:'高める・強化する',example:'This training will enhance your communication skills.',example_ja:'この研修はコミュニケーションスキルを高めます。'},
+  {word:'ensure',pos:'動詞',meaning:'確保する・保証する',example:'Please ensure all data is backed up before updating.',example_ja:'更新前に全データをバックアップするようにしてください。'},
+  {word:'estimate',pos:'動詞',meaning:'見積もる・推定する',example:'Please estimate the cost of the renovation.',example_ja:'改装のコストを見積もってください。'},
+  {word:'finalize',pos:'動詞',meaning:'最終決定する・完結させる',example:'We need to finalize the contract by Friday.',example_ja:'金曜日までに契約を最終決定する必要があります。'},
+  {word:'forward',pos:'動詞',meaning:'転送する・送付する',example:'Please forward the email to all staff members.',example_ja:'全スタッフにメールを転送してください。'},
+  {word:'inquire',pos:'動詞',meaning:'問い合わせる・尋ねる',example:'Please inquire at the front desk for more information.',example_ja:'詳細はフロントデスクにお問い合わせください。'},
+  {word:'install',pos:'動詞',meaning:'設置する・インストールする',example:'The IT team will install the new software tomorrow.',example_ja:'ITチームは明日新しいソフトウェアをインストールします。'},
+  {word:'inspect',pos:'動詞',meaning:'検査する・点検する',example:'The manager will inspect the facility tomorrow.',example_ja:'マネージャーは明日施設を検査します。'},
+  {word:'invoice',pos:'動詞',meaning:'請求書を発行する',example:'Please invoice us for the completed work.',example_ja:'完成した作業の請求書を発行してください。'},
+  {word:'justify',pos:'動詞',meaning:'正当化する・説明する',example:'Please justify the additional budget request.',example_ja:'追加予算の申請を正当化してください。'},
+  {word:'maintain',pos:'動詞',meaning:'維持する・管理する',example:'We must maintain high quality standards.',example_ja:'高い品質基準を維持しなければなりません。'},
+  {word:'manufacture',pos:'動詞',meaning:'製造する・生産する',example:'The factory manufactures car parts.',example_ja:'工場は自動車部品を製造しています。'},
+  {word:'outline',pos:'動詞',meaning:'概説する・要約する',example:'Please outline the main points of your proposal.',example_ja:'提案の主要点を概説してください。'},
+  {word:'process',pos:'動詞',meaning:'処理する・加工する',example:'We process all orders within 24 hours.',example_ja:'全ての注文を24時間以内に処理します。'},
+  {word:'register',pos:'動詞',meaning:'登録する・記録する',example:'Please register for the event online.',example_ja:'オンラインでイベントに登録してください。'},
+  {word:'release',pos:'動詞',meaning:'発表する・リリースする',example:'The company will release the results next week.',example_ja:'会社は来週、結果を発表します。'},
+  {word:'request',pos:'動詞',meaning:'依頼する・要求する',example:'Please request approval before proceeding.',example_ja:'進める前に承認を依頼してください。'},
+  {word:'reschedule',pos:'動詞',meaning:'予定を変更する',example:'We need to reschedule the meeting.',example_ja:'会議の予定を変更する必要があります。'},
+  {word:'seek',pos:'動詞',meaning:'求める・探す',example:'We are seeking a solution to this problem.',example_ja:'この問題の解決策を求めています。'},
+  {word:'specify',pos:'動詞',meaning:'明記する・指定する',example:'Please specify the delivery date.',example_ja:'配送日を明記してください。'},
+  {word:'sponsor',pos:'動詞',meaning:'後援する・スポンサーになる',example:'The company sponsored the annual charity event.',example_ja:'会社は年次チャリティーイベントを後援しました。'},
+  {word:'update',pos:'動詞',meaning:'更新する・最新情報を伝える',example:'Please update your contact information.',example_ja:'連絡先情報を更新してください。'},
+  {word:'withdraw',pos:'動詞',meaning:'撤退する・引き出す',example:'She decided to withdraw her application.',example_ja:'彼女は申請を取り下げることにしました。'},
+  {word:'anticipate',pos:'動詞',meaning:'予想する・期待する',example:'We anticipate strong demand for the new product.',example_ja:'新製品への強い需要を予想しています。'},
+  {word:'approve',pos:'動詞',meaning:'承認する・賛成する',example:'The board approved the new budget plan.',example_ja:'取締役会は新しい予算計画を承認しました。'},
+  {word:'assign',pos:'動詞',meaning:'割り当てる・任命する',example:'The manager assigned the task to the new employee.',example_ja:'マネージャーは新入社員にタスクを割り当てました。'},
+  {word:'cancel',pos:'動詞',meaning:'キャンセルする・中止する',example:'We had to cancel the event due to bad weather.',example_ja:'悪天候のためイベントをキャンセルしなければなりませんでした。'},
+  {word:'compile',pos:'動詞',meaning:'まとめる・編集する',example:'Please compile all the data into one report.',example_ja:'すべてのデータを1つのレポートにまとめてください。'},
+  {word:'complete',pos:'動詞',meaning:'完了する・仕上げる',example:'Please complete the form and return it by Friday.',example_ja:'フォームに記入して金曜日までに返送してください。'},
+  {word:'concentrate',pos:'動詞',meaning:'集中する・専念する',example:'Please concentrate on the most important tasks first.',example_ja:'まず最も重要なタスクに集中してください。'},
+  {word:'consider',pos:'動詞',meaning:'考慮する・検討する',example:'We should consider all options before deciding.',example_ja:'決定する前に全ての選択肢を検討すべきです。'},
+  {word:'contact',pos:'動詞',meaning:'連絡する・問い合わせる',example:'Please contact us if you have any questions.',example_ja:'ご質問があればご連絡ください。'},
+  {word:'deliver',pos:'動詞',meaning:'配達する・届ける',example:'We will deliver the order within 3 business days.',example_ja:'3営業日以内に注文品を配達します。'},
+  {word:'develop',pos:'動詞',meaning:'開発する・発展させる',example:'The team is developing a new mobile application.',example_ja:'チームは新しいモバイルアプリを開発しています。'},
+  {word:'discuss',pos:'動詞',meaning:'議論する・話し合う',example:'Let us discuss the proposal at the next meeting.',example_ja:'次の会議で提案を話し合いましょう。'},
+  {word:'distribute',pos:'動詞',meaning:'配布する・流通させる',example:'Please distribute the report to all team members.',example_ja:'報告書を全チームメンバーに配布してください。'},
+  {word:'document',pos:'動詞',meaning:'文書化する・記録する',example:'Please document all changes to the system.',example_ja:'システムへの全変更を記録してください。'},
+  {word:'encourage',pos:'動詞',meaning:'奨励する・促進する',example:'Management encourages employees to share new ideas.',example_ja:'経営陣は社員が新しいアイデアを共有することを奨励しています。'},
+  {word:'handle',pos:'動詞',meaning:'対処する・取り扱う',example:'She handles all customer complaints personally.',example_ja:'彼女は全顧客の苦情を直接対処しています。'},
+  {word:'improve',pos:'動詞',meaning:'改善する・向上させる',example:'We are constantly working to improve our services.',example_ja:'私たちはサービスを継続的に改善するために取り組んでいます。'},
+  {word:'increase',pos:'動詞',meaning:'増加する・増やす',example:'Sales increased by 20% this year.',example_ja:'今年は売上が20%増加しました。'},
+  {word:'manage',pos:'動詞',meaning:'管理する・経営する',example:'She manages a team of fifteen people.',example_ja:'彼女は15人のチームを管理しています。'},
+  {word:'negotiate',pos:'動詞',meaning:'交渉する',example:'They negotiated a new contract with the vendor.',example_ja:'彼らはベンダーと新しい契約を交渉しました。'},
+  {word:'participate',pos:'動詞',meaning:'参加する',example:'All employees are encouraged to participate in the training.',example_ja:'全社員が研修に参加するよう奨励されています。'},
+  {word:'plan',pos:'動詞',meaning:'計画する',example:'We are planning to open a new office in Osaka.',example_ja:'大阪に新しいオフィスを開設する計画です。'},
+  {word:'prepare',pos:'動詞',meaning:'準備する',example:'Please prepare a presentation for the board meeting.',example_ja:'取締役会のためにプレゼンを準備してください。'},
+  {word:'proceed',pos:'動詞',meaning:'進む・続ける',example:'Please proceed with the order.',example_ja:'注文を進めてください。'},
+  {word:'provide',pos:'動詞',meaning:'提供する・与える',example:'We provide training to all new employees.',example_ja:'すべての新入社員にトレーニングを提供しています。'},
+  {word:'receive',pos:'動詞',meaning:'受け取る・受信する',example:'We received many inquiries about the new product.',example_ja:'新製品について多くの問い合わせを受けました。'},
+  {word:'recommend',pos:'動詞',meaning:'推薦する・勧める',example:'I recommend reading the manual before use.',example_ja:'使用前にマニュアルを読むことをお勧めします。'},
+  {word:'require',pos:'動詞',meaning:'必要とする・求める',example:'This position requires five years of experience.',example_ja:'このポジションには5年の経験が必要です。'},
+  {word:'respond',pos:'動詞',meaning:'返答する・対応する',example:'Please respond to this email within 24 hours.',example_ja:'24時間以内にこのメールに返答してください。'},
+  {word:'schedule',pos:'動詞',meaning:'予定を立てる',example:'Let\'s schedule a meeting for next week.',example_ja:'来週の会議をスケジュールしましょう。'},
+  {word:'support',pos:'動詞',meaning:'支援する・サポートする',example:'Our team will support you throughout the process.',example_ja:'私たちのチームがプロセス全体を通じてサポートします。'},
+  {word:'upgrade',pos:'動詞',meaning:'アップグレードする・向上させる',example:'We plan to upgrade our computer systems next year.',example_ja:'来年コンピューターシステムをアップグレードする予定です。'},
+  {word:'objective',pos:'名詞',meaning:'目標・目的',example:'Our main objective is to increase customer satisfaction.',example_ja:'私たちの主な目標は顧客満足度を高めることです。'},
+  {word:'priority',pos:'名詞',meaning:'優先事項・優先度',example:'Customer service is our top priority.',example_ja:'顧客サービスが私たちの最優先事項です。'},
+  {word:'revenue',pos:'名詞',meaning:'収益・売上高',example:'The company\'s revenue grew by 15% last year.',example_ja:'昨年、会社の収益は15%成長しました。'},
+  {word:'strategy',pos:'名詞',meaning:'戦略・方針',example:'We need a new marketing strategy to reach younger customers.',example_ja:'若い顧客にアプローチするための新しいマーケティング戦略が必要です。'},
+  {word:'budget',pos:'名詞',meaning:'予算',example:'The project is within budget.',example_ja:'プロジェクトは予算内に収まっています。'},
+  {word:'candidate',pos:'名詞',meaning:'候補者・志願者',example:'We interviewed five candidates for the position.',example_ja:'そのポジションに5人の候補者を面接しました。'},
+  {word:'contract',pos:'名詞',meaning:'契約書・契約',example:'Please sign the contract before starting work.',example_ja:'仕事を始める前に契約書にサインしてください。'},
+  {word:'commitment',pos:'名詞',meaning:'責任・献身',example:'We appreciate your commitment to the company.',example_ja:'会社へのあなたの献身に感謝します。'},
+  {word:'contribution',pos:'名詞',meaning:'貢献・寄与',example:'Thank you for your valuable contribution to the team.',example_ja:'チームへの貴重な貢献ありがとうございます。'},
+  {word:'distribution',pos:'名詞',meaning:'配布・流通',example:'We handle the distribution of products nationwide.',example_ja:'全国への製品の流通を担当しています。'},
+  {word:'duration',pos:'名詞',meaning:'期間・持続時間',example:'The contract has a duration of two years.',example_ja:'契約期間は2年間です。'},
+  {word:'expertise',pos:'名詞',meaning:'専門知識・専門技術',example:'We need someone with expertise in data analysis.',example_ja:'データ分析の専門知識を持つ人材が必要です。'},
+  {word:'guideline',pos:'名詞',meaning:'ガイドライン・指針',example:'Please follow the company guidelines.',example_ja:'会社のガイドラインに従ってください。'},
+  {word:'headquarters',pos:'名詞',meaning:'本社・本部',example:'The company\'s headquarters is located in Tokyo.',example_ja:'会社の本社は東京にあります。'},
+  {word:'incentive',pos:'名詞',meaning:'インセンティブ・奨励金',example:'The company offers incentives for outstanding performance.',example_ja:'会社は優れた業績に対してインセンティブを提供します。'},
+  {word:'initiative',pos:'名詞',meaning:'主導権・取り組み',example:'She took the initiative to solve the problem.',example_ja:'彼女は問題を解決するために主導権を取りました。'},
+  {word:'inventory',pos:'名詞',meaning:'在庫・棚卸し',example:'We need to check our inventory before placing an order.',example_ja:'注文する前に在庫を確認する必要があります。'},
+  {word:'invoice',pos:'名詞',meaning:'請求書',example:'Please send us an invoice for your services.',example_ja:'サービスの請求書を送ってください。'},
+  {word:'maintenance',pos:'名詞',meaning:'メンテナンス・維持管理',example:'Regular maintenance is required for this equipment.',example_ja:'この機器には定期的なメンテナンスが必要です。'},
+  {word:'opportunity',pos:'名詞',meaning:'機会・チャンス',example:'This is a great opportunity to expand our business.',example_ja:'これはビジネスを拡大する絶好のチャンスです。'},
+  {word:'participant',pos:'名詞',meaning:'参加者・出席者',example:'All participants will receive a certificate.',example_ja:'すべての参加者に証明書が授与されます。'},
+  {word:'performance',pos:'名詞',meaning:'業績・パフォーマンス',example:'His performance this quarter was outstanding.',example_ja:'今四半期の彼のパフォーマンスは素晴らしかった。'},
+  {word:'policy',pos:'名詞',meaning:'方針・規則・ポリシー',example:'Please read the company policy carefully.',example_ja:'会社の方針を注意深くお読みください。'},
+  {word:'proposal',pos:'名詞',meaning:'提案書・提案',example:'She submitted a detailed proposal for the new project.',example_ja:'彼女は新しいプロジェクトの詳細な提案書を提出しました。'},
+  {word:'regulation',pos:'名詞',meaning:'規制・規則',example:'The new regulation will affect all businesses.',example_ja:'新しい規制はすべての企業に影響を与えます。'},
+  {word:'shareholder',pos:'名詞',meaning:'株主',example:'The company held its annual meeting for shareholders.',example_ja:'会社は株主のための年次総会を開催しました。'},
+  {word:'shipment',pos:'名詞',meaning:'出荷・積み荷',example:'The shipment will arrive next Tuesday.',example_ja:'出荷品は来週火曜日に届きます。'},
+  {word:'supervisor',pos:'名詞',meaning:'上司・監督者',example:'Please report any issues to your supervisor.',example_ja:'問題があれば上司に報告してください。'},
+  {word:'transaction',pos:'名詞',meaning:'取引・業務',example:'All transactions are recorded in the system.',example_ja:'すべての取引はシステムに記録されます。'},
+  {word:'warranty',pos:'名詞',meaning:'保証・保証書',example:'This product comes with a one-year warranty.',example_ja:'この製品には1年間の保証が付いています。'},
+  {word:'agenda',pos:'名詞',meaning:'議題・アジェンダ',example:'The agenda for tomorrow\'s meeting has been sent.',example_ja:'明日の会議の議題が送付されました。'},
+  {word:'approval',pos:'名詞',meaning:'承認・許可',example:'The project requires management approval.',example_ja:'プロジェクトには経営陣の承認が必要です。'},
+  {word:'deadline',pos:'名詞',meaning:'締め切り・期限',example:'The deadline for this project is next Monday.',example_ja:'このプロジェクトの締め切りは来週の月曜日です。'},
+  {word:'improvement',pos:'名詞',meaning:'改善・向上',example:'There is room for improvement in our customer service.',example_ja:'顧客サービスには改善の余地があります。'},
+  {word:'inquiry',pos:'名詞',meaning:'問い合わせ・照会',example:'We received many inquiries about the new product.',example_ja:'新製品について多くの問い合わせを受けました。'},
+  {word:'logistics',pos:'名詞',meaning:'物流・ロジスティクス',example:'Our logistics team handles all deliveries.',example_ja:'私たちの物流チームがすべての配送を担当しています。'},
+  {word:'obligation',pos:'名詞',meaning:'義務・責任',example:'You have an obligation to report any issues.',example_ja:'問題があれば報告する義務があります。'},
+  {word:'personnel',pos:'名詞',meaning:'職員・人事部門',example:'Please contact the personnel department for assistance.',example_ja:'支援については人事部門に連絡してください。'},
+  {word:'profitability',pos:'名詞',meaning:'収益性・利益率',example:'Improving profitability is our main goal.',example_ja:'収益性を向上させることが私たちの主な目標です。'},
+  {word:'recommendation',pos:'名詞',meaning:'推薦・勧告',example:'The report includes several recommendations.',example_ja:'報告書にはいくつかの勧告が含まれています。'},
+  {word:'renovation',pos:'名詞',meaning:'改装・改修',example:'The office renovation will be completed next month.',example_ja:'オフィスの改装は来月完了する予定です。'},
+  {word:'restriction',pos:'名詞',meaning:'制限・規制',example:'There are certain restrictions on the use of this facility.',example_ja:'この施設の利用にはいくつかの制限があります。'},
+  {word:'revision',pos:'名詞',meaning:'改訂・修正',example:'The proposal needs a major revision.',example_ja:'提案書は大幅な修正が必要です。'},
+  {word:'shortage',pos:'名詞',meaning:'不足・欠乏',example:'There is a shortage of skilled workers in this field.',example_ja:'この分野では熟練した労働者が不足しています。'},
+  {word:'timeline',pos:'名詞',meaning:'タイムライン・スケジュール',example:'Please provide a timeline for the project.',example_ja:'プロジェクトのタイムラインを提供してください。'},
+  {word:'vendor',pos:'名詞',meaning:'ベンダー・販売業者',example:'We work with several vendors for office supplies.',example_ja:'オフィス用品については複数のベンダーと取引しています。'},
+  {word:'workforce',pos:'名詞',meaning:'労働力・従業員',example:'We need to expand our workforce to meet demand.',example_ja:'需要に応えるために労働力を拡充する必要があります。'},
+  {word:'liaison',pos:'名詞',meaning:'連絡係・仲介者',example:'She acts as a liaison between the two departments.',example_ja:'彼女は2つの部門の連絡係を務めています。'},
+  {word:'reimbursement',pos:'名詞',meaning:'払い戻し・弁済',example:'Please submit receipts for reimbursement.',example_ja:'払い戻しのために領収書を提出してください。'},
+  {word:'recruitment',pos:'名詞',meaning:'採用・募集',example:'The recruitment process takes about two months.',example_ja:'採用プロセスには約2ヶ月かかります。'},
+  {word:'objective',pos:'名詞',meaning:'目的・目標',example:'The main objective of this meeting is to finalize the plan.',example_ja:'この会議の主な目的はプランを最終決定することです。'},
+  {word:'stakeholder',pos:'名詞',meaning:'利害関係者',example:'All stakeholders should be informed of the changes.',example_ja:'全ての利害関係者に変更を知らせるべきです。'},
+  {word:'subsidiary',pos:'名詞',meaning:'子会社',example:'The company has subsidiaries in ten countries.',example_ja:'会社は10カ国に子会社を持っています。'},
+  {word:'merchandise',pos:'名詞',meaning:'商品・品物',example:'The store sells a wide variety of merchandise.',example_ja:'その店は幅広い種類の商品を販売しています。'},
+  {word:'expenditure',pos:'名詞',meaning:'支出・経費',example:'The company\'s expenditures have increased this year.',example_ja:'会社の支出は今年増加しました。'},
+  {word:'acquisition',pos:'名詞',meaning:'取得・買収',example:'The acquisition of the new company was announced today.',example_ja:'新しい会社の買収が本日発表されました。'},
+  {word:'amendment',pos:'名詞',meaning:'修正・改正',example:'The committee approved the amendment to the contract.',example_ja:'委員会は契約の修正を承認しました。'},
+  {word:'allowance',pos:'名詞',meaning:'手当・許容量',example:'Employees receive a monthly travel allowance.',example_ja:'社員は月次の交通費手当を受け取ります。'},
+  {word:'affiliate',pos:'名詞',meaning:'関連会社・提携企業',example:'Our affiliate in Europe handles overseas sales.',example_ja:'欧州の関連会社が海外販売を担当しています。'},
+  {word:'assessment',pos:'名詞',meaning:'評価・査定',example:'The performance assessment is held twice a year.',example_ja:'業績評価は年2回行われます。'},
+  {word:'authorization',pos:'名詞',meaning:'承認・許可',example:'You need management authorization for this purchase.',example_ja:'この購入には経営陣の承認が必要です。'},
+  {word:'benchmark',pos:'名詞',meaning:'基準・指標',example:'We use industry benchmarks to measure performance.',example_ja:'業界の基準を使ってパフォーマンスを測定します。'},
+  {word:'brochure',pos:'名詞',meaning:'パンフレット・冊子',example:'Please take a brochure from the front desk.',example_ja:'フロントデスクからパンフレットをお取りください。'},
+  {word:'circulation',pos:'名詞',meaning:'流通・配布・循環',example:'The magazine has a circulation of 50,000 copies.',example_ja:'その雑誌は5万部の発行部数があります。'},
+  {word:'collaboration',pos:'名詞',meaning:'協力・共同作業',example:'This project is a collaboration between two companies.',example_ja:'このプロジェクトは2社間のコラボレーションです。'},
+  {word:'commission',pos:'名詞',meaning:'手数料・委員会',example:'Sales staff earn a commission on each sale.',example_ja:'営業スタッフは各売上に対して手数料を得ます。'},
+  {word:'compensation',pos:'名詞',meaning:'報酬・補償',example:'The company offers competitive compensation packages.',example_ja:'会社は競争力のある報酬パッケージを提供しています。'},
+  {word:'component',pos:'名詞',meaning:'部品・要素',example:'Each component must be inspected before assembly.',example_ja:'各部品は組み立て前に検査されなければなりません。'},
+  {word:'confidentiality',pos:'名詞',meaning:'機密性・守秘義務',example:'Please sign the confidentiality agreement before proceeding.',example_ja:'進める前に守秘義務契約書に署名してください。'},
+  {word:'confirmation',pos:'名詞',meaning:'確認・承認',example:'We will send a confirmation email after your registration.',example_ja:'登録後に確認メールをお送りします。'},
+  {word:'consent',pos:'名詞',meaning:'同意・承諾',example:'You need written consent from the client.',example_ja:'クライアントから書面による同意が必要です。'},
+  {word:'contractor',pos:'名詞',meaning:'請負業者・契約社員',example:'We hired an independent contractor for the project.',example_ja:'プロジェクトのために独立した請負業者を雇いました。'},
+  {word:'correspondence',pos:'名詞',meaning:'通信・文書往来',example:'Please keep all correspondence related to this matter.',example_ja:'この件に関連する全ての通信を保管してください。'},
+  {word:'deficit',pos:'名詞',meaning:'赤字・不足額',example:'The company reported a budget deficit this year.',example_ja:'会社は今年、予算赤字を報告しました。'},
+  {word:'demonstration',pos:'名詞',meaning:'デモ・実演',example:'The sales team gave a product demonstration.',example_ja:'営業チームが製品のデモを行いました。'},
+  {word:'department',pos:'名詞',meaning:'部門・部署',example:'Which department do you work in?',example_ja:'あなたはどの部門で働いていますか？'},
+  {word:'destination',pos:'名詞',meaning:'目的地・宛先',example:'The package has been sent to the wrong destination.',example_ja:'荷物が誤った宛先に送られました。'},
+  {word:'disbursement',pos:'名詞',meaning:'支払い・出費',example:'All disbursements must be approved in advance.',example_ja:'全ての支払いは事前に承認されなければなりません。'},
+  {word:'dividend',pos:'名詞',meaning:'配当金',example:'Shareholders will receive a dividend this quarter.',example_ja:'株主は今四半期に配当金を受け取ります。'},
+  {word:'efficiency',pos:'名詞',meaning:'効率・能率',example:'We are always looking for ways to improve efficiency.',example_ja:'私たちは常に効率を改善する方法を探しています。'},
+  {word:'endorsement',pos:'名詞',meaning:'支持・裏書き',example:'The product received celebrity endorsements.',example_ja:'その製品は有名人の支持を受けました。'},
+  {word:'estimate',pos:'名詞',meaning:'見積もり・概算',example:'The contractor provided an estimate for the work.',example_ja:'請負業者が作業の見積もりを提供しました。'},
+  {word:'evaluation',pos:'名詞',meaning:'評価・査定',example:'The annual evaluation will be held in December.',example_ja:'年次評価は12月に行われます。'},
+  {word:'facility',pos:'名詞',meaning:'施設・設備',example:'The company has a state-of-the-art manufacturing facility.',example_ja:'会社は最新の製造施設を持っています。'},
+  {word:'feedback',pos:'名詞',meaning:'フィードバック・意見',example:'We value customer feedback to improve our products.',example_ja:'製品改善のために顧客のフィードバックを重視しています。'},
+  {word:'franchise',pos:'名詞',meaning:'フランチャイズ・営業権',example:'The company expanded through franchise agreements.',example_ja:'会社はフランチャイズ契約を通じて拡大しました。'},
+  {word:'incentive',pos:'名詞',meaning:'奨励策・動機付け',example:'The bonus acts as an incentive for better performance.',example_ja:'ボーナスはより良いパフォーマンスへの奨励策となります。'},
+  {word:'implementation',pos:'名詞',meaning:'実施・実行',example:'The implementation of the new system took three months.',example_ja:'新システムの実施には3ヶ月かかりました。'},
+  {word:'infrastructure',pos:'名詞',meaning:'インフラ・基盤',example:'The company invested heavily in IT infrastructure.',example_ja:'会社はITインフラに多大な投資をしました。'},
+  {word:'integration',pos:'名詞',meaning:'統合・融合',example:'The integration of the two systems was completed last week.',example_ja:'2つのシステムの統合は先週完了しました。'},
+  {word:'inventory',pos:'名詞',meaning:'在庫・目録',example:'A full inventory check will be conducted this weekend.',example_ja:'今週末に完全な在庫確認が行われます。'},
+  {word:'lease',pos:'名詞',meaning:'リース・賃貸契約',example:'The office lease expires at the end of the year.',example_ja:'オフィスのリース契約は年末に終了します。'},
+  {word:'liability',pos:'名詞',meaning:'責任・負債',example:'The company accepted liability for the accident.',example_ja:'会社は事故の責任を受け入れました。'},
+  {word:'merger',pos:'名詞',meaning:'合併',example:'The merger between the two companies was announced last week.',example_ja:'2社間の合併が先週発表されました。'},
+  {word:'milestone',pos:'名詞',meaning:'マイルストーン・重要な節目',example:'Reaching 1,000 customers was a major milestone for us.',example_ja:'1,000人の顧客に達したことは私たちにとって大きな節目でした。'},
+  {word:'minutes',pos:'名詞',meaning:'議事録',example:'Please take minutes during the meeting.',example_ja:'会議中に議事録を取ってください。'},
+  {word:'nomination',pos:'名詞',meaning:'推薦・指名',example:'She received a nomination for employee of the year.',example_ja:'彼女は年間最優秀社員に推薦されました。'},
+  {word:'notification',pos:'名詞',meaning:'通知・お知らせ',example:'You will receive a notification when the order is shipped.',example_ja:'注文が発送されたら通知が届きます。'},
+  {word:'orientation',pos:'名詞',meaning:'オリエンテーション・方針',example:'New employees attend a two-day orientation program.',example_ja:'新入社員は2日間のオリエンテーションプログラムに参加します。'},
+  {word:'overhead',pos:'名詞',meaning:'諸経費・間接費',example:'The company is working to reduce overhead costs.',example_ja:'会社は諸経費の削減に取り組んでいます。'},
+  {word:'overview',pos:'名詞',meaning:'概要・全体像',example:'Please provide an overview of the project status.',example_ja:'プロジェクトの状況の概要を提供してください。'},
+  {word:'payroll',pos:'名詞',meaning:'給与・給与名簿',example:'The payroll is processed on the last day of each month.',example_ja:'給与は毎月最終日に処理されます。'},
+  {word:'pension',pos:'名詞',meaning:'年金・退職金',example:'The company offers a generous pension plan.',example_ja:'会社は寛大な年金制度を提供しています。'},
+  {word:'portfolio',pos:'名詞',meaning:'ポートフォリオ・作品集',example:'Please bring your portfolio to the interview.',example_ja:'面接にポートフォリオを持参してください。'},
+  {word:'premise',pos:'名詞',meaning:'施設・前提',example:'No smoking is allowed on the premises.',example_ja:'施設内は禁煙です。'},
+  {word:'procedure',pos:'名詞',meaning:'手順・手続き',example:'Please follow the standard operating procedure.',example_ja:'標準操作手順に従ってください。'},
+  {word:'productivity',pos:'名詞',meaning:'生産性',example:'New tools have significantly improved our productivity.',example_ja:'新しいツールが生産性を大幅に向上させました。'},
+  {word:'proficiency',pos:'名詞',meaning:'熟練・習熟度',example:'Proficiency in English is required for this position.',example_ja:'このポジションには英語の習熟度が必要です。'},
+  {word:'projection',pos:'名詞',meaning:'予測・見通し',example:'The sales projections for next year look promising.',example_ja:'来年の売上予測は有望に見えます。'},
+  {word:'quota',pos:'名詞',meaning:'割り当て量・ノルマ',example:'The sales team exceeded their monthly quota.',example_ja:'営業チームは月間ノルマを超えました。'},
+  {word:'receipt',pos:'名詞',meaning:'領収書・受取',example:'Please keep your receipt for your records.',example_ja:'記録のために領収書を保管してください。'},
+  {word:'refund',pos:'名詞',meaning:'返金・払い戻し',example:'You are eligible for a full refund within 30 days.',example_ja:'30日以内であれば全額返金の資格があります。'},
+  {word:'replacement',pos:'名詞',meaning:'交換・代替品',example:'We will send a replacement for the defective product.',example_ja:'不良品の代替品をお送りします。'},
+  {word:'reputation',pos:'名詞',meaning:'評判・名声',example:'The company has an excellent reputation for customer service.',example_ja:'会社は顧客サービスで優れた評判を持っています。'},
+  {word:'requirements',pos:'名詞',meaning:'要件・必要条件',example:'Please review the requirements before applying.',example_ja:'応募前に要件を確認してください。'},
+  {word:'resolution',pos:'名詞',meaning:'解決・決議',example:'The committee passed a resolution to increase the budget.',example_ja:'委員会は予算増額の決議を可決しました。'},
+  {word:'resume',pos:'名詞',meaning:'履歴書',example:'Please attach your resume to the application form.',example_ja:'応募フォームに履歴書を添付してください。'},
+  {word:'settlement',pos:'名詞',meaning:'和解・決済',example:'The two parties reached a settlement out of court.',example_ja:'双方は法廷外で和解に達しました。'},
+  {word:'specification',pos:'名詞',meaning:'仕様・明細書',example:'The product does not meet the required specifications.',example_ja:'製品は必要な仕様を満たしていません。'},
+  {word:'supplement',pos:'名詞',meaning:'補足・付録',example:'Please refer to the supplement for additional information.',example_ja:'追加情報については補足を参照してください。'},
+  {word:'survey',pos:'名詞',meaning:'調査・アンケート',example:'We conducted a customer satisfaction survey.',example_ja:'顧客満足度調査を実施しました。'},
+  {word:'turnover',pos:'名詞',meaning:'売上高・離職率',example:'The company reported high employee turnover last year.',example_ja:'会社は昨年、高い社員離職率を報告しました。'},
+  {word:'venue',pos:'名詞',meaning:'会場・開催地',example:'The venue for the conference has been confirmed.',example_ja:'会議の会場が確認されました。'},
+  {word:'voucher',pos:'名詞',meaning:'バウチャー・証票',example:'Please present this voucher at the reception desk.',example_ja:'このバウチャーを受付デスクで提示してください。'},
+  {word:'comprehensive',pos:'形容詞',meaning:'包括的な・総合的な',example:'Please submit a comprehensive report by Friday.',example_ja:'金曜日までに包括的なレポートを提出してください。'},
+  {word:'efficient',pos:'形容詞',meaning:'効率的な・能率的な',example:'She is one of the most efficient workers in the office.',example_ja:'彼女はオフィスで最も効率的な社員の一人です。'},
+  {word:'substantial',pos:'形容詞',meaning:'相当な・かなりの',example:'There has been a substantial increase in online sales.',example_ja:'オンライン販売に相当な増加がありました。'},
+  {word:'genuine',pos:'形容詞',meaning:'本物の・真の',example:'She showed genuine interest in the project.',example_ja:'彼女はプロジェクトに真の興味を示しました。'},
+  {word:'competitive',pos:'形容詞',meaning:'競争力のある',example:'We offer competitive salaries and benefits.',example_ja:'競争力のある給与と福利厚生を提供しています。'},
+  {word:'accurate',pos:'形容詞',meaning:'正確な・精密な',example:'Please make sure all data is accurate before submitting.',example_ja:'提出前にすべてのデータが正確であることを確認してください。'},
+  {word:'adequate',pos:'形容詞',meaning:'十分な・適切な',example:'Make sure there is adequate time to complete the task.',example_ja:'タスクを完了するための十分な時間があることを確認してください。'},
+  {word:'considerable',pos:'形容詞',meaning:'かなりの・相当な',example:'There has been considerable progress on the project.',example_ja:'プロジェクトにかなりの進展がありました。'},
+  {word:'diligent',pos:'形容詞',meaning:'勤勉な・精励する',example:'She is a diligent worker who always meets deadlines.',example_ja:'彼女はいつも締め切りを守る勤勉な社員です。'},
+  {word:'eligible',pos:'形容詞',meaning:'資格がある・適格な',example:'Employees with three years of service are eligible for a bonus.',example_ja:'3年間の勤務歴がある社員はボーナスの資格があります。'},
+  {word:'exceptional',pos:'形容詞',meaning:'例外的な・卓越した',example:'She did an exceptional job on this project.',example_ja:'彼女はこのプロジェクトで卓越した仕事をしました。'},
+  {word:'exclusive',pos:'形容詞',meaning:'独占的な・排他的な',example:'We have an exclusive contract with this supplier.',example_ja:'このサプライヤーとは独占契約を結んでいます。'},
+  {word:'feasible',pos:'形容詞',meaning:'実現可能な・実行可能な',example:'Is it feasible to complete the project by December?',example_ja:'12月までにプロジェクトを完了させることは実現可能ですか？'},
+  {word:'flexible',pos:'形容詞',meaning:'柔軟な・融通のきく',example:'We offer flexible working hours.',example_ja:'フレキシブルな勤務時間を提供しています。'},
+  {word:'innovative',pos:'形容詞',meaning:'革新的な・斬新な',example:'The company is known for its innovative products.',example_ja:'その会社は革新的な製品で知られています。'},
+  {word:'mandatory',pos:'形容詞',meaning:'義務的な・強制的な',example:'Attendance at the meeting is mandatory.',example_ja:'会議への出席は義務です。'},
+  {word:'outstanding',pos:'形容詞',meaning:'優れた・目立った',example:'She received an award for her outstanding performance.',example_ja:'彼女は優れた業績に対して賞を受賞しました。'},
+  {word:'permanent',pos:'形容詞',meaning:'永続的な・常設の',example:'We are looking for a permanent employee.',example_ja:'正社員を募集しています。'},
+  {word:'potential',pos:'形容詞',meaning:'潜在的な・可能性のある',example:'We are researching potential markets in Asia.',example_ja:'アジアの潜在的な市場を調査しています。'},
+  {word:'productive',pos:'形容詞',meaning:'生産的な・効果的な',example:'We had a very productive meeting today.',example_ja:'今日はとても生産的な会議でした。'},
+  {word:'proficient',pos:'形容詞',meaning:'熟練した・堪能な',example:'She is proficient in three languages.',example_ja:'彼女は3つの言語に堪能です。'},
+  {word:'qualified',pos:'形容詞',meaning:'資格のある・適任の',example:'We are looking for qualified candidates.',example_ja:'資格のある候補者を探しています。'},
+  {word:'reliable',pos:'形容詞',meaning:'信頼できる・頼りになる',example:'We need a reliable supplier for this product.',example_ja:'この製品には信頼できるサプライヤーが必要です。'},
+  {word:'responsible',pos:'形容詞',meaning:'責任ある・担当の',example:'She is responsible for managing the entire project.',example_ja:'彼女はプロジェクト全体の管理を担当しています。'},
+  {word:'significant',pos:'形容詞',meaning:'重要な・著しい',example:'There has been a significant improvement in productivity.',example_ja:'生産性に著しい改善がありました。'},
+  {word:'sufficient',pos:'形容詞',meaning:'十分な・足りる',example:'Make sure there is sufficient budget for the project.',example_ja:'プロジェクトのための十分な予算があることを確認してください。'},
+  {word:'thorough',pos:'形容詞',meaning:'徹底的な・綿密な',example:'Please do a thorough check of all documents.',example_ja:'すべての文書を徹底的に確認してください。'},
+  {word:'transparent',pos:'形容詞',meaning:'透明な・わかりやすい',example:'The company prides itself on transparent communication.',example_ja:'会社は透明なコミュニケーションを誇りとしています。'},
+  {word:'upcoming',pos:'形容詞',meaning:'近づいている・来たる',example:'Please prepare for the upcoming audit.',example_ja:'近づいている監査に備えてください。'},
+  {word:'urgent',pos:'形容詞',meaning:'緊急の・急いだ',example:'This is an urgent matter that needs immediate attention.',example_ja:'これは早急な対応が必要な緊急事項です。'},
+  {word:'viable',pos:'形容詞',meaning:'実行可能な・生存できる',example:'This is a viable solution to our problem.',example_ja:'これは私たちの問題に対する実行可能な解決策です。'},
+  {word:'preliminary',pos:'形容詞',meaning:'予備の・事前の',example:'We conducted a preliminary review of the data.',example_ja:'データの事前調査を実施しました。'},
+  {word:'prompt',pos:'形容詞',meaning:'迅速な・素早い',example:'Thank you for your prompt response.',example_ja:'迅速なご返答をありがとうございます。'},
+  {word:'reasonable',pos:'形容詞',meaning:'合理的な・妥当な',example:'The price is reasonable for the quality offered.',example_ja:'提供されている品質に対して価格は妥当です。'},
+  {word:'relevant',pos:'形容詞',meaning:'関連のある・適切な',example:'Please attach all relevant documents.',example_ja:'関連するすべての文書を添付してください。'},
+  {word:'remarkable',pos:'形容詞',meaning:'注目に値する・驚くほどの',example:'She made remarkable progress in a short time.',example_ja:'彼女は短期間で目覚ましい進歩を遂げました。'},
+  {word:'applicable',pos:'形容詞',meaning:'適用できる・該当する',example:'These rules are applicable to all employees.',example_ja:'これらのルールは全社員に適用されます。'},
+  {word:'appropriate',pos:'形容詞',meaning:'適切な・ふさわしい',example:'Please wear appropriate clothing to the office.',example_ja:'オフィスには適切な服装で来てください。'},
+  {word:'beneficial',pos:'形容詞',meaning:'有益な・利益になる',example:'Regular exercise is beneficial for productivity.',example_ja:'定期的な運動は生産性に有益です。'},
+  {word:'capable',pos:'形容詞',meaning:'能力がある・有能な',example:'She is a highly capable project manager.',example_ja:'彼女は非常に有能なプロジェクトマネージャーです。'},
+  {word:'cautious',pos:'形容詞',meaning:'慎重な・用心深い',example:'Be cautious when handling sensitive data.',example_ja:'機密データを扱う際は慎重にしてください。'},
+  {word:'confidential',pos:'形容詞',meaning:'機密の・秘密の',example:'This document is confidential and not for distribution.',example_ja:'この文書は機密であり、配布しないでください。'},
+  {word:'constructive',pos:'形容詞',meaning:'建設的な・積極的な',example:'Please provide constructive feedback after the presentation.',example_ja:'プレゼン後に建設的なフィードバックを提供してください。'},
+  {word:'convenient',pos:'形容詞',meaning:'便利な・都合のよい',example:'The new office location is more convenient for commuters.',example_ja:'新しいオフィスの場所は通勤者にとってより便利です。'},
+  {word:'crucial',pos:'形容詞',meaning:'重要な・決定的な',example:'It is crucial to meet the project deadline.',example_ja:'プロジェクトの締め切りを守ることが重要です。'},
+  {word:'dedicated',pos:'形容詞',meaning:'専念した・献身的な',example:'She is a dedicated employee who always goes the extra mile.',example_ja:'彼女はいつも一生懸命取り組む献身的な社員です。'},
+  {word:'demanding',pos:'形容詞',meaning:'要求が多い・厳しい',example:'This is a demanding role that requires strong leadership.',example_ja:'これは強いリーダーシップを必要とする demanding なポジションです。'},
+  {word:'detailed',pos:'形容詞',meaning:'詳細な・綿密な',example:'Please provide a detailed report by Monday.',example_ja:'月曜日までに詳細なレポートを提供してください。'},
+  {word:'effective',pos:'形容詞',meaning:'効果的な・有効な',example:'This is an effective way to reduce costs.',example_ja:'これはコストを削減する効果的な方法です。'},
+  {word:'essential',pos:'形容詞',meaning:'不可欠な・本質的な',example:'Good communication is essential in the workplace.',example_ja:'職場では良いコミュニケーションが不可欠です。'},
+  {word:'extensive',pos:'形容詞',meaning:'広範囲な・幅広い',example:'She has extensive experience in international sales.',example_ja:'彼女は国際営業で広範な経験を持っています。'},
+  {word:'favorable',pos:'形容詞',meaning:'好意的な・有利な',example:'The product received favorable reviews from customers.',example_ja:'製品は顧客から好意的なレビューを受けました。'},
+  {word:'fundamental',pos:'形容詞',meaning:'基本的な・根本的な',example:'This is a fundamental change to our business model.',example_ja:'これは私たちのビジネスモデルへの根本的な変更です。'},
+  {word:'mandatory',pos:'形容詞',meaning:'義務的な・強制的な',example:'Safety training is mandatory for all new employees.',example_ja:'安全研修は全新入社員に義務的です。'},
+  {word:'mutual',pos:'形容詞',meaning:'相互の・共同の',example:'This agreement is for our mutual benefit.',example_ja:'この合意は私たちの相互利益のためです。'},
+  {word:'numerous',pos:'形容詞',meaning:'多数の・たくさんの',example:'There are numerous ways to improve efficiency.',example_ja:'効率を改善する方法は多数あります。'},
+  {word:'optional',pos:'形容詞',meaning:'任意の・オプションの',example:'Participation in the after-work event is optional.',example_ja:'アフターワークイベントへの参加は任意です。'},
+  {word:'proactive',pos:'形容詞',meaning:'積極的な・先を見越した',example:'We encourage a proactive approach to problem solving.',example_ja:'問題解決に対して積極的なアプローチを奨励しています。'},
+  {word:'strategic',pos:'形容詞',meaning:'戦略的な',example:'This is a strategic decision for the company\'s future.',example_ja:'これは会社の将来のための戦略的な決定です。'},
+  {word:'successive',pos:'形容詞',meaning:'連続した・相次ぐ',example:'The team achieved successive quarterly targets.',example_ja:'チームは連続して四半期目標を達成しました。'},
+  {word:'systematic',pos:'形容詞',meaning:'体系的な・組織的な',example:'We need a more systematic approach to quality control.',example_ja:'品質管理に対してより体系的なアプローチが必要です。'},
+  {word:'technical',pos:'形容詞',meaning:'技術的な・専門的な',example:'This role requires strong technical skills.',example_ja:'このポジションは強い技術的スキルが必要です。'},
+  {word:'consistently',pos:'副詞',meaning:'一貫して・常に',example:'She consistently meets her sales targets.',example_ja:'彼女は常に販売目標を達成しています。'},
+  {word:'temporarily',pos:'副詞',meaning:'一時的に・暫定的に',example:'The office will be temporarily closed for renovation.',example_ja:'オフィスは改装のために一時的に閉鎖されます。'},
+  {word:'efficiently',pos:'副詞',meaning:'効率よく・能率的に',example:'The new system allows us to work more efficiently.',example_ja:'新しいシステムにより、より効率よく仕事ができます。'},
+  {word:'promptly',pos:'副詞',meaning:'迅速に・素早く',example:'Please respond promptly to customer inquiries.',example_ja:'顧客の問い合わせに迅速に対応してください。'},
+  {word:'thoroughly',pos:'副詞',meaning:'徹底的に・完全に',example:'Please thoroughly review the contract before signing.',example_ja:'署名前に契約書を徹底的に確認してください。'},
+  {word:'significantly',pos:'副詞',meaning:'著しく・大幅に',example:'Sales have increased significantly this quarter.',example_ja:'今四半期は売上が著しく増加しました。'},
+  {word:'currently',pos:'副詞',meaning:'現在・今のところ',example:'The position is currently open for applications.',example_ja:'そのポジションは現在応募受付中です。'},
+  {word:'immediately',pos:'副詞',meaning:'すぐに・即座に',example:'Please respond to this email immediately.',example_ja:'このメールにすぐに返信してください。'},
+  {word:'approximately',pos:'副詞',meaning:'おおよそ・約',example:'The project will take approximately three months.',example_ja:'プロジェクトは約3ヶ月かかります。'},
+  {word:'accordingly',pos:'副詞',meaning:'それに従って・適切に',example:'Please plan your schedule accordingly.',example_ja:'それに従ってスケジュールを調整してください。'},
+  {word:'collaboratively',pos:'副詞',meaning:'協力して・共同で',example:'The teams worked collaboratively to meet the deadline.',example_ja:'チームは締め切りに間に合わせるために協力して働きました。'},
+  {word:'consecutively',pos:'副詞',meaning:'連続して・引き続き',example:'The company has grown consecutively for five years.',example_ja:'会社は5年間連続して成長してきました。'},
+  {word:'explicitly',pos:'副詞',meaning:'明示的に・はっきりと',example:'Please state your requirements explicitly.',example_ja:'要件を明示的に述べてください。'},
+  {word:'exclusively',pos:'副詞',meaning:'独占的に・もっぱら',example:'This product is available exclusively online.',example_ja:'この製品はオンラインでのみ入手可能です。'},
+  {word:'extensively',pos:'副詞',meaning:'広範囲に・大規模に',example:'The report has been extensively reviewed.',example_ja:'レポートは広範囲にわたって見直されました。'},
+  {word:'formally',pos:'副詞',meaning:'正式に・公式に',example:'The merger was formally announced this morning.',example_ja:'合併が今朝正式に発表されました。'},
+  {word:'gradually',pos:'副詞',meaning:'徐々に・少しずつ',example:'Sales have been gradually improving.',example_ja:'売上が徐々に改善されています。'},
+  {word:'greatly',pos:'副詞',meaning:'大いに・非常に',example:'Your feedback is greatly appreciated.',example_ja:'あなたのフィードバックは大変ありがたいです。'},
+  {word:'mutually',pos:'副詞',meaning:'相互に・互いに',example:'The agreement is mutually beneficial.',example_ja:'その合意は相互に有益です。'},
+  {word:'notably',pos:'副詞',meaning:'特に・著しく',example:'Profits have increased, notably in overseas markets.',example_ja:'特に海外市場で利益が増加しました。'},
+  {word:'primarily',pos:'副詞',meaning:'主に・第一に',example:'This product is primarily designed for business users.',example_ja:'この製品は主にビジネスユーザー向けに設計されています。'},
+  {word:'previously',pos:'副詞',meaning:'以前に・前もって',example:'Please review the previously submitted documents.',example_ja:'以前に提出された文書を確認してください。'},
+  {word:'professionally',pos:'副詞',meaning:'専門的に・プロらしく',example:'Please dress professionally for the client meeting.',example_ja:'クライアントとの会議には専門的に装ってください。'},
+  {word:'regularly',pos:'副詞',meaning:'定期的に・規則正しく',example:'Please back up your files regularly.',example_ja:'定期的にファイルをバックアップしてください。'},
+  {word:'remarkably',pos:'副詞',meaning:'著しく・驚くほど',example:'The new employee has performed remarkably well.',example_ja:'新入社員は著しく良いパフォーマンスを発揮しました。'},
+  {word:'simultaneously',pos:'副詞',meaning:'同時に・一斉に',example:'The software update will be applied simultaneously across all devices.',example_ja:'ソフトウェアアップデートは全デバイスに同時に適用されます。'},
+  {word:'strategically',pos:'副詞',meaning:'戦略的に',example:'The new office was strategically located near the city center.',example_ja:'新しいオフィスは市内中心部の近くに戦略的に位置しています。'},
+  {word:'substantially',pos:'副詞',meaning:'実質的に・かなり',example:'Costs have been substantially reduced this year.',example_ja:'今年はコストが実質的に削減されました。'},
+  {word:'successively',pos:'副詞',meaning:'次々と・連続して',example:'The team has successively met all quarterly goals.',example_ja:'チームは全ての四半期目標を次々と達成してきました。'},
+  {word:'systematically',pos:'副詞',meaning:'体系的に・組織的に',example:'Data should be systematically collected and analyzed.',example_ja:'データは体系的に収集・分析されるべきです。'},
+  {word:'urgently',pos:'副詞',meaning:'緊急に・早急に',example:'We urgently need to address this customer complaint.',example_ja:'この顧客の苦情に早急に対処する必要があります。'},
+  {word:'annually',pos:'副詞',meaning:'毎年・年1回',example:'The performance review is conducted annually.',example_ja:'業績評価は毎年実施されます。'},
+  {word:'quarterly',pos:'副詞',meaning:'四半期ごとに',example:'Financial results are reported quarterly.',example_ja:'財務結果は四半期ごとに報告されます。'},
+  {word:'accordingly',pos:'副詞',meaning:'それに応じて・したがって',example:'Please update your records accordingly.',example_ja:'それに応じて記録を更新してください。'},
+  {word:'proactively',pos:'副詞',meaning:'積極的に・先手を打って',example:'We should proactively address potential issues.',example_ja:'潜在的な問題に積極的に対処すべきです。'},
+  {word:'although',pos:'接続詞',meaning:'〜だけれども・〜にもかかわらず',example:'Although the project was delayed, the quality was excellent.',example_ja:'プロジェクトは遅延したけれども、品質は優れていました。'},
+  {word:'because',pos:'接続詞',meaning:'なぜなら・〜なので',example:'We postponed the meeting because the manager was sick.',example_ja:'マネージャーが病気だったので会議を延期しました。'},
+  {word:'however',pos:'接続詞',meaning:'しかしながら・けれども',example:'Sales increased this quarter; however, costs also rose.',example_ja:'今四半期は売上が増加した。しかしながら、コストも上昇した。'},
+  {word:'therefore',pos:'接続詞',meaning:'したがって・それゆえ',example:'The deadline was moved up; therefore, we need more staff.',example_ja:'締め切りが前倒しになった。したがって、より多くのスタッフが必要です。'},
+  {word:'moreover',pos:'接続詞',meaning:'さらに・その上',example:'The product is affordable; moreover, it is highly durable.',example_ja:'その製品は手頃な価格である。さらに、非常に耐久性が高い。'},
+  {word:'furthermore',pos:'接続詞',meaning:'さらに・加えて',example:'The new office is spacious; furthermore, it is centrally located.',example_ja:'新しいオフィスは広い。加えて、中心部に位置している。'},
+  {word:'nevertheless',pos:'接続詞',meaning:'それにもかかわらず・それでも',example:'The budget was cut; nevertheless, the team delivered excellent results.',example_ja:'予算は削減された。それにもかかわらず、チームは優れた結果を出した。'},
+  {word:'whereas',pos:'接続詞',meaning:'一方で・〜であるのに対して',example:'The first quarter was profitable, whereas the second showed a loss.',example_ja:'第1四半期は収益があった。一方で、第2四半期は損失を示した。'},
+  {word:'unless',pos:'接続詞',meaning:'〜でない限り・もし〜でなければ',example:'Unless you submit the report today, the deadline will be missed.',example_ja:'今日レポートを提出しない限り、締め切りを逃します。'},
+  {word:'once',pos:'接続詞',meaning:'一旦〜すると・〜したらすぐに',example:'Once the contract is signed, we can begin the project.',example_ja:'契約が署名されたら、プロジェクトを開始できます。'},
+  {word:'while',pos:'接続詞',meaning:'〜している間・〜だが一方で',example:'While the sales team focuses on growth, we handle operations.',example_ja:'営業チームが成長に集中している間、私たちは業務を担当します。'},
+  {word:'since',pos:'接続詞',meaning:'〜なので・〜以来',example:'Since the new policy was introduced, productivity has improved.',example_ja:'新しい方針が導入されて以来、生産性が向上しました。'},
+  {word:'provided',pos:'接続詞',meaning:'〜という条件で・〜であれば',example:'You may work from home, provided you meet all deadlines.',example_ja:'全ての締め切りを守るという条件であれば、在宅勤務が可能です。'},
+  {word:'whether',pos:'接続詞',meaning:'〜かどうか',example:'Please let us know whether you can attend the meeting.',example_ja:'会議に出席できるかどうかお知らせください。'},
+  {word:'despite',pos:'接続詞',meaning:'〜にもかかわらず',example:'Despite the challenges, the team completed the project on time.',example_ja:'困難にもかかわらず、チームはプロジェクトを予定通りに完了しました。'},
+  {word:'though',pos:'接続詞',meaning:'〜だけれども・たとえ〜でも',example:'Though the task was difficult, she completed it successfully.',example_ja:'タスクは難しかったけれども、彼女はうまく完了させました。'},
+  {word:'in order to',pos:'接続詞',meaning:'〜するために・〜を目的として',example:'We hired more staff in order to meet the growing demand.',example_ja:'増加する需要に対応するために、より多くのスタッフを雇いました。'},
+  {word:'as long as',pos:'接続詞',meaning:'〜する限り・〜さえすれば',example:'You can use the facilities as long as you follow the rules.',example_ja:'ルールに従う限り、施設を使用できます。'},
+  {word:'as soon as',pos:'接続詞',meaning:'〜するとすぐに・〜次第',example:'Please contact us as soon as you receive the package.',example_ja:'荷物を受け取り次第、ご連絡ください。'},
+  {word:'in case',pos:'接続詞',meaning:'〜に備えて・万が一〜の場合',example:'Please save a backup in case the system crashes.',example_ja:'システムがクラッシュした場合に備えて、バックアップを保存してください。'},
+  {word:'so that',pos:'接続詞',meaning:'〜するように・〜のために',example:'Please arrive early so that we can start on time.',example_ja:'時間通りに開始できるよう、早めにお越しください。'},
+  {word:'not only but also',pos:'接続詞',meaning:'〜だけでなく〜も',example:'Not only did sales increase, but costs also decreased.',example_ja:'売上が増加しただけでなく、コストも減少しました。'},
+  {word:'either or',pos:'接続詞',meaning:'〜か〜か（どちらか）',example:'You can submit the report either by email or in person.',example_ja:'レポートはメールまたは直接、どちらかで提出できます。'},
+  {word:'both and',pos:'接続詞',meaning:'〜も〜も両方',example:'Both the manager and the team agreed on the new plan.',example_ja:'マネージャーもチームも新しい計画に同意しました。'},
+  {word:'accordingly',pos:'接続詞',meaning:'それに従って・したがって',example:'The schedule has changed; please plan accordingly.',example_ja:'スケジュールが変更になりました。したがって、それに従って計画してください。'},
+  {word:'consequently',pos:'接続詞',meaning:'その結果・したがって',example:'The project was delayed; consequently, the launch date was moved.',example_ja:'プロジェクトが遅延した。その結果、発売日が移動しました。'},
+  {word:'in addition',pos:'接続詞',meaning:'さらに・加えて',example:'In addition to the base salary, employees receive a bonus.',example_ja:'基本給に加えて、社員はボーナスを受け取ります。'},
+  {word:'on the other hand',pos:'接続詞',meaning:'一方で・他方では',example:'The new system is faster; on the other hand, it is more expensive.',example_ja:'新しいシステムはより速い。一方で、より高価である。'},
+  {word:'in contrast',pos:'接続詞',meaning:'対照的に・それに比べて',example:'Sales fell in Q1; in contrast, Q2 showed strong growth.',example_ja:'第1四半期は売上が落ちた。対照的に、第2四半期は力強い成長を見せた。'},
+  {word:'as a result',pos:'接続詞',meaning:'その結果・結果として',example:'We improved our processes; as a result, efficiency increased.',example_ja:'プロセスを改善した。その結果、効率が向上した。'},
+  {word:'according to',pos:'前置詞',meaning:'〜によると・〜に従って',example:'According to the report, sales increased by 20%.',example_ja:'報告書によると、売上が20%増加しました。'},
+  {word:'because of',pos:'前置詞',meaning:'〜のために・〜が原因で',example:'The meeting was canceled because of the manager\'s illness.',example_ja:'マネージャーの病気のために会議がキャンセルされました。'},
+  {word:'due to',pos:'前置詞',meaning:'〜のために・〜が原因で',example:'The delay was due to unexpected technical issues.',example_ja:'遅延は予期せぬ技術的問題のためでした。'},
+  {word:'in spite of',pos:'前置詞',meaning:'〜にもかかわらず',example:'In spite of the difficulties, the project was completed on time.',example_ja:'困難にもかかわらず、プロジェクトは予定通りに完了しました。'},
+  {word:'instead of',pos:'前置詞',meaning:'〜の代わりに',example:'Please send an email instead of calling.',example_ja:'電話の代わりにメールを送ってください。'},
+  {word:'in addition to',pos:'前置詞',meaning:'〜に加えて・〜のほかに',example:'In addition to English, she speaks French fluently.',example_ja:'英語に加えて、彼女はフランス語を流暢に話します。'},
+  {word:'as of',pos:'前置詞',meaning:'〜の時点で・〜から',example:'As of April 1st, the new policy will take effect.',example_ja:'4月1日の時点で、新しい方針が施行されます。'},
+  {word:'as for',pos:'前置詞',meaning:'〜に関しては・〜については',example:'As for the budget, we will discuss it at the next meeting.',example_ja:'予算に関しては、次の会議で話し合います。'},
+  {word:'with regard to',pos:'前置詞',meaning:'〜に関して・〜について',example:'With regard to your inquiry, please see the attached file.',example_ja:'お問い合わせに関して、添付ファイルをご確認ください。'},
+  {word:'in terms of',pos:'前置詞',meaning:'〜の観点から・〜に関して',example:'In terms of cost, this option is the most affordable.',example_ja:'コストの観点から、このオプションが最も手頃です。'},
+  {word:'on behalf of',pos:'前置詞',meaning:'〜を代表して・〜の代わりに',example:'I am writing on behalf of our CEO.',example_ja:'CEOを代表してご連絡しています。'},
+  {word:'prior to',pos:'前置詞',meaning:'〜の前に・〜に先立って',example:'Prior to the meeting, please review the attached documents.',example_ja:'会議の前に、添付の文書を確認してください。'},
+  {word:'regardless of',pos:'前置詞',meaning:'〜にかかわらず・〜を問わず',example:'All employees must comply, regardless of their position.',example_ja:'全社員は役職にかかわらず従わなければなりません。'},
+  {word:'in accordance with',pos:'前置詞',meaning:'〜に従って・〜に基づいて',example:'Please act in accordance with company policy.',example_ja:'会社の方針に従って行動してください。'},
+  {word:'in charge of',pos:'前置詞',meaning:'〜を担当して・〜の責任者で',example:'She is in charge of the marketing department.',example_ja:'彼女はマーケティング部門を担当しています。'},
+  {word:'in terms of',pos:'前置詞',meaning:'〜の面では・〜に関して',example:'In terms of quality, our products are second to none.',example_ja:'品質の面では、私たちの製品は他に引けを取りません。'},
+  {word:'as a result of',pos:'前置詞',meaning:'〜の結果として',example:'As a result of the merger, 200 jobs were created.',example_ja:'合併の結果として、200の雇用が生まれました。'},
+  {word:'in place of',pos:'前置詞',meaning:'〜の代わりに',example:'Mr. Kim attended the meeting in place of the CEO.',example_ja:'キム氏はCEOの代わりに会議に出席しました。'},
+  {word:'with respect to',pos:'前置詞',meaning:'〜に関して・〜について',example:'With respect to the proposal, we need more time to review.',example_ja:'提案に関して、確認するためにもう少し時間が必要です。'},
+  {word:'in contrast to',pos:'前置詞',meaning:'〜とは対照的に',example:'In contrast to last year, this year\'s profits are much higher.',example_ja:'昨年とは対照的に、今年の利益はずっと高いです。'},
+  {word:'by means of',pos:'前置詞',meaning:'〜によって・〜を用いて',example:'We communicated by means of video conferencing.',example_ja:'私たちはビデオ会議によってコミュニケーションを取りました。'},
+  {word:'at the expense of',pos:'前置詞',meaning:'〜を犠牲にして・〜の費用で',example:'Growth should not come at the expense of quality.',example_ja:'成長は品質を犠牲にして得るべきではありません。'},
+  {word:'in favor of',pos:'前置詞',meaning:'〜に賛成して・〜を支持して',example:'The board voted in favor of the new proposal.',example_ja:'取締役会は新しい提案に賛成票を投じました。'},
+  {word:'apart from',pos:'前置詞',meaning:'〜を除いて・〜のほかに',example:'Apart from the delay, the project went smoothly.',example_ja:'遅延を除いて、プロジェクトはスムーズに進みました。'},
+  {word:'owing to',pos:'前置詞',meaning:'〜のために・〜が原因で',example:'Owing to the strike, production was halted.',example_ja:'ストライキのために、生産が停止されました。'},
+  {word:'in the absence of',pos:'前置詞',meaning:'〜がいない場合に・〜がない場合は',example:'In the absence of the manager, please contact HR.',example_ja:'マネージャーがいない場合は、人事部にご連絡ください。'},
+  {word:'subject to',pos:'前置詞',meaning:'〜を条件として・〜に左右されて',example:'The offer is subject to board approval.',example_ja:'そのオファーは取締役会の承認を条件としています。'},
+  {word:'in light of',pos:'前置詞',meaning:'〜を考慮して・〜に照らして',example:'In light of recent events, we revised our strategy.',example_ja:'最近の出来事を考慮して、戦略を見直しました。'},
+  {word:'with the exception of',pos:'前置詞',meaning:'〜を除いて',example:'With the exception of Mondays, the office is open daily.',example_ja:'月曜日を除いて、オフィスは毎日開いています。'},
+  {word:'in support of',pos:'前置詞',meaning:'〜を支持して・〜を支援するために',example:'We organized an event in support of local charities.',example_ja:'地域の慈善団体を支援するためにイベントを開催しました。'},
+];
 const PART5_BANK = [
-  { q:"The manager asked all employees to submit their reports ___ Friday.", choices:["A. until","B. by","C. during","D. within"], answer:1, explanation:"締め切りを表すには by（〜までに）を使います。until は継続を表し「ずっと〜まで」という意味になるため不正解です。" },
-  { q:"The new software ___ by the IT department last week.", choices:["A. installed","B. was installed","C. has installed","D. is installing"], answer:1, explanation:"主語 The new software は「インストールされる」側なので受動態が必要です。last week という過去の時制に合わせて was installed が正解。" },
-  { q:"Please make sure ___ all windows are closed before leaving.", choices:["A. what","B. which","C. that","D. if"], answer:2, explanation:"make sure that ～「〜を確認する」は定型表現です。that 節を導く接続詞 that が正解。" },
-  { q:"The conference room is available ___ 2 PM and 4 PM.", choices:["A. between","B. from","C. during","D. among"], answer:0, explanation:"between A and B で「AとBの間」を表します。時刻の範囲を示す定番表現です。" },
-  { q:"Ms. Park has worked at this company ___ ten years.", choices:["A. since","B. for","C. during","D. ago"], answer:1, explanation:"期間の長さを表すには for を使います。since は起点（since 2014 など）に使います。" },
-  { q:"The budget proposal must be ___ approved by the director.", choices:["A. final","B. finally","C. finalize","D. finalized"], answer:1, explanation:"must be approved という動詞句を修飾するには副詞 finally が必要です。" },
-  { q:"We are looking for ___ with experience in project management.", choices:["A. someone","B. anyone","C. whoever","D. everyone"], answer:0, explanation:"肯定文で特定の人を探す場合は someone を使います。anyone は疑問文・否定文で使うのが一般的です。" },
-  { q:"The ___ of the new product exceeded our expectations.", choices:["A. perform","B. performance","C. performing","D. performed"], answer:1, explanation:"冠詞 The の後ろには名詞が来ます。performance（パフォーマンス・性能）が正解。" },
-  { q:"All staff members are ___ to attend the safety training.", choices:["A. require","B. requiring","C. required","D. requirement"], answer:2, explanation:"be 動詞の後ろに来て「求められている」という受動態の意味になる required が正解です。" },
-  { q:"The client was ___ satisfied with the quality of our service.", choices:["A. high","B. highly","C. higher","D. highest"], answer:1, explanation:"形容詞 satisfied を修飾するには副詞が必要です。high は形容詞・副詞両方あるが「高く満足した」には highly を使います。" },
-  { q:"___ the heavy rain, the outdoor event was canceled.", choices:["A. Despite","B. Because","C. Due to","D. Although"], answer:2, explanation:"Due to は名詞句の前に置いて「〜のために」を表します。Despite も名詞句に使えますが、「〜にもかかわらず」と逆接になるため不正解。heavy rain が原因なので due to が正解。" },
-  { q:"The store will be closed ___ renovation next month.", choices:["A. for","B. during","C. while","D. in"], answer:0, explanation:"closed for renovation で「改装のために休業する」という表現です。for は目的・理由を表します。" },
-  { q:"Please ___ me know if you have any questions.", choices:["A. make","B. let","C. have","D. get"], answer:1, explanation:"let 人 know で「〜に知らせる」という定型表現。Please let me know は丁寧なビジネス表現として頻出です。" },
-  { q:"The ___ quarterly report will be distributed next week.", choices:["A. come","B. coming","C. came","D. comes"], answer:1, explanation:"名詞 report を前から修飾する形容詞的用法として coming（次の・来たる）が正解。the coming quarter は「来四半期」を意味します。" },
-  { q:"Employees should ___ their expenses within 30 days.", choices:["A. report","B. reporting","C. reported","D. reports"], answer:0, explanation:"should の後ろには動詞の原形が来ます。report が正解。" },
-  { q:"The meeting has been postponed ___ next Tuesday.", choices:["A. on","B. until","C. by","D. for"], answer:1, explanation:"postponed until で「〜まで延期された」。until は継続・延長の終点を示します。by は期限（それまでに終える）で意味が異なります。" },
-  { q:"___ submitting the form, please review all information.", choices:["A. Before","B. After","C. While","D. Until"], answer:0, explanation:"「フォームを提出する前に確認してください」という文脈。Before が正解。前置詞として動名詞 submitting を導きます。" },
-  { q:"The company offers ___ benefits to full-time employees.", choices:["A. compete","B. competitive","C. competition","D. competitively"], answer:1, explanation:"名詞 benefits を修飾するには形容詞が必要。competitive benefits で「競争力のある待遇」という意味になります。" },
-  { q:"The presentation was so ___ that everyone stayed until the end.", choices:["A. engage","B. engaged","C. engaging","D. engagement"], answer:2, explanation:"so の後ろには形容詞が来ます。engaging は「興味を引く・魅力的な」という意味の形容詞です。" },
-  { q:"___ notice will be given two weeks in advance.", choices:["A. Write","B. Writing","C. Written","D. Writes"], answer:2, explanation:"名詞 notice を修飾する形容詞として written（書面の）が正解。written notice で「書面による通知」。" },
-  { q:"The sales figures for this quarter are ___ than last year.", choices:["A. high","B. highly","C. higher","D. highest"], answer:2, explanation:"than が続くので比較級が必要。higher than last year で「昨年より高い」。" },
-  { q:"Could you please ___ the document to all team members?", choices:["A. distribute","B. distribution","C. distributed","D. distributing"], answer:0, explanation:"Could you please の後ろには動詞の原形が来ます。distribute（配布する）が正解。" },
-  { q:"The new policy will take ___ on January 1st.", choices:["A. effect","B. affect","C. place","D. action"], answer:0, explanation:"take effect で「効力を発する・施行される」という慣用表現。take place は「行われる」で意味が異なります。" },
-  { q:"All invoices must be paid ___ 30 days of receipt.", choices:["A. within","B. during","C. among","D. between"], answer:0, explanation:"within 30 days で「30日以内に」。期限を表す定番表現です。" },
-  { q:"The manager gave a very ___ speech at the award ceremony.", choices:["A. impress","B. impressive","C. impressed","D. impression"], answer:1, explanation:"名詞 speech を修飾する形容詞が必要。impressive（印象的な）が正解。impressed は人が感動した場合に使います。" },
-  { q:"We need to ___ our strategy based on the latest market data.", choices:["A. revise","B. revision","C. revised","D. revising"], answer:0, explanation:"need to の後ろには動詞の原形が来ます。revise（修正する）が正解。" },
-  { q:"The project was completed ___ schedule.", choices:["A. on","B. in","C. at","D. by"], answer:0, explanation:"on schedule で「予定通りに」、ahead of schedule で「予定より早く」という定型表現です。" },
-  { q:"Please ___ your badge visible at all times while on premises.", choices:["A. keep","B. make","C. let","D. have"], answer:0, explanation:"keep 目的語 形容詞 で「〜を…の状態に保つ」。keep your badge visible が正解。" },
-  { q:"The training program is ___ for all new hires.", choices:["A. mandate","B. mandatory","C. mandated","D. mandatorily"], answer:1, explanation:"be 動詞の後ろで補語となる形容詞が必要。mandatory（義務的な）が正解。" },
-  { q:"The results of the survey ___ that customers are satisfied.", choices:["A. indicate","B. indication","C. indicated","D. indicating"], answer:0, explanation:"主語 The results は複数形なので三単現の s は不要。現在形 indicate が正解。（過去形 indicated も文法上は可能ですが、現在の調査結果を示す文脈では indicate が自然。）" },
+  {q:'The manager asked all employees to submit their reports ___ Friday.',choices:["A. until", "B. by", "C. during", "D. within"],answer:1,translation:'マネージャーは全社員に金曜日までにレポートを提出するよう求めました。',explanation:'締め切りを表すには by（〜までに）を使います。until は「ずっと〜まで」という継続の意味になるため不正解です。'},
+  {q:'The new software ___ by the IT department last week.',choices:["A. installed", "B. was installed", "C. has installed", "D. is installing"],answer:1,translation:'新しいソフトウェアは先週、IT部門によってインストールされました。',explanation:'主語 The new software は「インストールされる」側なので受動態が必要。last week に合わせて was installed が正解。'},
+  {q:'Please make sure ___ all windows are closed before leaving.',choices:["A. what", "B. which", "C. that", "D. if"],answer:2,translation:'退出前に全ての窓が閉まっていることを確認してください。',explanation:'make sure that〜「〜を確認する」は定型表現。that節を導く接続詞 that が正解。'},
+  {q:'The conference room is available ___ 2 PM and 4 PM.',choices:["A. between", "B. from", "C. during", "D. among"],answer:0,translation:'会議室は午後2時と午後4時の間に使用できます。',explanation:'between A and B で「AとBの間」を表します。時刻の範囲を示す定番表現です。'},
+  {q:'Ms. Park has worked at this company ___ ten years.',choices:["A. since", "B. for", "C. during", "D. ago"],answer:1,translation:'パークさんはこの会社で10年間働いています。',explanation:'期間の長さを表すには for を使います。since は起点（since 2014 など）に使います。'},
+  {q:'The budget proposal must be ___ approved by the director.',choices:["A. final", "B. finally", "C. finalize", "D. finalized"],answer:1,translation:'予算案はついにディレクターによって承認されなければなりません。',explanation:'must be approved という動詞句を修飾するには副詞 finally が必要です。'},
+  {q:'We are looking for ___ with experience in project management.',choices:["A. someone", "B. anyone", "C. whoever", "D. everyone"],answer:0,translation:'私たちはプロジェクト管理の経験がある人を探しています。',explanation:'肯定文で特定の人を探す場合は someone を使います。anyone は疑問文・否定文で使うのが一般的です。'},
+  {q:'The ___ of the new product exceeded our expectations.',choices:["A. perform", "B. performance", "C. performing", "D. performed"],answer:1,translation:'新製品の性能は私たちの期待を超えました。',explanation:'冠詞 The の後ろには名詞が来ます。performance（パフォーマンス・性能）が正解。'},
+  {q:'All staff members are ___ to attend the safety training.',choices:["A. require", "B. requiring", "C. required", "D. requirement"],answer:2,translation:'全スタッフは安全研修への出席が求められています。',explanation:'be 動詞の後ろに来て「求められている」という受動態の意味になる required が正解です。'},
+  {q:'The client was ___ satisfied with the quality of our service.',choices:["A. high", "B. highly", "C. higher", "D. highest"],answer:1,translation:'クライアントは私たちのサービスの品質に非常に満足していました。',explanation:'形容詞 satisfied を修飾するには副詞が必要です。highly（非常に）を使います。'},
+  {q:'___ the heavy rain, the outdoor event was canceled.',choices:["A. Despite", "B. Because", "C. Due to", "D. Although"],answer:2,translation:'大雨のため、屋外イベントはキャンセルされました。',explanation:'Due to は名詞句の前に置いて「〜のために」を表します。heavy rain が原因なので due to が正解。'},
+  {q:'The store will be closed ___ renovation next month.',choices:["A. for", "B. during", "C. while", "D. in"],answer:0,translation:'店舗は来月、改装のために閉店します。',explanation:'closed for renovation で「改装のために休業する」という表現です。'},
+  {q:'Please ___ me know if you have any questions.',choices:["A. make", "B. let", "C. have", "D. get"],answer:1,translation:'ご質問があればお知らせください。',explanation:'let 人 know で「〜に知らせる」という定型表現。Please let me know は丁寧なビジネス表現として頻出です。'},
+  {q:'The ___ quarterly report will be distributed next week.',choices:["A. come", "B. coming", "C. came", "D. comes"],answer:1,translation:'次の四半期報告書は来週配布されます。',explanation:'名詞 report を前から修飾する形容詞的用法として coming（次の・来たる）が正解。'},
+  {q:'Employees should ___ their expenses within 30 days.',choices:["A. report", "B. reporting", "C. reported", "D. reports"],answer:0,translation:'社員は30日以内に経費を報告すべきです。',explanation:'should の後ろには動詞の原形が来ます。report が正解。'},
+  {q:'The meeting has been postponed ___ next Tuesday.',choices:["A. on", "B. until", "C. by", "D. for"],answer:1,translation:'会議は来週火曜日まで延期されました。',explanation:'postponed until で「〜まで延期された」。until は継続・延長の終点を示します。'},
+  {q:'___ submitting the form, please review all information.',choices:["A. Before", "B. After", "C. While", "D. Until"],answer:0,translation:'フォームを提出する前に、全ての情報を確認してください。',explanation:'「フォームを提出する前に確認してください」という文脈。Before が正解。'},
+  {q:'The company offers ___ benefits to full-time employees.',choices:["A. compete", "B. competitive", "C. competition", "D. competitively"],answer:1,translation:'会社は正社員に競争力のある待遇を提供しています。',explanation:'名詞 benefits を修飾するには形容詞が必要。competitive benefits で「競争力のある待遇」。'},
+  {q:'The presentation was so ___ that everyone stayed until the end.',choices:["A. engage", "B. engaged", "C. engaging", "D. engagement"],answer:2,translation:'プレゼンテーションはとても魅力的だったので、全員が最後まで残りました。',explanation:'so の後ろには形容詞が来ます。engaging は「興味を引く・魅力的な」という意味の形容詞です。'},
+  {q:'___ notice will be given two weeks in advance.',choices:["A. Write", "B. Writing", "C. Written", "D. Writes"],answer:2,translation:'書面による通知は2週間前に行われます。',explanation:'名詞 notice を修飾する形容詞として written（書面の）が正解。written notice で「書面による通知」。'},
+  {q:'The sales figures for this quarter are ___ than last year.',choices:["A. high", "B. highly", "C. higher", "D. highest"],answer:2,translation:'今四半期の販売数字は昨年より高いです。',explanation:'than が続くので比較級が必要。higher than last year で「昨年より高い」。'},
+  {q:'Could you please ___ the document to all team members?',choices:["A. distribute", "B. distribution", "C. distributed", "D. distributing"],answer:0,translation:'全チームメンバーに書類を配布していただけますか？',explanation:'Could you please の後ろには動詞の原形が来ます。distribute（配布する）が正解。'},
+  {q:'The new policy will take ___ on January 1st.',choices:["A. effect", "B. affect", "C. place", "D. action"],answer:0,translation:'新しい方針は1月1日に施行されます。',explanation:'take effect で「効力を発する・施行される」という慣用表現。take place は「行われる」で意味が異なります。'},
+  {q:'All invoices must be paid ___ 30 days of receipt.',choices:["A. within", "B. during", "C. among", "D. between"],answer:0,translation:'全ての請求書は受領後30日以内に支払われなければなりません。',explanation:'within 30 days で「30日以内に」。期限を表す定番表現です。'},
+  {q:'The manager gave a very ___ speech at the award ceremony.',choices:["A. impress", "B. impressive", "C. impressed", "D. impression"],answer:1,translation:'マネージャーは表彰式でとても印象的なスピーチをしました。',explanation:'名詞 speech を修飾する形容詞が必要。impressive（印象的な）が正解。'},
+  {q:'We need to ___ our strategy based on the latest market data.',choices:["A. revise", "B. revision", "C. revised", "D. revising"],answer:0,translation:'最新の市場データに基づいて戦略を修正する必要があります。',explanation:'need to の後ろには動詞の原形が来ます。revise（修正する）が正解。'},
+  {q:'The project was completed ___ schedule.',choices:["A. on", "B. in", "C. at", "D. by"],answer:0,translation:'プロジェクトは予定通りに完了しました。',explanation:'on schedule で「予定通りに」という定型表現です。'},
+  {q:'Please ___ your badge visible at all times while on premises.',choices:["A. keep", "B. make", "C. let", "D. have"],answer:0,translation:'施設内では常にバッジを見えるようにしてください。',explanation:'keep 目的語 形容詞 で「〜を…の状態に保つ」。keep your badge visible が正解。'},
+  {q:'The training program is ___ for all new hires.',choices:["A. mandate", "B. mandatory", "C. mandated", "D. mandatorily"],answer:1,translation:'研修プログラムは全新入社員に義務的です。',explanation:'be 動詞の後ろで補語となる形容詞が必要。mandatory（義務的な）が正解。'},
+  {q:'The results of the survey ___ that customers are satisfied.',choices:["A. indicate", "B. indication", "C. indicated", "D. indicating"],answer:0,translation:'調査の結果は顧客が満足していることを示しています。',explanation:'主語 The results は複数形なので三単現の s は不要。現在形 indicate が正解。'},
+  {q:'The department head ___ the new budget plan last Monday.',choices:["A. approve", "B. approves", "C. approved", "D. approving"],answer:2,translation:'部長は先週月曜日に新しい予算計画を承認しました。',explanation:'last Monday という過去を示す副詞があるので過去形 approved が正解。'},
+  {q:'This position requires ___ in both English and Japanese.',choices:["A. fluent", "B. fluently", "C. fluency", "D. fluence"],answer:2,translation:'このポジションは英語と日本語の両方の流暢さが必要です。',explanation:'requires の目的語には名詞が必要。fluency（流暢さ）が正解。'},
+  {q:'The factory operates 24 hours a day, ___ on weekends.',choices:["A. include", "B. included", "C. including", "D. inclusive"],answer:2,translation:'工場は週末を含め、1日24時間稼働しています。',explanation:'including は前置詞として「〜を含めて」を表します。'},
+  {q:'We will ___ in touch regarding your application next week.',choices:["A. be", "B. get", "C. keep", "D. stay"],answer:1,translation:'来週、ご応募に関してご連絡いたします。',explanation:'get in touch で「連絡を取る」という表現。'},
+  {q:'The ___ version of the software includes several new features.',choices:["A. late", "B. lately", "C. later", "D. latest"],answer:3,translation:'ソフトウェアの最新バージョンにはいくつかの新機能が含まれています。',explanation:'名詞 version を修飾する形容詞が必要。latest（最新の）が正解。'},
+  {q:'Applicants must ___ a valid driver\'s license.',choices:["A. hold", "B. held", "C. holding", "D. holds"],answer:0,translation:'応募者は有効な運転免許証を保有する必要があります。',explanation:'must の後ろには動詞の原形が来ます。hold（保有する）が正解。'},
+  {q:'The seminar will be held ___ the Grand Hotel.',choices:["A. in", "B. at", "C. on", "D. by"],answer:1,translation:'セミナーはグランドホテルで開催されます。',explanation:'特定の場所（ホテルなど）では at を使います。'},
+  {q:'___ her extensive experience, Ms. Lee was promoted to director.',choices:["A. Although", "B. Because of", "C. In spite of", "D. Unless"],answer:1,translation:'豊富な経験のおかげで、リーさんはディレクターに昇進しました。',explanation:'「豊富な経験のおかげで昇進した」という因果関係。Because of（〜のために）が正解。'},
+  {q:'The annual report ___ to all shareholders by the end of March.',choices:["A. sends", "B. will send", "C. will be sent", "D. is sending"],answer:2,translation:'年次報告書は3月末までに全株主に送付されます。',explanation:'annual report は「送られる」側なので受動態。未来の予定なので will be sent が正解。'},
+  {q:'Customers are ___ to contact customer service within 7 days.',choices:["A. advised", "B. advice", "C. advising", "D. advisor"],answer:0,translation:'顧客は7日以内にカスタマーサービスに連絡するよう勧められています。',explanation:'are の後ろで受動態を作る過去分詞が必要。advised（〜するよう勧められている）が正解。'},
+  {q:'The CEO expressed her ___ for the team\'s hard work.',choices:["A. appreciate", "B. appreciative", "C. appreciation", "D. appreciably"],answer:2,translation:'CEOはチームの頑張りへの感謝を表しました。',explanation:'所有格 her の後ろには名詞が来ます。appreciation（感謝）が正解。'},
+  {q:'You are ___ welcome to bring a guest to the event.',choices:["A. most", "B. more", "C. much", "D. many"],answer:0,translation:'イベントにゲストをお連れすることを大歓迎します。',explanation:'most welcome で「大歓迎」という強調表現。'},
+  {q:'The office ___ completely renovated by the time we return.',choices:["A. will", "B. will have been", "C. has been", "D. was"],answer:1,translation:'私たちが戻るまでには、オフィスは完全に改装されているでしょう。',explanation:'by the time we return（戻るまでには）という未来完了の文脈。will have been renovated が正解。'},
+  {q:'Please submit your time sheet ___ the end of each month.',choices:["A. in", "B. at", "C. by", "D. on"],answer:2,translation:'毎月末までにタイムシートを提出してください。',explanation:'期限を表すには by を使います。by the end of each month で「毎月末までに」。'},
+  {q:'The equipment must be handled ___ to avoid damage.',choices:["A. care", "B. careful", "C. carefully", "D. carefullness"],answer:2,translation:'機器は損傷を避けるために慎重に取り扱われなければなりません。',explanation:'動詞 handled を修飾するには副詞が必要。carefully（慎重に）が正解。'},
+  {q:'Staff ___ report any safety concerns to their supervisor.',choices:["A. could", "B. should", "C. might", "D. would"],answer:1,translation:'スタッフは安全上の懸念があれば上司に報告すべきです。',explanation:'「報告すべきだ」という義務・推奨を表すには should が最も適切。'},
+  {q:'The proposal was ___ rejected by the board of directors.',choices:["A. uniform", "B. unanimous", "C. unanimously", "D. unanimity"],answer:2,translation:'提案は取締役会によって全会一致で否決されました。',explanation:'動詞 rejected を修飾するには副詞が必要。unanimously（全会一致で）が正解。'},
+  {q:'___ the deadline, the team worked overtime every day.',choices:["A. Meet", "B. To meet", "C. Meeting", "D. Met"],answer:1,translation:'締め切りに間に合わせるために、チームは毎日残業しました。',explanation:'「締め切りに間に合わせるために」という目的を表す不定詞 to meet が正解。'},
+  {q:'The new branch office ___ in Singapore next April.',choices:["A. opens", "B. will open", "C. opened", "D. has opened"],answer:1,translation:'新しい支店は来年4月にシンガポールに開設されます。',explanation:'next April という未来を示す副詞があります。will open が正解。'},
+  {q:'The ___ of the product depends on customer feedback.',choices:["A. succeed", "B. successful", "C. successfully", "D. success"],answer:3,translation:'製品の成功は顧客のフィードバックにかかっています。',explanation:'冠詞 The の後ろには名詞が来ます。success（成功）が正解。'},
+  {q:'Please ensure the report is ___ before the 3 PM deadline.',choices:["A. complete", "B. completed", "C. completing", "D. completely"],answer:1,translation:'午後3時の締め切り前にレポートが完成していることを確認してください。',explanation:'is の補語として「完成された状態」を表す completed（完成した）が正解。'},
+  {q:'The workshop is designed ___ employees develop leadership skills.',choices:["A. help", "B. helping", "C. to help", "D. helped"],answer:2,translation:'ワークショップは社員がリーダーシップスキルを伸ばすのを助けるように設計されています。',explanation:'is designed to do で「〜するように設計されている」。to help が正解。'},
+  {q:'Participants ___ register in advance to attend the event.',choices:["A. are required to", "B. are requiring", "C. require", "D. requiring"],answer:0,translation:'参加者はイベントに参加するために事前に登録することが求められます。',explanation:'「事前登録が必要です」という受動態の表現。are required to が正解。'},
+  {q:'The company has seen a significant ___ in overseas sales.',choices:["A. increase", "B. increasing", "C. increased", "D. increasingly"],answer:0,translation:'会社は海外売上に著しい増加を見てきました。',explanation:'冠詞 a と前置詞 in の間には名詞が来ます。increase（増加）が正解。'},
+  {q:'___ the new system is in place, processing time will be reduced.',choices:["A. Once", "B. Although", "C. Despite", "D. Unless"],answer:0,translation:'新システムが導入されれば、処理時間が短縮されます。',explanation:'「新システムが導入されれば〜」という条件・時間を表す Once（一旦〜したら）が正解。'},
+  {q:'The contract will ___ automatically unless either party objects.',choices:["A. renew", "B. be renewing", "C. be renewed", "D. renewing"],answer:2,translation:'どちらの当事者も異議を申し立てない限り、契約は自動的に更新されます。',explanation:'契約は「更新される」受け身の関係。will be renewed が正解。'},
+  {q:'Ms. Tanaka is responsible ___ managing the company\'s social media.',choices:["A. of", "B. for", "C. with", "D. to"],answer:1,translation:'田中さんは会社のSNS管理を担当しています。',explanation:'be responsible for〜で「〜の責任を持つ」という定型表現。'},
+  {q:'The feedback from the survey was ___ positive.',choices:["A. overwhelm", "B. overwhelmed", "C. overwhelming", "D. overwhelmingly"],answer:3,translation:'調査からのフィードバックは圧倒的にポジティブでした。',explanation:'形容詞 positive を修飾するには副詞が必要。overwhelmingly（圧倒的に）が正解。'},
+  {q:'We regret to ___ that the event has been canceled.',choices:["A. inform", "B. information", "C. informed", "D. informing"],answer:0,translation:'イベントがキャンセルになったことをお知らせすることを残念に思います。',explanation:'regret to do で「〜することを残念に思う」。to の後ろは動詞の原形 inform が正解。'},
+  {q:'The ___ for the position closed last Friday.',choices:["A. apply", "B. applied", "C. application", "D. applicant"],answer:2,translation:'そのポジションへの応募は先週金曜日に締め切られました。',explanation:'冠詞 The の後ろには名詞が来ます。application（応募・申請）が正解。'},
+  {q:'The company ___ its headquarters to a larger office building.',choices:["A. move", "B. moved", "C. is moving", "D. will moving"],answer:2,translation:'会社はより大きなオフィスビルに本社を移転しています。',explanation:'現在進行中の予定を表す is moving が文脈に合います。'},
+  {q:'___ to the schedule, the product will be released in June.',choices:["A. According", "B. Regard", "C. Concerning", "D. As"],answer:0,translation:'スケジュールによると、製品は6月にリリースされる予定です。',explanation:'According to〜で「〜によると・〜に従って」という定型表現。'},
+  {q:'The sales team ___ its monthly target for three consecutive months.',choices:["A. exceeded", "B. exceeding", "C. to exceed", "D. exceed"],answer:0,translation:'営業チームは3ヶ月連続で月間目標を超えました。',explanation:'過去の事実を述べる文。過去形 exceeded が正解。'},
+  {q:'The new regulation ___ effect on all companies operating in this region.',choices:["A. take", "B. takes", "C. taking", "D. taken"],answer:1,translation:'新しい規制はこの地域で事業を行う全企業に効力を発します。',explanation:'主語 The new regulation は三人称単数なので三単現の takes が正解。take effect で「施行される」。'},
+  {q:'The client requested that the report ___ by end of day.',choices:["A. submit", "B. submitted", "C. be submitted", "D. submitting"],answer:2,translation:'クライアントはレポートを本日中に提出するよう求めました。',explanation:'requested that節の中では仮定法現在（原形）を使います。be submitted が正解。'},
+  {q:'Please make ___ that all forms are filled out correctly.',choices:["A. sure", "B. certain", "C. clear", "D. aware"],answer:0,translation:'全てのフォームが正しく記入されていることを確認してください。',explanation:'make sure that〜で「〜を確認する」という定型表現。sure が正解。'},
+  {q:'The conference ___ over 500 participants from 30 countries.',choices:["A. attracted", "B. attraction", "C. attractive", "D. attractively"],answer:0,translation:'会議は30カ国から500人以上の参加者を集めました。',explanation:'主語 The conference に対する動詞が必要。attracted（引き付けた）が正解。'},
+  {q:'The CEO\'s ___ inspired everyone in the company.',choices:["A. speak", "B. speech", "C. speaker", "D. spoken"],answer:1,translation:'CEOのスピーチは会社の全員を鼓舞しました。',explanation:'冠詞 The と所有格 CEO\'s の後ろには名詞が来ます。speech（スピーチ）が正解。'},
+  {q:'Employees are encouraged to ___ new ideas during brainstorming sessions.',choices:["A. submit", "B. submission", "C. submitted", "D. submitting"],answer:0,translation:'社員はブレインストーミングセッションで新しいアイデアを提出するよう奨励されています。',explanation:'to の後ろには動詞の原形が来ます。submit（提出する）が正解。'},
+  {q:'The company prides ___ on offering excellent customer service.',choices:["A. it", "B. its", "C. itself", "D. oneself"],answer:2,translation:'会社は優れた顧客サービスを提供することを誇りにしています。',explanation:'pride oneself on〜で「〜を誇りにする」という慣用表現。itself が正解。'},
+  {q:'The meeting was ___ due to the manager\'s illness.',choices:["A. cancel", "B. cancellation", "C. canceled", "D. canceling"],answer:2,translation:'会議はマネージャーの病気のためにキャンセルされました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。canceled（キャンセルされた）が正解。'},
+  {q:'She has ___ ten years of experience in the field of marketing.',choices:["A. more", "B. over", "C. above", "D. beyond"],answer:1,translation:'彼女はマーケティング分野で10年以上の経験を持っています。',explanation:'数量を「超える」を表すには over が最も自然です。over ten years で「10年以上」。'},
+  {q:'The new product line is ___ at young professionals.',choices:["A. aimed", "B. aiming", "C. aim", "D. aims"],answer:0,translation:'新しい製品ラインは若い専門職を対象としています。',explanation:'is aimed at〜で「〜を対象にしている」という受動態の表現。'},
+  {q:'Customer complaints should be ___ as soon as possible.',choices:["A. address", "B. addressing", "C. addressed", "D. addresses"],answer:2,translation:'顧客の苦情はできるだけ早く対処されるべきです。',explanation:'should be の後ろには過去分詞が来て受動態を作ります。addressed（対処された）が正解。'},
+  {q:'The report provides a ___ overview of the market trends.',choices:["A. detail", "B. detailed", "C. detailing", "D. detailedly"],answer:1,translation:'レポートは市場動向の詳細な概要を提供しています。',explanation:'名詞 overview を修飾するには形容詞が必要。detailed（詳細な）が正解。'},
+  {q:'___ attending the workshop, participants will receive a certificate.',choices:["A. On", "B. After", "C. Upon", "D. While"],answer:2,translation:'ワークショップに参加するとすぐに、参加者は証明書を受け取ります。',explanation:'Upon〜ing で「〜するとすぐに」という表現。upon attending が正解。'},
+  {q:'The team ___ hard to meet the deadline.',choices:["A. worked", "B. work", "C. is worked", "D. working"],answer:0,translation:'チームは締め切りに間に合わせるために一生懸命働きました。',explanation:'過去の行為を表す文。過去形 worked が正解。'},
+  {q:'The ___ of the new office will take place next spring.',choices:["A. open", "B. opening", "C. openly", "D. opened"],answer:1,translation:'新しいオフィスのオープンは来春に行われます。',explanation:'冠詞 The の後ろには名詞が来ます。opening（オープン・開業）が正解。'},
+  {q:'Please return the signed contract ___ the attached envelope.',choices:["A. from", "B. by", "C. in", "D. with"],answer:2,translation:'署名済みの契約書を同封の封筒に入れてご返送ください。',explanation:'in the envelope で「封筒の中に入れて」という意味になります。'},
+  {q:'The conference room can ___ up to 50 people.',choices:["A. consist", "B. accommodate", "C. include", "D. contain"],answer:1,translation:'会議室は最大50人を収容できます。',explanation:'accommodate は「収容する」という意味で、施設の定員を述べるときに使う定番表現。'},
+  {q:'The intern ___ a very positive impression on the entire team.',choices:["A. did", "B. gave", "C. made", "D. took"],answer:2,translation:'インターンはチーム全体にとても良い印象を与えました。',explanation:'make an impression で「印象を与える」という慣用表現。made が正解。'},
+  {q:'The price of the product ___ slightly over the past year.',choices:["A. increased", "B. has increased", "C. is increasing", "D. increase"],answer:1,translation:'製品の価格は過去1年間で少し上昇しました。',explanation:'over the past year という期間を示す表現があるので、現在完了形 has increased が正解。'},
+  {q:'The new employee was asked to ___ a brief introduction.',choices:["A. give", "B. given", "C. giving", "D. gives"],answer:0,translation:'新入社員は簡単な自己紹介をするよう求められました。',explanation:'was asked to の後ろには動詞の原形が来ます。give が正解。'},
+  {q:'The company\'s success is largely ___ to its dedicated employees.',choices:["A. due", "B. owing", "C. because", "D. result"],answer:0,translation:'会社の成功は主に献身的な社員のおかげです。',explanation:'due to〜で「〜のおかげで」という表現。largely due to で「主に〜のおかげで」。'},
+  {q:'___ is responsible for ensuring client satisfaction in your department?',choices:["A. Whose", "B. What", "C. Who", "D. Which"],answer:2,translation:'あなたの部門では誰が顧客満足を確保する責任がありますか？',explanation:'人を尋ねる疑問詞は Who。Who is responsible for〜で「誰が〜の責任者ですか？」。'},
+  {q:'The product recall was ___ to a manufacturing defect.',choices:["A. attributed", "B. attribute", "C. attributing", "D. attribution"],answer:0,translation:'製品のリコールは製造上の欠陥に起因していました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。be attributed to〜で「〜に起因する」。'},
+  {q:'The CEO will ___ the quarterly results at tomorrow\'s meeting.',choices:["A. present", "B. presentation", "C. presenter", "D. presently"],answer:0,translation:'CEOは明日の会議で四半期の結果を発表します。',explanation:'will の後ろには動詞の原形が来ます。present（発表する）が正解。'},
+  {q:'The document should be ___ in both English and Japanese.',choices:["A. prepare", "B. preparation", "C. prepared", "D. preparing"],answer:2,translation:'その文書は英語と日本語の両方で作成されるべきです。',explanation:'should be の後ろには過去分詞が来て受動態を作ります。prepared（作成された）が正解。'},
+  {q:'Sales have been ___ declining since the new competitor entered the market.',choices:["A. steady", "B. steadied", "C. steadily", "D. steadiness"],answer:2,translation:'新しい競合他社が市場に参入して以来、売上は着実に減少しています。',explanation:'動詞 declining を修飾するには副詞が必要。steadily（着実に・継続的に）が正解。'},
+  {q:'The training session has been ___ for next Monday.',choices:["A. schedule", "B. scheduled", "C. scheduling", "D. schedules"],answer:1,translation:'研修セッションは来週月曜日に予定されました。',explanation:'has been の後ろには過去分詞が来て現在完了受動態を作ります。scheduled（予定された）が正解。'},
+  {q:'Please ___ any changes to the schedule as soon as possible.',choices:["A. communicate", "B. communication", "C. communicative", "D. communicated"],answer:0,translation:'スケジュールの変更はできるだけ早く伝えてください。',explanation:'Please の後ろには動詞の原形が来ます。communicate（伝える・知らせる）が正解。'},
+  {q:'The revised budget was ___ by the finance committee last week.',choices:["A. approve", "B. approving", "C. approved", "D. approval"],answer:2,translation:'修正予算は先週、財務委員会によって承認されました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。approved（承認された）が正解。'},
+  {q:'Employees are strongly ___ to participate in the wellness program.',choices:["A. encourage", "B. encouraging", "C. encouragement", "D. encouraged"],answer:3,translation:'社員はウェルネスプログラムに参加するよう強く奨励されています。',explanation:'are の後ろには過去分詞が来て受動態を作ります。encouraged（奨励された）が正解。'},
+  {q:'The store offers a full ___ if you are not satisfied with your purchase.',choices:["A. refund", "B. refunding", "C. refunded", "D. refunds"],answer:0,translation:'購入品に満足できない場合は全額返金します。',explanation:'冠詞 a の後ろには単数名詞が来ます。refund（返金）が正解。'},
+  {q:'The committee ___ a decision on the proposal next week.',choices:["A. will make", "B. will be made", "C. making", "D. made"],answer:0,translation:'委員会は来週、提案について決定を下します。',explanation:'主語 The committee が「決定する」側なので能動態。未来の予定なので will make が正解。'},
+  {q:'She was ___ for her outstanding contribution to the project.',choices:["A. reward", "B. rewarded", "C. rewarding", "D. rewards"],answer:1,translation:'彼女はプロジェクトへの卓越した貢献に対して報われました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。rewarded（報われた）が正解。'},
+  {q:'The company\'s new product has received ___ reviews from customers.',choices:["A. favor", "B. favorable", "C. favorably", "D. favoring"],answer:1,translation:'会社の新製品は顧客から好意的なレビューを受けています。',explanation:'名詞 reviews を修飾するには形容詞が必要。favorable（好意的な）が正解。'},
+  {q:'Reservations must be made at ___ two weeks in advance.',choices:["A. least", "B. last", "C. most", "D. best"],answer:0,translation:'予約は少なくとも2週間前に行う必要があります。',explanation:'at least で「少なくとも」という定型表現。'},
+  {q:'The project manager ___ all team members about the schedule change.',choices:["A. noticed", "B. noted", "C. notified", "D. reminded"],answer:2,translation:'プロジェクトマネージャーはスケジュール変更について全チームメンバーに通知しました。',explanation:'notify + 人 + about〜で「人に〜について通知する」。notified が正解。'},
+  {q:'___ the budget cuts, the team managed to complete the project.',choices:["A. Because of", "B. In spite of", "C. Due to", "D. As a result of"],answer:1,translation:'予算削減にもかかわらず、チームはプロジェクトを完了させました。',explanation:'「〜にもかかわらず」という逆接を表すには In spite of が正解。'},
+  {q:'The updated manual has been ___ to all department heads.',choices:["A. circulated", "B. circulation", "C. circulating", "D. circulate"],answer:0,translation:'更新されたマニュアルは全部門長に配布されました。',explanation:'has been の後ろには過去分詞が来て現在完了受動態を作ります。circulated（配布された）が正解。'},
+  {q:'We are pleased to ___ that Mr. Kim has been appointed as CEO.',choices:["A. announce", "B. announcement", "C. announced", "D. announcing"],answer:0,translation:'キム氏がCEOに任命されたことをお知らせできることを嬉しく思います。',explanation:'pleased to の後ろには動詞の原形が来ます。announce（発表する）が正解。'},
+  {q:'Shipping charges ___ on the size and weight of the package.',choices:["A. depend", "B. depends", "C. depending", "D. depended"],answer:0,translation:'送料はパッケージのサイズと重量によって決まります。',explanation:'主語 Shipping charges は複数形なので三単現の s は不要。depend on〜で「〜によって決まる」。'},
+  {q:'All employees are ___ to complete the online safety course.',choices:["A. obligation", "B. obligate", "C. obligated", "D. obligatory"],answer:2,translation:'全社員はオンライン安全コースを修了することが義務付けられています。',explanation:'are の後ろには形容詞または過去分詞が来ます。obligated（義務付けられた）が正解。'},
+  {q:'The renovation project is expected to be ___ by the end of the year.',choices:["A. complete", "B. completing", "C. completed", "D. completion"],answer:2,translation:'改装プロジェクトは今年末までに完了する予定です。',explanation:'be expected to be の後ろには過去分詞が来て受動態を作ります。completed が正解。'},
+  {q:'Ms. Garcia was ___ that her proposal had been accepted.',choices:["A. delight", "B. delighted", "C. delightful", "D. delightfully"],answer:1,translation:'ガルシアさんは自分の提案が受け入れられたことを喜んでいました。',explanation:'was の後ろには形容詞が来ます。人が喜ぶ場合は delighted（喜んでいる）が正解。'},
+  {q:'The company has decided to ___ its investment in renewable energy.',choices:["A. expand", "B. expansion", "C. expanding", "D. expanded"],answer:0,translation:'会社は再生可能エネルギーへの投資を拡大することを決定しました。',explanation:'to の後ろには動詞の原形が来ます。expand（拡大する）が正解。'},
+  {q:'There ___ a significant increase in the number of online orders.',choices:["A. is", "B. are", "C. has been", "D. have been"],answer:2,translation:'オンライン注文の数に大きな増加がありました。',explanation:'a significant increase は単数なので has been が正解。現在完了形で現在までの変化を表します。'},
+  {q:'The manager decided to ___ the project deadline by one week.',choices:["A. extend", "B. extension", "C. extensive", "D. extensively"],answer:0,translation:'マネージャーはプロジェクトの締め切りを1週間延長することを決めました。',explanation:'to の後ろには動詞の原形が来ます。extend（延長する）が正解。'},
+  {q:'Mr. Lee suggested ___ the meeting to include more participants.',choices:["A. postpone", "B. postponed", "C. postponing", "D. to postpone"],answer:2,translation:'リーさんはより多くの参加者を含めるために会議を延期することを提案しました。',explanation:'suggest の後ろには動名詞（〜ing形）が来ます。postponing が正解。'},
+  {q:'The finance team is ___ preparing the annual budget.',choices:["A. current", "B. currently", "C. currency", "D. currents"],answer:1,translation:'財務チームは現在、年次予算を作成中です。',explanation:'動詞 preparing を修飾するには副詞が必要。currently（現在・今のところ）が正解。'},
+  {q:'All visitors ___ sign in at the reception desk upon arrival.',choices:["A. must", "B. are able to", "C. are allowed to", "D. are permitted"],answer:0,translation:'全ての訪問者は到着時に受付でサインインしなければなりません。',explanation:'義務・必須を表すには must が正解。'},
+  {q:'The new policy ___ to all employees regardless of position.',choices:["A. apply", "B. applies", "C. applied", "D. applying"],answer:1,translation:'新しい方針はポジションにかかわらず全社員に適用されます。',explanation:'主語 The new policy は三人称単数なので applies が正解。apply to〜で「〜に適用される」。'},
+  {q:'The product ___ is scheduled to take place in the main conference room.',choices:["A. launch", "B. launched", "C. launching", "D. launches"],answer:0,translation:'製品発表会はメイン会議室で行われる予定です。',explanation:'The product launch で「製品発表会」という複合名詞。launch（発売・発表）が正解。'},
+  {q:'We are ___ to announce the opening of our new branch.',choices:["A. please", "B. pleasing", "C. pleased", "D. pleasure"],answer:2,translation:'新しい支店の開設をお知らせできることをうれしく思います。',explanation:'be pleased to do で「〜できることを嬉しく思う」という表現。pleased が正解。'},
+  {q:'Please ___ that all safety procedures are followed during the inspection.',choices:["A. ensure", "B. assurance", "C. ensuring", "D. ensured"],answer:0,translation:'検査中は全ての安全手順が守られるよう確認してください。',explanation:'Please の後ろには動詞の原形が来ます。ensure（確認する・保証する）が正解。'},
+  {q:'The client meeting has been ___ to 3:00 PM tomorrow.',choices:["A. reschedule", "B. rescheduled", "C. rescheduling", "D. reschedules"],answer:1,translation:'クライアントとの会議は明日の午後3時に変更されました。',explanation:'has been の後ろには過去分詞が来て現在完了受動態を作ります。rescheduled（変更された）が正解。'},
+  {q:'The new employee showed great ___ in completing all assigned tasks.',choices:["A. initiative", "B. initiate", "C. initiating", "D. initially"],answer:0,translation:'新入社員は割り当てられた全タスクを完了する際に素晴らしい主体性を発揮しました。',explanation:'冠詞 great の後ろには名詞が来ます。initiative（主体性・自発性）が正解。'},
+  {q:'The quarterly sales report ___ that revenue has increased by 12%.',choices:["A. show", "B. shows", "C. showing", "D. shown"],answer:1,translation:'四半期販売報告書は収益が12%増加したことを示しています。',explanation:'主語 The quarterly sales report は三人称単数なので shows が正解。'},
+  {q:'We would appreciate it ___ you could provide feedback on the proposal.',choices:["A. when", "B. if", "C. though", "D. unless"],answer:1,translation:'提案についてフィードバックをいただけると幸いです。',explanation:'We would appreciate it if〜で「〜していただけると幸いです」という丁寧な表現。'},
+  {q:'The company ___ a new partnership with a leading technology firm.',choices:["A. announced", "B. announcement", "C. announcing", "D. announces"],answer:0,translation:'会社は大手テクノロジー企業との新しいパートナーシップを発表しました。',explanation:'過去の出来事を述べる文。過去形 announced が正解。'},
+  {q:'The budget for the project ___ by the board of directors.',choices:["A. must approve", "B. must be approved", "C. must approving", "D. must approved"],answer:1,translation:'プロジェクトの予算は取締役会によって承認されなければなりません。',explanation:'budget は「承認される」側なので受動態が必要。must be approved が正解。'},
+  {q:'She will be ___ for coordinating all logistics for the annual conference.',choices:["A. responsive", "B. responsible", "C. responding", "D. responded"],answer:1,translation:'彼女は年次会議の全ロジスティクスの調整を担当します。',explanation:'be responsible for〜で「〜を担当する」という表現。responsible が正解。'},
+  {q:'We are currently seeking ___ candidates for the marketing manager position.',choices:["A. qualify", "B. qualified", "C. qualifying", "D. qualifies"],answer:1,translation:'私たちは現在、マーケティングマネージャーのポジションの適任な候補者を探しています。',explanation:'名詞 candidates を修飾するには形容詞が必要。qualified（資格のある・適任の）が正解。'},
+  {q:'Please ___ the attached file for more details on the upcoming project.',choices:["A. refer to", "B. refer with", "C. refer by", "D. refer about"],answer:0,translation:'今後のプロジェクトの詳細については、添付ファイルをご参照ください。',explanation:'refer to〜で「〜を参照する」という定型表現。'},
+  {q:'Our customer service team is available ___ the clock.',choices:["A. around", "B. over", "C. through", "D. across"],answer:0,translation:'私たちのカスタマーサービスチームは24時間対応可能です。',explanation:'around the clock で「24時間・絶え間なく」という慣用表現。'},
+  {q:'The merger between the two companies ___ next quarter.',choices:["A. finalizes", "B. will be finalized", "C. finalized", "D. is finalizing"],answer:1,translation:'2社間の合併は来四半期に最終決定されます。',explanation:'主語 The merger は「最終決定される」側なので受動態。will be finalized が正解。'},
+  {q:'___ the increase in production costs, the company maintained its prices.',choices:["A. Although", "B. Despite", "C. Because", "D. Since"],answer:1,translation:'生産コストの増加にもかかわらず、会社は価格を維持しました。',explanation:'「〜にもかかわらず」という逆接を表す Despite が正解。Despite は名詞句の前に置きます。'},
+  {q:'The annual performance review will be ___ next month.',choices:["A. conduct", "B. conducting", "C. conducted", "D. conducts"],answer:2,translation:'年次業績評価は来月実施されます。',explanation:'will be の後ろには過去分詞が来て受動態を作ります。conducted（実施された）が正解。'},
+  {q:'The event will be held ___ the hotel\'s main ballroom.',choices:["A. on", "B. at", "C. in", "D. by"],answer:2,translation:'イベントはホテルのメインボールルームで開催されます。',explanation:'enclosed space（囲まれた空間）の中では in を使います。'},
+  {q:'All participants are ___ to wear identification badges throughout the conference.',choices:["A. required", "B. requiring", "C. require", "D. requirement"],answer:0,translation:'全参加者は会議中ずっと識別バッジを着用することが求められています。',explanation:'are の後ろには過去分詞が来て受動態を作ります。required（求められている）が正解。'},
+  {q:'The ___ results of the customer survey will be shared at next week\'s meeting.',choices:["A. preliminary", "B. prelim", "C. preliminarily", "D. preliminate"],answer:0,translation:'顧客調査の予備的な結果は来週の会議で共有されます。',explanation:'名詞 results を修飾するには形容詞が必要。preliminary（予備の・暫定的な）が正解。'},
+  {q:'The new hire completed the orientation program ___ expected.',choices:["A. sooner as", "B. as soon as", "C. sooner than", "D. as sooner than"],answer:2,translation:'新入社員は予想よりも早くオリエンテーションプログラムを完了しました。',explanation:'sooner than expected で「予想より早く」という比較の表現。'},
+  {q:'The company is ___ steps to reduce its environmental impact.',choices:["A. taking", "B. making", "C. doing", "D. having"],answer:0,translation:'会社は環境への影響を減らすための措置を取っています。',explanation:'take steps to do で「〜するための措置を取る」という慣用表現。taking が正解。'},
+  {q:'We need to ___ the new software before it is deployed company-wide.',choices:["A. test", "B. testing", "C. tested", "D. tests"],answer:0,translation:'全社展開される前に新しいソフトウェアをテストする必要があります。',explanation:'need to の後ろには動詞の原形が来ます。test（テストする）が正解。'},
+  {q:'The proposal received ___ support from both the management and staff.',choices:["A. strong", "B. strongly", "C. strength", "D. strengthen"],answer:0,translation:'提案は経営陣とスタッフの両方から強い支持を受けました。',explanation:'名詞 support を修飾するには形容詞が必要。strong（強い）が正解。'},
+  {q:'Please ___ a meeting with the client before finalizing the contract.',choices:["A. arrange", "B. arrangement", "C. arranged", "D. arranging"],answer:0,translation:'契約を最終決定する前にクライアントとの会議を手配してください。',explanation:'Please の後ろには動詞の原形が来ます。arrange（手配する）が正解。'},
+  {q:'Applications will be accepted ___ the closing date of April 15.',choices:["A. until", "B. by", "C. through", "D. up"],answer:0,translation:'申請は4月15日の締め切り日まで受け付けます。',explanation:'期間の終わりまで継続することを表すには until を使います。'},
+  {q:'The product was ___ from the market after reports of safety issues.',choices:["A. withdrew", "B. withdrawn", "C. withdrawing", "D. withdraws"],answer:1,translation:'安全上の問題が報告された後、製品は市場から撤回されました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。withdrawn（撤回された）が正解。'},
+  {q:'Our ___ team will be happy to assist you with any technical issues.',choices:["A. support", "B. supporting", "C. supported", "D. supportive"],answer:0,translation:'私たちのサポートチームは技術的な問題のサポートをいたします。',explanation:'名詞 team を前から修飾する名詞（複合名詞）として support が正解。'},
+  {q:'The HR department is ___ applications for the open positions.',choices:["A. accept", "B. accepts", "C. accepted", "D. accepting"],answer:3,translation:'人事部は空きポジションの応募を受け付けています。',explanation:'is の後ろに続く現在進行形として accepting（受け付けている）が正解。'},
+  {q:'Please ___ the document to your immediate supervisor for review.',choices:["A. forward", "B. forwards", "C. forwarding", "D. forwarded"],answer:0,translation:'文書を直属の上司に転送してレビューを受けてください。',explanation:'Please の後ろには動詞の原形が来ます。forward（転送する）が正解。'},
+  {q:'The client expressed ___ satisfaction with the final deliverables.',choices:["A. complete", "B. completed", "C. completing", "D. completely"],answer:0,translation:'クライアントは最終的な成果物に完全な満足を表明しました。',explanation:'名詞 satisfaction を修飾するには形容詞が必要。complete（完全な）が正解。'},
+  {q:'The company ___ a significant portion of its revenue to research and development.',choices:["A. allocates", "B. allocation", "C. allocated", "D. allocating"],answer:0,translation:'会社は収益のかなりの部分を研究開発に割り当てています。',explanation:'現在の習慣・事実を述べる文。三単現の s をつけた allocates が正解。'},
+  {q:'Staff members are ___ to use the company\'s resources for personal purposes.',choices:["A. prohibited", "B. prohibiting", "C. prohibit", "D. prohibition"],answer:0,translation:'スタッフは個人的な目的で会社のリソースを使用することを禁じられています。',explanation:'are の後ろには過去分詞が来て受動態を作ります。prohibited（禁じられた）が正解。'},
+  {q:'The new office building is ___ with the latest energy-saving technology.',choices:["A. equipped", "B. equipping", "C. equip", "D. equipment"],answer:0,translation:'新しいオフィスビルは最新の省エネ技術を備えています。',explanation:'is の後ろには過去分詞が来て受動態を作ります。be equipped with〜で「〜を装備している」。'},
+  {q:'Ms. Chen was ___ by the board of directors to lead the new project.',choices:["A. select", "B. selected", "C. selecting", "D. selection"],answer:1,translation:'チェンさんは取締役会によって新しいプロジェクトのリーダーに選ばれました。',explanation:'was の後ろには過去分詞が来て受動態を作ります。selected（選ばれた）が正解。'},
+  {q:'We are currently ___ a suitable location for the new distribution center.',choices:["A. search", "B. searching for", "C. searched", "D. searching"],answer:1,translation:'私たちは現在、新しい流通センターの適切な場所を探しています。',explanation:'are の後ろに続く現在進行形。searching for〜で「〜を探している」。'},
+  {q:'The job posting will remain ___ until a suitable candidate is found.',choices:["A. active", "B. actively", "C. activated", "D. activation"],answer:0,translation:'適任な候補者が見つかるまで、求人投稿は有効なままです。',explanation:'remain の後ろには形容詞が来ます。active（有効な・活動中の）が正解。'},
+  {q:'It is ___ that all team members attend the annual strategy meeting.',choices:["A. essential", "B. essentially", "C. essence", "D. essentials"],answer:0,translation:'全チームメンバーが年次戦略会議に出席することが不可欠です。',explanation:'It is〜that構文の補語として形容詞が必要。essential（不可欠な）が正解。'},
+  {q:'The conference keynote speaker was ___ inspiring to the audience.',choices:["A. particular", "B. particularly", "C. particulars", "D. particularize"],answer:1,translation:'会議の基調講演者は聴衆にとって特に感動的でした。',explanation:'形容詞 inspiring を修飾するには副詞が必要。particularly（特に）が正解。'},
+  {q:'Please ___ your travel expenses before submitting them for reimbursement.',choices:["A. itemize", "B. item", "C. itemized", "D. items"],answer:0,translation:'払い戻しの申請前に出張費を項目別に記載してください。',explanation:'Please の後ろには動詞の原形が来ます。itemize（項目別に記載する）が正解。'},
+  {q:'The company will hold ___ interviews for the position starting next week.',choices:["A. individual", "B. individually", "C. individuality", "D. individualize"],answer:0,translation:'会社は来週から、そのポジションの個別面接を行います。',explanation:'名詞 interviews を修飾するには形容詞が必要。individual（個別の）が正解。'},
 ];
-
 const PART7_BANK = [
-  {
-    passage: `From: Sarah Chen <s.chen@techcorp.com>
-To: All Staff
-Subject: Office Closure Notice
-Date: March 10
-
-Dear Team,
-
-Please be informed that our main office will be closed on March 15 (Friday) for scheduled maintenance. All employees are expected to work from home on that day.
-
-Please ensure that you have access to all necessary files and tools before March 14. IT support will be available via email throughout the day.
-
-Thank you for your cooperation.
-
-Sarah Chen
-Office Manager`,
-    questions: [
-      { q:"Why will the office be closed on March 15?", choices:["A. A public holiday","B. Scheduled maintenance","C. A company event","D. Bad weather"], answer:1, explanation:"メールに 'closed on March 15 for scheduled maintenance' とあるため、定期メンテナンスが理由です。" },
-      { q:"What are employees expected to do on March 15?", choices:["A. Come to the office early","B. Take a day off","C. Work from home","D. Attend a training session"], answer:2, explanation:"'All employees are expected to work from home on that day' と明記されています。" },
-      { q:"What does Sarah Chen recommend employees do before March 14?", choices:["A. Submit their reports","B. Contact their managers","C. Back up all data","D. Access necessary files and tools"], answer:3, explanation:"'ensure that you have access to all necessary files and tools before March 14' と書かれています。" },
-    ]
-  },
-  {
-    passage: `JOB POSTING
-
-Position: Marketing Coordinator
-Department: Marketing
-Location: New York, NY
-Employment Type: Full-time
-
-Responsibilities:
-- Coordinate marketing campaigns across digital and print channels
-- Analyze campaign performance and prepare monthly reports
-- Collaborate with the design team on promotional materials
-- Manage social media accounts and engagement
-
-Requirements:
-- Bachelor's degree in Marketing or related field
-- Minimum 2 years of experience in marketing
-- Proficiency in Microsoft Office and marketing software
-- Excellent written and verbal communication skills
-
-To apply, send your resume and cover letter to hr@company.com by April 30.`,
-    questions: [
-      { q:"What type of position is being advertised?", choices:["A. Part-time","B. Contract","C. Full-time","D. Temporary"], answer:2, explanation:"求人票に 'Employment Type: Full-time' と明記されています。" },
-      { q:"How much experience is required for this position?", choices:["A. 1 year","B. 2 years","C. 3 years","D. 5 years"], answer:1, explanation:"'Minimum 2 years of experience in marketing' と記載されています。" },
-      { q:"How should applicants submit their application?", choices:["A. By mail","B. In person","C. By phone","D. By email"], answer:3, explanation:"'send your resume and cover letter to hr@company.com' とあり、メールでの応募が指定されています。" },
-    ]
-  },
-  {
-    passage: `RIVERSIDE CAFÉ
-Monthly Newsletter — April Edition
-
-New Spring Menu!
-We're excited to introduce our spring menu featuring fresh seasonal ingredients. Highlights include our new Avocado Toast with poached eggs, Strawberry Matcha Latte, and a refreshing Mango Salad.
-
-Special Offer
-Throughout April, enjoy 15% off all beverages when you show this newsletter on your phone. Valid Monday through Friday only.
-
-Loyalty Program Update
-Our loyalty app has been updated! Members now earn double points on weekends. Download the latest version to enjoy this benefit.
-
-Opening Hours: Mon–Fri 7:00 AM – 9:00 PM / Sat–Sun 8:00 AM – 8:00 PM`,
-    questions: [
-      { q:"What discount is offered in April?", choices:["A. 10% off all food","B. 15% off all beverages","C. 20% off the new menu","D. Free drink with meal"], answer:1, explanation:"'enjoy 15% off all beverages when you show this newsletter' と書かれています。" },
-      { q:"When is the beverage discount valid?", choices:["A. Weekends only","B. Every day","C. Monday through Friday","D. Saturday and Sunday"], answer:2, explanation:"'Valid Monday through Friday only' と明記されています。" },
-      { q:"What change was made to the loyalty program?", choices:["A. Members get free items","B. Points expire faster","C. Members earn double points on weekends","D. New members get a bonus"], answer:2, explanation:"'Members now earn double points on weekends' と記載されています。" },
-    ]
-  },
+  {passage:`From: Sarah Chen <s.chen@techcorp.com>\nTo: All Staff\nSubject: Office Closure Notice\nDate: March 10\n\nDear Team,\n\nPlease be informed that our main office will be closed on March 15 (Friday) for scheduled maintenance. All employees are expected to work from home on that day.\n\nPlease ensure that you have access to all necessary files and tools before March 14. IT support will be available via email throughout the day.\n\nThank you for your cooperation.\n\nSarah Chen\nOffice Manager`,questions:[
+    {q:"Why will the office be closed on March 15?",choices:["A. A public holiday","B. Scheduled maintenance","C. A company event","D. Bad weather"],answer:1,explanation:"メールに 'closed on March 15 for scheduled maintenance' とあるため、定期メンテナンスが理由です。"},
+    {q:"What are employees expected to do on March 15?",choices:["A. Come to the office early","B. Take a day off","C. Work from home","D. Attend a training session"],answer:2,explanation:"'All employees are expected to work from home on that day' と明記されています。"},
+    {q:"What does Sarah Chen recommend employees do before March 14?",choices:["A. Submit their reports","B. Contact their managers","C. Back up all data","D. Access necessary files and tools"],answer:3,explanation:"'ensure that you have access to all necessary files and tools before March 14' と書かれています。"},
+  ]},
+  {passage:`JOB POSTING\n\nPosition: Marketing Coordinator\nDepartment: Marketing\nLocation: New York, NY\nEmployment Type: Full-time\n\nResponsibilities:\n- Coordinate marketing campaigns across digital and print channels\n- Analyze campaign performance and prepare monthly reports\n- Collaborate with the design team on promotional materials\n\nRequirements:\n- Bachelor's degree in Marketing or related field\n- Minimum 2 years of experience in marketing\n- Proficiency in Microsoft Office and marketing software\n\nTo apply, send your resume and cover letter to hr@company.com by April 30.`,questions:[
+    {q:"What type of position is being advertised?",choices:["A. Part-time","B. Contract","C. Full-time","D. Temporary"],answer:2,explanation:"求人票に 'Employment Type: Full-time' と明記されています。"},
+    {q:"How much experience is required for this position?",choices:["A. 1 year","B. 2 years","C. 3 years","D. 5 years"],answer:1,explanation:"'Minimum 2 years of experience in marketing' と記載されています。"},
+    {q:"How should applicants submit their application?",choices:["A. By mail","B. In person","C. By phone","D. By email"],answer:3,explanation:"'send your resume and cover letter to hr@company.com' とあり、メールでの応募が指定されています。"},
+  ]},
+  {passage:`RIVERSIDE CAFE\nMonthly Newsletter - April Edition\n\nNew Spring Menu!\nWe are excited to introduce our spring menu featuring fresh seasonal ingredients.\n\nSpecial Offer\nThroughout April, enjoy 15% off all beverages when you show this newsletter on your phone. Valid Monday through Friday only.\n\nLoyalty Program Update\nOur loyalty app has been updated! Members now earn double points on weekends.\n\nOpening Hours: Mon-Fri 7:00 AM - 9:00 PM / Sat-Sun 8:00 AM - 8:00 PM`,questions:[
+    {q:"What discount is offered in April?",choices:["A. 10% off all food","B. 15% off all beverages","C. 20% off the new menu","D. Free drink with meal"],answer:1,explanation:"'enjoy 15% off all beverages when you show this newsletter' と書かれています。"},
+    {q:"When is the beverage discount valid?",choices:["A. Weekends only","B. Every day","C. Monday through Friday","D. Saturday and Sunday"],answer:2,explanation:"'Valid Monday through Friday only' と明記されています。"},
+    {q:"What change was made to the loyalty program?",choices:["A. Members get free items","B. Points expire faster","C. Members earn double points on weekends","D. New members get a bonus"],answer:2,explanation:"'Members now earn double points on weekends' と記載されています。"},
+  ]},
+  {passage:`NOTICE TO ALL TENANTS\n\nBuilding Management would like to inform all tenants that elevator maintenance will be conducted on Saturday, April 20, from 8:00 AM to 5:00 PM.\n\nDuring this time, elevators 1 and 3 will be out of service. Elevator 2 will remain operational for emergency use only.\n\nWe apologize for any inconvenience. Please use the stairwells where possible.\n\nFor inquiries, please contact the building management office at ext. 200.`,questions:[
+    {q:"What will happen on April 20?",choices:["A. The building will be closed","B. Elevator maintenance will be conducted","C. A new elevator will be installed","D. A fire drill will be held"],answer:1,explanation:"'elevator maintenance will be conducted on Saturday, April 20' と明記されています。"},
+    {q:"How many elevators will be out of service?",choices:["A. One","B. Two","C. Three","D. All"],answer:1,explanation:"'elevators 1 and 3 will be out of service' とあり、2基が使用不可となります。"},
+    {q:"How can tenants contact building management?",choices:["A. By email","B. By visiting the office","C. By calling ext. 200","D. By submitting a form"],answer:2,explanation:"'contact the building management office at ext. 200' と記載されています。"},
+  ]},
+  {passage:`From: David Wong\nTo: Marketing Team\nSubject: Q3 Campaign Results\n\nHi Team,\n\nI am happy to share the results of our Q3 marketing campaign. Overall, we saw a 23% increase in website traffic and a 15% rise in conversion rates compared to Q2.\n\nThe email campaign was particularly successful, achieving an open rate of 35%, well above the industry average of 22%. Social media engagement also improved significantly.\n\nHowever, our paid advertising spending exceeded the budget by 8%. Going forward, we need to allocate resources more carefully.\n\nLet us discuss these findings at our next team meeting.\n\nBest regards,\nDavid`,questions:[
+    {q:"What was the open rate for the email campaign?",choices:["A. 22%","B. 23%","C. 35%","D. 40%"],answer:2,explanation:"'achieving an open rate of 35%' と明記されています。"},
+    {q:"What concern does David mention about the campaign?",choices:["A. Low social media engagement","B. Decreased website traffic","C. Overspending on paid advertising","D. Poor email open rates"],answer:2,explanation:"'paid advertising spending exceeded the budget by 8%' と書かれています。"},
+    {q:"What does David suggest doing next?",choices:["A. Ending the marketing campaign","B. Discussing findings at the next team meeting","C. Hiring more marketing staff","D. Reducing the social media budget"],answer:1,explanation:"'Let us discuss these findings at our next team meeting' と提案されています。"},
+  ]},
 ];
-
 // ===== APP STATE =====
 const TASKS = {
   '30': [
     { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
-    { id:'vocab', name:'単語学習', hint:'アプリで20語復習', time:'10分', quiz:false },
-    { id:'reading', name:'Part 7 音読', hint:'解いた長文を声に出して読む', time:'10分', quiz:false },
+    { id:'vocab', name:'単語学習', hint:'ランダム出題 · 20語', time:'10分', vocab:true },
+    { id:'p7', name:'Part 7 長文読解', hint:'ランダム出題 · 1セット', time:'10分', quiz:true, qtype:'part7', qcount:3 },
   ],
   '60': [
-    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 15問', time:'15分', quiz:true, qtype:'part5', qcount:15 },
-    { id:'vocab', name:'単語学習', hint:'20〜30語を確認', time:'10分', quiz:false },
+    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
+    { id:'vocab', name:'単語学習', hint:'ランダム出題 · 20語', time:'10分', vocab:true },
     { id:'p7', name:'Part 7 長文読解', hint:'ランダム出題 · 3セット', time:'20分', quiz:true, qtype:'part7', qcount:9 },
-    { id:'review', name:'音読 & 復習', hint:'間違えた箇所の文を音読', time:'15分', quiz:false },
+    { id:'review', name:'音読 & 復習', hint:'間違えた箇所の文を音読', time:'20分', quiz:false },
   ]
 };
 
 const DAYS = ['日','月','火','水','木','金','土'];
 let state = {};
-try { state = JSON.parse(localStorage.getItem('toeic_v4') || '{}'); } catch(e) {}
-function save() { try { localStorage.setItem('toeic_v4', JSON.stringify(state)); } catch(e) {} }
+try { state = JSON.parse(localStorage.getItem('toeic_v5') || '{}'); } catch(e) {}
+function save() { try { localStorage.setItem('toeic_v5', JSON.stringify(state)); } catch(e) {} }
 
 const base = new Date(); base.setHours(0,0,0,0);
 let offset = 0;
@@ -408,7 +919,7 @@ function buildQuestions(qtype, qcount) {
     const result = [];
     for (const set of shuffledSets) {
       const qs = set.questions.map((q, i) => ({
-        passage: i === 0 ? set.passage : null,
+        passage: set.passage,
         q: q.q, choices: q.choices, answer: q.answer, explanation: q.explanation
       }));
       result.push(...qs);
@@ -441,9 +952,16 @@ function render() {
     if (t.quiz && isToday) {
       const el=document.createElement('div');
       el.className='quiz-launch'+(done?' done':'');
-      el.onclick=()=>startQuiz(t);
+      if (!done) el.onclick=()=>startQuiz(t);
+      else el.style.cursor='default';
       const scoreStr=done&&score?`<span class="quiz-score-badge">${score.correct}/${score.total}問正解</span>`:'';
       el.innerHTML=`<div class="quiz-launch-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><div class="quiz-launch-body"><div class="quiz-launch-name">${t.name}</div><div class="quiz-launch-hint">${done?'完了 '+scoreStr:t.hint}</div></div><span class="quiz-launch-time">${t.time}</span>`;
+      list.appendChild(el);
+    } else if (t.vocab && isToday) {
+      const el=document.createElement('div');
+      el.className='vocab-launch'+(done?' done':'');
+      if(!done) el.onclick=()=>startVocab(t); else el.style.cursor='default';
+      el.innerHTML=`<div class="vocab-launch-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="vocab-launch-body"><div class="vocab-launch-name">${t.name}</div><div class="vocab-launch-hint">${done?'完了':t.hint}</div></div><span class="vocab-launch-time">${t.time}</span>`;
       list.appendChild(el);
     } else {
       const el=document.createElement('div');
@@ -496,15 +1014,28 @@ function renderQuestion() {
   quizAnswered=false;
   document.getElementById('quiz-prog-fill').style.width=Math.round((quizIdx/total)*100)+'%';
 
-  const passageHtml=q.passage?`<div class="q-passage">${q.passage}</div>`:'';
+  // Part7: passage always shown, collapsed by default after Q1
+  const isFirstInPassage = quizIdx === 0 || quizQuestions[quizIdx-1].passage !== q.passage;
+  const passageHtml = q.passage ? `
+    <details class="q-passage-details" ${isFirstInPassage ? 'open' : ''}>
+      <summary class="q-passage-summary">📄 問題文を見る</summary>
+      <div class="q-passage">${q.passage}</div>
+    </details>` : '';
+  const translationHtml=q.translation?`<div class="q-translation">📝 ${q.translation}</div>`:'';
   const choicesHtml=q.choices.map((c,i)=>`<div class="q-choice" id="choice-${i}" onclick="selectAnswer(${i})"><div class="q-choice-label">${String.fromCharCode(65+i)}</div><div class="q-choice-text">${c.replace(/^[A-D]\.\s*/,'')}</div></div>`).join('');
 
   document.getElementById('quiz-body').innerHTML=`
     <div class="q-meta"><span class="q-num">${quizIdx+1}</span> / ${total}</div>
     ${passageHtml}
     <div class="q-text">${q.q}</div>
+    ${translationHtml}
     <div class="q-choices">${choicesHtml}</div>
-    <div class="q-explanation" id="q-explanation"><div class="q-exp-label">解説</div><div id="q-exp-text"></div></div>
+    <div class="q-explanation" id="q-explanation">
+      <div class="q-exp-label">日本語訳</div>
+      <div id="q-translation" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(37,99,235,0.15)"></div>
+      <div class="q-exp-label">解説</div>
+      <div id="q-exp-text"></div>
+    </div>
     <div class="q-nav"><button class="q-btn" id="next-btn-quiz" onclick="nextQuestion()" disabled>${quizIdx+1<total?'次の問題 →':'結果を見る'}</button></div>
   `;
 }
@@ -519,6 +1050,7 @@ function selectAnswer(idx) {
     if(i===correct){el.classList.add('correct');el.innerHTML+='<span class="q-result-icon">✓</span>';}
     else if(i===idx&&idx!==correct){el.classList.add('wrong');el.innerHTML+='<span class="q-result-icon">✗</span>';}
   }
+  document.getElementById('q-translation').textContent=q.translation||'';
   document.getElementById('q-exp-text').textContent=q.explanation;
   document.getElementById('q-explanation').classList.add('show');
   document.getElementById('next-btn-quiz').disabled=false;
@@ -562,6 +1094,7 @@ function showResult() {
       <div class="review-detail">
         ${passageHtml}
         <div class="review-full-q">${q.q}</div>
+        ${q.translation?`<div style="font-size:12px;color:var(--muted);margin:-6px 0 10px;line-height:1.6">${q.translation}</div>`:''}
         <div class="review-choices-list">${choicesHtml}</div>
         <div class="review-exp-box"><div class="review-exp-label">解説</div>${q.explanation}</div>
       </div>
@@ -591,6 +1124,128 @@ function toggleReview(i) { const c=document.getElementById('rc-'+i); if(c)c.clas
 function exitQuiz() { showScreen('screen-home'); render(); }
 function exitResult() { showScreen('screen-home'); render(); }
 
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+render();
+
+// ===== VOCAB =====
+let vocabCategory = 'all';
+
+function startVocab(task) {
+  currentQuizTaskId=task.id;
+  vocabCategory='all';
+  showScreen('screen-vocab');
+  renderVocabCategory();
+}
+
+function renderVocabCategory() {
+  const cats = ['all','動詞','名詞','形容詞','副詞','接続詞','前置詞'];
+  const labels = {all:'すべて', '動詞':'動詞', '名詞':'名詞', '形容詞':'形容詞', '副詞':'副詞', '接続詞':'接続詞', '前置詞':'前置詞'};
+  const counts = {};
+  cats.forEach(c => {
+    counts[c] = c==='all' ? VOCAB_BANK.length : VOCAB_BANK.filter(w=>w.pos===c).length;
+  });
+  const btnHtml = cats.map(c => `
+    <button onclick="selectVocabCat('${c}')" style="
+      flex:1; padding:10px 6px; border-radius:10px; font-family:var(--sans); font-size:13px; cursor:pointer;
+      border: 1.5px solid ${vocabCategory===c ? 'var(--accent)' : 'var(--border)'};
+      background: ${vocabCategory===c ? 'var(--accent-dim)' : 'var(--surface)'};
+      color: ${vocabCategory===c ? 'var(--accent)' : 'var(--muted)'};
+      font-weight: ${vocabCategory===c ? '500' : '400'};
+    ">${labels[c]}<br><span style="font-size:10px;font-family:var(--mono)">${counts[c]}語</span></button>
+  `).join('');
+
+  const filtered = vocabCategory==='all' ? VOCAB_BANK : VOCAB_BANK.filter(w=>w.pos===vocabCategory);
+  const available = filtered.length;
+
+  document.getElementById('vocab-body').innerHTML=`
+    <div style="padding:0 0 16px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;font-family:var(--mono);letter-spacing:0.06em;text-transform:uppercase">カテゴリを選択</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">${btnHtml}</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px">
+      <div style="font-size:13px;color:var(--text);margin-bottom:4px;font-weight:500">${vocabCategory==='all'?'すべての単語':vocabCategory} <span style="font-family:var(--mono);color:var(--accent)">${available}語</span></div>
+      <div style="font-size:12px;color:var(--muted)">ランダムに20語出題（${available<20?available:20}語）</div>
+    </div>
+    <button class="vocab-btn primary" onclick="startVocabStudy()" style="width:100%;margin-bottom:8px">学習スタート →</button>
+    <button class="vocab-btn" onclick="exitVocab()" style="width:100%">戻る</button>
+  `;
+  document.getElementById('vocab-prog-fill').style.width='0%';
+}
+
+function selectVocabCat(cat) {
+  vocabCategory = cat;
+  renderVocabCategory();
+}
+
+function startVocabStudy() {
+  const filtered = vocabCategory==='all' ? VOCAB_BANK : VOCAB_BANK.filter(w=>w.pos===vocabCategory);
+  vocabWords = shuffle(filtered).slice(0, Math.min(20, filtered.length));
+  vocabIdx = 0;
+  renderVocab();
+}
+
+function renderVocab() {
+  const total=vocabWords.length, w=vocabWords[vocabIdx];
+  document.getElementById('vocab-prog-fill').style.width=Math.round((vocabIdx/total)*100)+'%';
+  document.getElementById('vocab-body').innerHTML=`
+    <div class="vocab-progress-row">
+      <span class="vocab-progress-label">${vocabIdx+1} / ${total}</span>
+      <span style="font-size:11px;color:var(--muted);font-family:var(--mono)">${vocabCategory==='all'?'すべて':vocabCategory}</span>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">${w.word}</div>
+      <div class="vocab-pos">${w.pos}</div>
+      <div class="vocab-meaning">${w.meaning}</div>
+      <div class="vocab-example">${w.example}</div>
+      <div class="vocab-example-ja">${w.example_ja}</div>
+    </div>
+    <div class="vocab-nav">
+      <button class="vocab-btn" onclick="prevVocab()" ${vocabIdx===0?'disabled':''}>← 前へ</button>
+      <button class="vocab-btn primary" onclick="nextVocab()">${vocabIdx+1<total?'次へ →':'完了'}</button>
+    </div>
+  `;
+}
+function nextVocab() { if(vocabIdx+1<vocabWords.length){vocabIdx++;renderVocab();}else{finishVocab();} }
+function prevVocab() { if(vocabIdx>0){vocabIdx--;renderVocab();} }
+function finishVocab() {
+  const key=dayKey(offset),ds=dayState(key);
+  ds.done[currentQuizTaskId]=true; save();
+  showVocabResult();
+}
+
+function showVocabResult() {
+  document.getElementById('vocab-prog-fill').style.width='100%';
+  const listHtml = vocabWords.map((w,i) => `
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:8px;cursor:pointer;-webkit-tap-highlight-color:transparent" onclick="this.querySelector('.vocab-review-detail').style.display=this.querySelector('.vocab-review-detail').style.display==='none'?'block':'none'">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <div>
+          <span style="font-size:15px;font-weight:700;color:var(--text)">${w.word}</span>
+          <span style="font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:8px">${w.pos}</span>
+        </div>
+        <span style="font-size:13px;color:var(--accent);font-weight:500;flex-shrink:0">${w.meaning}</span>
+      </div>
+      <div class="vocab-review-detail" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
+        <div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:6px">${w.example}</div>
+        <div style="font-size:12px;color:var(--muted);padding-top:8px;border-top:1px solid var(--border)">${w.example_ja}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('vocab-body').innerHTML=`
+    <div style="text-align:center;padding:16px 0 20px">
+      <div style="font-size:36px;margin-bottom:8px">📚</div>
+      <div style="font-size:17px;font-weight:700;color:var(--accent);margin-bottom:4px">${vocabWords.length}語 完了！</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:16px">タップで例文を確認できます</div>
+      <div style="display:flex;gap:8px;margin-bottom:20px">
+        <button class="vocab-btn primary" onclick="startVocabStudy()" style="flex:1">もう一度</button>
+        <button class="vocab-btn" onclick="renderVocabCategory()" style="flex:1">カテゴリへ</button>
+      </div>
+    </div>
+    ${listHtml}
+    <div style="height:16px"></div>
+  `;
+}
+function exitVocab() { showScreen('screen-home'); render(); }
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
 render();
 </script>
