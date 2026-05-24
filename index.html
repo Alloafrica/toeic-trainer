@@ -1021,7 +1021,7 @@ function renderQuestion() {
       <summary class="q-passage-summary">📄 問題文を見る</summary>
       <div class="q-passage">${q.passage}</div>
     </details>` : '';
-  const translationHtml=q.translation?`<div class="q-translation">📝 ${q.translation}</div>`:'';
+  const translationHtml=q.translation?`<div class="q-translation" id="q-translation" style="display:none">📝 ${q.translation}</div>`:'<div id="q-translation"></div>';
   const choicesHtml=q.choices.map((c,i)=>`<div class="q-choice" id="choice-${i}" onclick="selectAnswer(${i})"><div class="q-choice-label">${String.fromCharCode(65+i)}</div><div class="q-choice-text">${c.replace(/^[A-D]\.\s*/,'')}</div></div>`).join('');
 
   document.getElementById('quiz-body').innerHTML=`
@@ -1053,6 +1053,8 @@ function selectAnswer(idx) {
   document.getElementById('q-translation').textContent=q.translation||'';
   document.getElementById('q-exp-text').textContent=q.explanation;
   document.getElementById('q-explanation').classList.add('show');
+  const tEl=document.getElementById('q-translation');
+  if(tEl) tEl.style.display='block';
   document.getElementById('next-btn-quiz').disabled=false;
 }
 
