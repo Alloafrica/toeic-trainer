@@ -14,32 +14,21 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #f5f3ee;
-    --surface: #ffffff;
-    --surface2: #edeae3;
-    --border: rgba(0,0,0,0.08);
-    --border2: rgba(0,0,0,0.15);
-    --text: #1a1814;
-    --muted: #7a7670;
-    --accent: #2563eb;
-    --accent-dim: rgba(37,99,235,0.08);
-    --success: #16a34a;
-    --success-dim: rgba(22,163,74,0.08);
-    --danger: #dc2626;
-    --danger-dim: rgba(220,38,38,0.08);
-    --mono: 'DM Mono', monospace;
-    --sans: 'Noto Sans JP', sans-serif;
-    --safe-top: env(safe-area-inset-top, 0px);
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --bg: #f5f3ee; --surface: #ffffff; --surface2: #edeae3;
+    --border: rgba(0,0,0,0.08); --border2: rgba(0,0,0,0.15);
+    --text: #1a1814; --muted: #7a7670;
+    --accent: #2563eb; --accent-dim: rgba(37,99,235,0.08);
+    --success: #16a34a; --success-dim: rgba(22,163,74,0.08);
+    --danger: #dc2626; --danger-dim: rgba(220,38,38,0.08);
+    --mono: 'DM Mono', monospace; --sans: 'Noto Sans JP', sans-serif;
+    --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px);
   }
   html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
   body { display: flex; flex-direction: column; min-height: 100dvh; padding-top: var(--safe-top); padding-bottom: var(--safe-bottom); }
-
-  /* ===== SCREENS ===== */
   .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
   .screen.active { display: flex; }
 
-  /* ===== HEADER ===== */
+  /* HEADER */
   .app-header { padding: 20px 20px 0; display: flex; align-items: flex-start; justify-content: space-between; flex-shrink: 0; }
   .score-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-dim); border: 1px solid rgba(37,99,235,0.2); border-radius: 99px; padding: 4px 12px; font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 8px; }
   .app-title { font-size: 22px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
@@ -48,7 +37,7 @@
   .streak-num { font-family: var(--mono); font-size: 32px; font-weight: 500; color: var(--accent); line-height: 1; }
   .streak-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
 
-  /* ===== DATE NAV ===== */
+  /* DATE NAV */
   .date-nav { display: flex; align-items: center; margin: 20px 20px 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; flex-shrink: 0; }
   .nav-btn { background: none; border: none; color: var(--muted); padding: 10px 16px; cursor: pointer; font-size: 16px; flex-shrink: 0; }
   .nav-btn:active { background: var(--surface2); }
@@ -56,30 +45,30 @@
   .date-display { flex: 1; text-align: center; font-family: var(--mono); font-size: 13px; color: var(--text); letter-spacing: 0.03em; }
   .date-today-label { display: block; font-size: 10px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1px; }
 
-  /* ===== MODE TOGGLE ===== */
+  /* MODE TOGGLE */
   .mode-toggle { display: flex; gap: 8px; margin: 12px 20px 0; flex-shrink: 0; }
   .mode-btn { flex: 1; padding: 10px 8px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--muted); font-family: var(--sans); font-size: 13px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .mode-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
   .mode-btn.active { background: var(--accent-dim); border-color: rgba(37,99,235,0.3); color: var(--accent); font-weight: 500; }
   .mode-btn:disabled { opacity: 0.4; cursor: default; }
 
-  /* ===== TASK LIST ===== */
+  /* TASK LIST */
   .task-scroll { flex: 1; overflow-y: auto; padding: 12px 20px 0; -webkit-overflow-scrolling: touch; }
   .task-item { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
   .task-item:active { background: var(--surface2); }
   .task-item.done { border-color: rgba(22,163,74,0.2); background: var(--success-dim); }
   .task-item.done .task-name { color: var(--muted); text-decoration: line-through; }
-  .task-check { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+  .task-check { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .task-item.done .task-check { background: var(--success); border-color: var(--success); }
   .check-icon { display: none; width: 14px; height: 14px; stroke: #fff; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .task-item.done .check-icon { display: block; }
   .task-body { flex: 1; min-width: 0; }
-  .task-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .task-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
   .task-hint { font-size: 11px; color: var(--muted); }
   .task-time { font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; background: var(--surface2); padding: 3px 8px; border-radius: 6px; }
   .task-item.done .task-time { background: rgba(22,163,74,0.1); color: var(--success); }
 
-  /* Quiz launch button */
+  /* QUIZ LAUNCH */
   .quiz-launch { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: var(--accent-dim); border: 1px solid rgba(37,99,235,0.2); border-radius: 14px; margin-bottom: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .quiz-launch:active { opacity: 0.8; }
   .quiz-launch-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -93,15 +82,13 @@
   .quiz-launch.done .quiz-launch-name { color: var(--success); }
   .quiz-launch.done .quiz-launch-time { background: rgba(22,163,74,0.1); color: var(--success); }
   .quiz-score-badge { font-size: 11px; color: var(--success); font-family: var(--mono); }
-
-  /* all done */
   .all-done { display: none; text-align: center; padding: 24px 16px; }
   .all-done.show { display: block; }
   .all-done-icon { font-size: 40px; margin-bottom: 8px; }
   .all-done-text { font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
   .all-done-sub { font-size: 12px; color: var(--muted); }
 
-  /* ===== BOTTOM ===== */
+  /* BOTTOM */
   .bottom-section { padding: 12px 20px 16px; flex-shrink: 0; }
   .progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
   .progress-label { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
@@ -120,7 +107,7 @@
   .week-dot.done .dot-icon { stroke: var(--success); }
   .week-dot.today .dot-icon { stroke: var(--accent); }
 
-  /* ===== QUIZ SCREEN ===== */
+  /* QUIZ SCREEN */
   .quiz-header { padding: 16px 20px 0; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
   .quiz-back { background: none; border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; font-size: 13px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: var(--sans); }
   .quiz-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
@@ -128,47 +115,30 @@
   .quiz-title { font-size: 15px; font-weight: 500; color: var(--text); }
   .quiz-progress-bar { margin: 12px 20px 0; height: 4px; background: var(--surface2); border-radius: 99px; overflow: hidden; flex-shrink: 0; }
   .quiz-progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.3s ease; }
-
   .quiz-body { flex: 1; overflow-y: auto; padding: 20px; -webkit-overflow-scrolling: touch; }
-
-  /* Loading */
-  .quiz-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 60px 20px; }
-  .spinner { width: 32px; height: 32px; border: 2.5px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-text { font-size: 13px; color: var(--muted); }
-
-  /* Question card */
   .q-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
   .q-num { color: var(--accent); }
-  .q-text { font-size: 15px; line-height: 1.7; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; white-space: pre-wrap; }
+  .q-passage { font-size: 13px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; line-height: 1.8; white-space: pre-wrap; }
+  .q-text { font-size: 15px; line-height: 1.7; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
   .q-choices { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-  .q-choice { display: flex; align-items: flex-start; gap: 12px; padding: 14px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: border-color 0.15s, background 0.15s; }
+  .q-choice { display: flex; align-items: flex-start; gap: 12px; padding: 14px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: border-color 0.15s; }
   .q-choice:active { background: var(--surface2); }
-  .q-choice.selected { border-color: var(--accent); background: var(--accent-dim); }
   .q-choice.correct { border-color: var(--success); background: var(--success-dim); }
   .q-choice.wrong { border-color: var(--danger); background: var(--danger-dim); }
   .q-choice-label { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; }
-  .q-choice.selected .q-choice-label { background: var(--accent); border-color: var(--accent); color: #fff; }
   .q-choice.correct .q-choice-label { background: var(--success); border-color: var(--success); color: #fff; }
   .q-choice.wrong .q-choice-label { background: var(--danger); border-color: var(--danger); color: #fff; }
   .q-choice-text { font-size: 14px; color: var(--text); line-height: 1.5; flex: 1; padding-top: 2px; }
-
-  /* Explanation */
-  .q-explanation { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 16px; font-size: 13px; line-height: 1.7; color: var(--text); display: none; }
+  .q-result-icon { font-size: 16px; margin-left: auto; flex-shrink: 0; }
+  .q-explanation { background: var(--accent-dim); border: 1px solid rgba(37,99,235,0.15); border-radius: 12px; padding: 14px; margin-bottom: 16px; font-size: 13px; line-height: 1.7; color: var(--text); display: none; }
   .q-explanation.show { display: block; }
-  .q-exp-label { font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
-
-  /* OX result overlay on choice */
-  .q-result-icon { font-size: 18px; margin-left: auto; flex-shrink: 0; }
-
-  /* Nav buttons */
+  .q-exp-label { font-size: 10px; font-weight: 500; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
   .q-nav { display: flex; gap: 10px; }
   .q-btn { flex: 1; padding: 14px; border-radius: 12px; border: 1.5px solid var(--accent); background: var(--accent); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; }
   .q-btn:active { opacity: 0.85; }
-  .q-btn.secondary { background: none; color: var(--accent); }
   .q-btn:disabled { opacity: 0.35; cursor: default; }
 
-  /* ===== RESULT SCREEN ===== */
+  /* RESULT SCREEN */
   .result-body { flex: 1; overflow-y: auto; padding: 24px 20px; -webkit-overflow-scrolling: touch; }
   .result-score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px 20px; text-align: center; margin-bottom: 20px; }
   .result-score-label { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--mono); margin-bottom: 8px; }
@@ -176,16 +146,7 @@
   .result-score-total { font-size: 18px; color: var(--muted); }
   .result-score-pct { font-size: 14px; color: var(--muted); margin-top: 6px; }
   .result-score-msg { font-size: 15px; font-weight: 500; margin-top: 12px; }
-  .result-breakdown { margin-bottom: 20px; }
-  .result-breakdown-title { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--mono); margin-bottom: 10px; }
-  .result-q-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 6px; font-size: 13px; }
-  .result-q-num { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 28px; }
-  .result-q-text { flex: 1; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .result-ox { font-size: 16px; flex-shrink: 0; }
-  .result-done-btn { width: 100%; padding: 16px; border-radius: 14px; background: var(--accent); color: #fff; border: none; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; }
-  .result-done-btn:active { opacity: 0.85; }
-
-  /* Review accordion */
+  .result-breakdown-title { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--mono); margin-bottom: 12px; }
   .review-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 8px; overflow: hidden; }
   .review-card.wrong { border-color: rgba(220,38,38,0.25); }
   .review-card.correct-card { border-color: rgba(22,163,74,0.15); }
@@ -197,8 +158,8 @@
   .review-card.open .review-chevron { transform: rotate(180deg); }
   .review-detail { display: none; padding: 0 14px 14px; border-top: 1px solid var(--border); }
   .review-card.open .review-detail { display: block; }
-  .review-passage { font-size: 12px; color: var(--text); background: var(--bg); border-radius: 8px; padding: 10px 12px; margin: 10px 0 8px; line-height: 1.7; }
-  .review-full-q { font-size: 14px; color: var(--text); margin: 10px 0 10px; line-height: 1.6; font-weight: 500; }
+  .review-passage { font-size: 12px; color: var(--text); background: var(--bg); border-radius: 8px; padding: 10px 12px; margin: 10px 0 8px; line-height: 1.7; white-space: pre-wrap; }
+  .review-full-q { font-size: 14px; color: var(--text); margin: 10px 0; line-height: 1.6; font-weight: 500; }
   .review-choices-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
   .review-choice-row { display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px; border-radius: 8px; font-size: 13px; line-height: 1.5; border: 1px solid transparent; }
   .review-choice-row.is-correct { background: var(--success-dim); border-color: rgba(22,163,74,0.2); }
@@ -211,11 +172,13 @@
   .review-choice-row.is-wrong-pick .review-choice-text { color: var(--danger); }
   .review-exp-box { background: var(--accent-dim); border-radius: 8px; padding: 10px 12px; font-size: 13px; line-height: 1.7; color: var(--text); }
   .review-exp-label { font-size: 10px; color: var(--accent); font-family: var(--mono); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .result-done-btn { width: 100%; padding: 16px; border-radius: 14px; background: var(--accent); color: #fff; border: none; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 4px; }
+  .result-done-btn:active { opacity: 0.85; }
 </style>
 </head>
 <body>
 
-<!-- ===== HOME SCREEN ===== -->
+<!-- HOME -->
 <div class="screen active" id="screen-home">
   <header class="app-header">
     <div>
@@ -227,7 +190,6 @@
       <div class="streak-label">日連続</div>
     </div>
   </header>
-
   <div class="date-nav">
     <button class="nav-btn" id="prev-btn" onclick="changeDay(-1)">&#8249;</button>
     <div class="date-display">
@@ -236,7 +198,6 @@
     </div>
     <button class="nav-btn" id="next-btn" onclick="changeDay(1)" disabled>&#8250;</button>
   </div>
-
   <div class="mode-toggle">
     <button class="mode-btn" id="btn-30" onclick="setMode('30')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -247,9 +208,7 @@
       60分コース
     </button>
   </div>
-
   <div class="task-scroll" id="task-list"></div>
-
   <div class="bottom-section">
     <div class="progress-row">
       <span class="progress-label">Progress</span>
@@ -261,25 +220,23 @@
   </div>
 </div>
 
-<!-- ===== QUIZ SCREEN ===== -->
+<!-- QUIZ -->
 <div class="screen" id="screen-quiz">
   <div class="quiz-header">
     <button class="quiz-back" onclick="exitQuiz()">
-      <svg viewBox="0 0 16 16"><polyline points="10,3 5,8 10,13"/></svg>
-      戻る
+      <svg viewBox="0 0 16 16"><polyline points="10,3 5,8 10,13"/></svg>戻る
     </button>
-    <span class="quiz-title" id="quiz-title">Part 5 練習</span>
+    <span class="quiz-title" id="quiz-title">練習問題</span>
   </div>
   <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-prog-fill"></div></div>
   <div class="quiz-body" id="quiz-body"></div>
 </div>
 
-<!-- ===== RESULT SCREEN ===== -->
+<!-- RESULT -->
 <div class="screen" id="screen-result">
   <div class="quiz-header">
     <button class="quiz-back" onclick="exitResult()">
-      <svg viewBox="0 0 16 16"><polyline points="10,3 5,8 10,13"/></svg>
-      戻る
+      <svg viewBox="0 0 16 16"><polyline points="10,3 5,8 10,13"/></svg>戻る
     </button>
     <span class="quiz-title">結果</span>
   </div>
@@ -287,26 +244,131 @@
 </div>
 
 <script>
-const ANTHROPIC_API = 'https://api.anthropic.com/v1/messages';
+// ===== 問題バンク =====
+const PART5_BANK = [
+  { q:"The manager asked all employees to submit their reports ___ Friday.", choices:["A. until","B. by","C. during","D. within"], answer:1, explanation:"締め切りを表すには by（〜までに）を使います。until は継続を表し「ずっと〜まで」という意味になるため不正解です。" },
+  { q:"The new software ___ by the IT department last week.", choices:["A. installed","B. was installed","C. has installed","D. is installing"], answer:1, explanation:"主語 The new software は「インストールされる」側なので受動態が必要です。last week という過去の時制に合わせて was installed が正解。" },
+  { q:"Please make sure ___ all windows are closed before leaving.", choices:["A. what","B. which","C. that","D. if"], answer:2, explanation:"make sure that ～「〜を確認する」は定型表現です。that 節を導く接続詞 that が正解。" },
+  { q:"The conference room is available ___ 2 PM and 4 PM.", choices:["A. between","B. from","C. during","D. among"], answer:0, explanation:"between A and B で「AとBの間」を表します。時刻の範囲を示す定番表現です。" },
+  { q:"Ms. Park has worked at this company ___ ten years.", choices:["A. since","B. for","C. during","D. ago"], answer:1, explanation:"期間の長さを表すには for を使います。since は起点（since 2014 など）に使います。" },
+  { q:"The budget proposal must be ___ approved by the director.", choices:["A. final","B. finally","C. finalize","D. finalized"], answer:1, explanation:"must be approved という動詞句を修飾するには副詞 finally が必要です。" },
+  { q:"We are looking for ___ with experience in project management.", choices:["A. someone","B. anyone","C. whoever","D. everyone"], answer:0, explanation:"肯定文で特定の人を探す場合は someone を使います。anyone は疑問文・否定文で使うのが一般的です。" },
+  { q:"The ___ of the new product exceeded our expectations.", choices:["A. perform","B. performance","C. performing","D. performed"], answer:1, explanation:"冠詞 The の後ろには名詞が来ます。performance（パフォーマンス・性能）が正解。" },
+  { q:"All staff members are ___ to attend the safety training.", choices:["A. require","B. requiring","C. required","D. requirement"], answer:2, explanation:"be 動詞の後ろに来て「求められている」という受動態の意味になる required が正解です。" },
+  { q:"The client was ___ satisfied with the quality of our service.", choices:["A. high","B. highly","C. higher","D. highest"], answer:1, explanation:"形容詞 satisfied を修飾するには副詞が必要です。high は形容詞・副詞両方あるが「高く満足した」には highly を使います。" },
+  { q:"___ the heavy rain, the outdoor event was canceled.", choices:["A. Despite","B. Because","C. Due to","D. Although"], answer:2, explanation:"Due to は名詞句の前に置いて「〜のために」を表します。Despite も名詞句に使えますが、「〜にもかかわらず」と逆接になるため不正解。heavy rain が原因なので due to が正解。" },
+  { q:"The store will be closed ___ renovation next month.", choices:["A. for","B. during","C. while","D. in"], answer:0, explanation:"closed for renovation で「改装のために休業する」という表現です。for は目的・理由を表します。" },
+  { q:"Please ___ me know if you have any questions.", choices:["A. make","B. let","C. have","D. get"], answer:1, explanation:"let 人 know で「〜に知らせる」という定型表現。Please let me know は丁寧なビジネス表現として頻出です。" },
+  { q:"The ___ quarterly report will be distributed next week.", choices:["A. come","B. coming","C. came","D. comes"], answer:1, explanation:"名詞 report を前から修飾する形容詞的用法として coming（次の・来たる）が正解。the coming quarter は「来四半期」を意味します。" },
+  { q:"Employees should ___ their expenses within 30 days.", choices:["A. report","B. reporting","C. reported","D. reports"], answer:0, explanation:"should の後ろには動詞の原形が来ます。report が正解。" },
+  { q:"The meeting has been postponed ___ next Tuesday.", choices:["A. on","B. until","C. by","D. for"], answer:1, explanation:"postponed until で「〜まで延期された」。until は継続・延長の終点を示します。by は期限（それまでに終える）で意味が異なります。" },
+  { q:"___ submitting the form, please review all information.", choices:["A. Before","B. After","C. While","D. Until"], answer:0, explanation:"「フォームを提出する前に確認してください」という文脈。Before が正解。前置詞として動名詞 submitting を導きます。" },
+  { q:"The company offers ___ benefits to full-time employees.", choices:["A. compete","B. competitive","C. competition","D. competitively"], answer:1, explanation:"名詞 benefits を修飾するには形容詞が必要。competitive benefits で「競争力のある待遇」という意味になります。" },
+  { q:"The presentation was so ___ that everyone stayed until the end.", choices:["A. engage","B. engaged","C. engaging","D. engagement"], answer:2, explanation:"so の後ろには形容詞が来ます。engaging は「興味を引く・魅力的な」という意味の形容詞です。" },
+  { q:"___ notice will be given two weeks in advance.", choices:["A. Write","B. Writing","C. Written","D. Writes"], answer:2, explanation:"名詞 notice を修飾する形容詞として written（書面の）が正解。written notice で「書面による通知」。" },
+  { q:"The sales figures for this quarter are ___ than last year.", choices:["A. high","B. highly","C. higher","D. highest"], answer:2, explanation:"than が続くので比較級が必要。higher than last year で「昨年より高い」。" },
+  { q:"Could you please ___ the document to all team members?", choices:["A. distribute","B. distribution","C. distributed","D. distributing"], answer:0, explanation:"Could you please の後ろには動詞の原形が来ます。distribute（配布する）が正解。" },
+  { q:"The new policy will take ___ on January 1st.", choices:["A. effect","B. affect","C. place","D. action"], answer:0, explanation:"take effect で「効力を発する・施行される」という慣用表現。take place は「行われる」で意味が異なります。" },
+  { q:"All invoices must be paid ___ 30 days of receipt.", choices:["A. within","B. during","C. among","D. between"], answer:0, explanation:"within 30 days で「30日以内に」。期限を表す定番表現です。" },
+  { q:"The manager gave a very ___ speech at the award ceremony.", choices:["A. impress","B. impressive","C. impressed","D. impression"], answer:1, explanation:"名詞 speech を修飾する形容詞が必要。impressive（印象的な）が正解。impressed は人が感動した場合に使います。" },
+  { q:"We need to ___ our strategy based on the latest market data.", choices:["A. revise","B. revision","C. revised","D. revising"], answer:0, explanation:"need to の後ろには動詞の原形が来ます。revise（修正する）が正解。" },
+  { q:"The project was completed ___ schedule.", choices:["A. on","B. in","C. at","D. by"], answer:0, explanation:"on schedule で「予定通りに」、ahead of schedule で「予定より早く」という定型表現です。" },
+  { q:"Please ___ your badge visible at all times while on premises.", choices:["A. keep","B. make","C. let","D. have"], answer:0, explanation:"keep 目的語 形容詞 で「〜を…の状態に保つ」。keep your badge visible が正解。" },
+  { q:"The training program is ___ for all new hires.", choices:["A. mandate","B. mandatory","C. mandated","D. mandatorily"], answer:1, explanation:"be 動詞の後ろで補語となる形容詞が必要。mandatory（義務的な）が正解。" },
+  { q:"The results of the survey ___ that customers are satisfied.", choices:["A. indicate","B. indication","C. indicated","D. indicating"], answer:0, explanation:"主語 The results は複数形なので三単現の s は不要。現在形 indicate が正解。（過去形 indicated も文法上は可能ですが、現在の調査結果を示す文脈では indicate が自然。）" },
+];
 
+const PART7_BANK = [
+  {
+    passage: `From: Sarah Chen <s.chen@techcorp.com>
+To: All Staff
+Subject: Office Closure Notice
+Date: March 10
+
+Dear Team,
+
+Please be informed that our main office will be closed on March 15 (Friday) for scheduled maintenance. All employees are expected to work from home on that day.
+
+Please ensure that you have access to all necessary files and tools before March 14. IT support will be available via email throughout the day.
+
+Thank you for your cooperation.
+
+Sarah Chen
+Office Manager`,
+    questions: [
+      { q:"Why will the office be closed on March 15?", choices:["A. A public holiday","B. Scheduled maintenance","C. A company event","D. Bad weather"], answer:1, explanation:"メールに 'closed on March 15 for scheduled maintenance' とあるため、定期メンテナンスが理由です。" },
+      { q:"What are employees expected to do on March 15?", choices:["A. Come to the office early","B. Take a day off","C. Work from home","D. Attend a training session"], answer:2, explanation:"'All employees are expected to work from home on that day' と明記されています。" },
+      { q:"What does Sarah Chen recommend employees do before March 14?", choices:["A. Submit their reports","B. Contact their managers","C. Back up all data","D. Access necessary files and tools"], answer:3, explanation:"'ensure that you have access to all necessary files and tools before March 14' と書かれています。" },
+    ]
+  },
+  {
+    passage: `JOB POSTING
+
+Position: Marketing Coordinator
+Department: Marketing
+Location: New York, NY
+Employment Type: Full-time
+
+Responsibilities:
+- Coordinate marketing campaigns across digital and print channels
+- Analyze campaign performance and prepare monthly reports
+- Collaborate with the design team on promotional materials
+- Manage social media accounts and engagement
+
+Requirements:
+- Bachelor's degree in Marketing or related field
+- Minimum 2 years of experience in marketing
+- Proficiency in Microsoft Office and marketing software
+- Excellent written and verbal communication skills
+
+To apply, send your resume and cover letter to hr@company.com by April 30.`,
+    questions: [
+      { q:"What type of position is being advertised?", choices:["A. Part-time","B. Contract","C. Full-time","D. Temporary"], answer:2, explanation:"求人票に 'Employment Type: Full-time' と明記されています。" },
+      { q:"How much experience is required for this position?", choices:["A. 1 year","B. 2 years","C. 3 years","D. 5 years"], answer:1, explanation:"'Minimum 2 years of experience in marketing' と記載されています。" },
+      { q:"How should applicants submit their application?", choices:["A. By mail","B. In person","C. By phone","D. By email"], answer:3, explanation:"'send your resume and cover letter to hr@company.com' とあり、メールでの応募が指定されています。" },
+    ]
+  },
+  {
+    passage: `RIVERSIDE CAFÉ
+Monthly Newsletter — April Edition
+
+New Spring Menu!
+We're excited to introduce our spring menu featuring fresh seasonal ingredients. Highlights include our new Avocado Toast with poached eggs, Strawberry Matcha Latte, and a refreshing Mango Salad.
+
+Special Offer
+Throughout April, enjoy 15% off all beverages when you show this newsletter on your phone. Valid Monday through Friday only.
+
+Loyalty Program Update
+Our loyalty app has been updated! Members now earn double points on weekends. Download the latest version to enjoy this benefit.
+
+Opening Hours: Mon–Fri 7:00 AM – 9:00 PM / Sat–Sun 8:00 AM – 8:00 PM`,
+    questions: [
+      { q:"What discount is offered in April?", choices:["A. 10% off all food","B. 15% off all beverages","C. 20% off the new menu","D. Free drink with meal"], answer:1, explanation:"'enjoy 15% off all beverages when you show this newsletter' と書かれています。" },
+      { q:"When is the beverage discount valid?", choices:["A. Weekends only","B. Every day","C. Monday through Friday","D. Saturday and Sunday"], answer:2, explanation:"'Valid Monday through Friday only' と明記されています。" },
+      { q:"What change was made to the loyalty program?", choices:["A. Members get free items","B. Points expire faster","C. Members earn double points on weekends","D. New members get a bonus"], answer:2, explanation:"'Members now earn double points on weekends' と記載されています。" },
+    ]
+  },
+];
+
+// ===== APP STATE =====
 const TASKS = {
   '30': [
-    { id:'p5', name:'Part 5 文法・語彙', hint:'AIが問題を生成 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
+    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
     { id:'vocab', name:'単語学習', hint:'アプリで20語復習', time:'10分', quiz:false },
     { id:'reading', name:'Part 7 音読', hint:'解いた長文を声に出して読む', time:'10分', quiz:false },
   ],
   '60': [
-    { id:'p5', name:'Part 5 文法・語彙', hint:'AIが問題を生成 · 15問', time:'15分', quiz:true, qtype:'part5', qcount:15 },
+    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 15問', time:'15分', quiz:true, qtype:'part5', qcount:15 },
     { id:'vocab', name:'単語学習', hint:'20〜30語を確認', time:'10分', quiz:false },
-    { id:'p7', name:'Part 7 長文読解', hint:'AIが問題を生成 · 5問', time:'20分', quiz:true, qtype:'part7', qcount:5 },
+    { id:'p7', name:'Part 7 長文読解', hint:'ランダム出題 · 3セット', time:'20分', quiz:true, qtype:'part7', qcount:9 },
     { id:'review', name:'音読 & 復習', hint:'間違えた箇所の文を音読', time:'15分', quiz:false },
   ]
 };
 
 const DAYS = ['日','月','火','水','木','金','土'];
 let state = {};
-try { state = JSON.parse(localStorage.getItem('toeic_v3') || '{}'); } catch(e) {}
-function save() { try { localStorage.setItem('toeic_v3', JSON.stringify(state)); } catch(e) {} }
+try { state = JSON.parse(localStorage.getItem('toeic_v4') || '{}'); } catch(e) {}
+function save() { try { localStorage.setItem('toeic_v4', JSON.stringify(state)); } catch(e) {} }
 
 const base = new Date(); base.setHours(0,0,0,0);
 let offset = 0;
@@ -316,298 +378,184 @@ let quizAnswers = [];
 let quizIdx = 0;
 let quizAnswered = false;
 
-function dayKey(o) {
-  const d = new Date(base); d.setDate(d.getDate() + o); return d.toISOString().slice(0,10);
+function dayKey(o) { const d = new Date(base); d.setDate(d.getDate()+o); return d.toISOString().slice(0,10); }
+function dayState(k) {
+  if (!state[k]) state[k] = { mode:'60', done:{}, scores:{} };
+  if (!state[k].scores) state[k].scores = {};
+  return state[k];
 }
-function dayState(key) {
-  if (!state[key]) state[key] = { mode:'60', done:{}, scores:{} };
-  if (!state[key].scores) state[key].scores = {};
-  return state[key];
-}
-function setMode(m) {
-  if (offset !== 0) return;
-  dayState(dayKey(0)).mode = m; save(); render();
-}
-function changeDay(d) {
-  const next = offset + d; if (next > 0) return; offset = next; render();
-}
+function setMode(m) { if (offset!==0) return; dayState(dayKey(0)).mode=m; save(); render(); }
+function changeDay(d) { const n=offset+d; if(n>0)return; offset=n; render(); }
 function calcStreak() {
-  let s = 0;
-  for (let i = 0; i >= -365; i--) {
-    const k = dayKey(i), ds = state[k];
-    if (!ds) break;
-    const tasks = TASKS[ds.mode || '60'];
-    if (tasks.every(t => ds.done[t.id])) s++; else if (i < 0) break;
+  let s=0;
+  for(let i=0;i>=-365;i--){
+    const k=dayKey(i),ds=state[k]; if(!ds)break;
+    const tasks=TASKS[ds.mode||'60'];
+    if(tasks.every(t=>ds.done[t.id]))s++; else if(i<0)break;
   }
   return s;
 }
+function showScreen(id) { document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+function shuffle(arr) { const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function buildQuestions(qtype, qcount) {
+  if (qtype === 'part5') {
+    return shuffle(PART5_BANK).slice(0, Math.min(qcount, PART5_BANK.length));
+  } else {
+    // Part7: pick random passages and flatten questions
+    const shuffledSets = shuffle(PART7_BANK);
+    const result = [];
+    for (const set of shuffledSets) {
+      const qs = set.questions.map((q, i) => ({
+        passage: i === 0 ? set.passage : null,
+        q: q.q, choices: q.choices, answer: q.answer, explanation: q.explanation
+      }));
+      result.push(...qs);
+      if (result.length >= qcount) break;
+    }
+    return result.slice(0, qcount);
+  }
 }
 
 // ===== HOME RENDER =====
 function render() {
-  const key = dayKey(offset), ds = dayState(key);
-  const isToday = offset === 0;
-  const tasks = TASKS[ds.mode || '60'];
-  const d = new Date(base); d.setDate(d.getDate() + offset);
-  const m = d.getMonth()+1, dd = d.getDate(), dow = DAYS[d.getDay()];
-  document.getElementById('date-text').textContent = `${m}月${dd}日（${dow}）`;
-  document.getElementById('today-label').textContent = isToday ? 'TODAY' : '';
-  document.getElementById('prev-btn').disabled = offset <= -30;
-  document.getElementById('next-btn').disabled = offset >= 0;
-  document.getElementById('btn-30').className = 'mode-btn' + (ds.mode==='30'?' active':'');
-  document.getElementById('btn-60').className = 'mode-btn' + (ds.mode==='60'?' active':'');
-  document.getElementById('btn-30').disabled = !isToday;
-  document.getElementById('btn-60').disabled = !isToday;
+  const key=dayKey(offset), ds=dayState(key), isToday=offset===0;
+  const tasks=TASKS[ds.mode||'60'];
+  const d=new Date(base); d.setDate(d.getDate()+offset);
+  const m=d.getMonth()+1, dd=d.getDate(), dow=DAYS[d.getDay()];
+  document.getElementById('date-text').textContent=`${m}月${dd}日（${dow}）`;
+  document.getElementById('today-label').textContent=isToday?'TODAY':'';
+  document.getElementById('prev-btn').disabled=offset<=-30;
+  document.getElementById('next-btn').disabled=offset>=0;
+  document.getElementById('btn-30').className='mode-btn'+(ds.mode==='30'?' active':'');
+  document.getElementById('btn-60').className='mode-btn'+(ds.mode==='60'?' active':'');
+  document.getElementById('btn-30').disabled=!isToday;
+  document.getElementById('btn-60').disabled=!isToday;
 
-  const list = document.getElementById('task-list');
-  list.innerHTML = '';
-  const doneCount = tasks.filter(t => ds.done[t.id]).length;
+  const list=document.getElementById('task-list'); list.innerHTML='';
+  const doneCount=tasks.filter(t=>ds.done[t.id]).length;
 
   tasks.forEach(t => {
-    const done = !!ds.done[t.id];
-    const score = ds.scores[t.id];
+    const done=!!ds.done[t.id], score=ds.scores[t.id];
     if (t.quiz && isToday) {
-      const el = document.createElement('div');
-      el.className = 'quiz-launch' + (done ? ' done' : '');
-      el.onclick = () => startQuiz(t);
-      const scoreStr = done && score !== undefined
-        ? `<span class="quiz-score-badge">${score.correct}/${score.total}問正解</span>` : '';
-      el.innerHTML = `
-        <div class="quiz-launch-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
-        </div>
-        <div class="quiz-launch-body">
-          <div class="quiz-launch-name">${t.name}</div>
-          <div class="quiz-launch-hint">${done ? '完了' : t.hint} ${scoreStr}</div>
-        </div>
-        <span class="quiz-launch-time">${t.time}</span>
-      `;
+      const el=document.createElement('div');
+      el.className='quiz-launch'+(done?' done':'');
+      el.onclick=()=>startQuiz(t);
+      const scoreStr=done&&score?`<span class="quiz-score-badge">${score.correct}/${score.total}問正解</span>`:'';
+      el.innerHTML=`<div class="quiz-launch-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><div class="quiz-launch-body"><div class="quiz-launch-name">${t.name}</div><div class="quiz-launch-hint">${done?'完了 '+scoreStr:t.hint}</div></div><span class="quiz-launch-time">${t.time}</span>`;
       list.appendChild(el);
     } else {
-      const el = document.createElement('div');
-      el.className = 'task-item' + (done ? ' done' : '');
-      if (isToday) el.onclick = () => { ds.done[t.id] = !ds.done[t.id]; save(); render(); };
-      el.innerHTML = `
-        <div class="task-check"><svg class="check-icon" viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div>
-        <div class="task-body">
-          <div class="task-name">${t.name}</div>
-          <div class="task-hint">${t.hint}</div>
-        </div>
-        <span class="task-time">${t.time}</span>
-      `;
+      const el=document.createElement('div');
+      el.className='task-item'+(done?' done':'');
+      if(isToday) el.onclick=()=>{ds.done[t.id]=!ds.done[t.id];save();render();};
+      el.innerHTML=`<div class="task-check"><svg class="check-icon" viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="task-body"><div class="task-name">${t.name}</div><div class="task-hint">${t.hint}</div></div><span class="task-time">${t.time}</span>`;
       list.appendChild(el);
     }
   });
 
-  if (doneCount === tasks.length) {
-    const msg = document.createElement('div');
-    msg.className = 'all-done show';
-    msg.innerHTML = `<div class="all-done-icon">🎯</div><div class="all-done-text">トレーニング完了！</div><div class="all-done-sub">今日も700点に近づいた</div>`;
+  if(doneCount===tasks.length){
+    const msg=document.createElement('div'); msg.className='all-done show';
+    msg.innerHTML='<div class="all-done-icon">🎯</div><div class="all-done-text">トレーニング完了！</div><div class="all-done-sub">今日も700点に近づいた</div>';
     list.appendChild(msg);
   }
 
-  const pct = tasks.length ? Math.round(doneCount / tasks.length * 100) : 0;
-  document.getElementById('progress-pct').textContent = pct + '%';
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('streak-num').textContent = calcStreak();
+  const pct=tasks.length?Math.round(doneCount/tasks.length*100):0;
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('streak-num').textContent=calcStreak();
 
-  const dots = document.getElementById('week-dots');
-  dots.innerHTML = '';
-  for (let i = -6; i <= 0; i++) {
-    const k = dayKey(i), ds2 = state[k];
-    const tasks2 = TASKS[(ds2 && ds2.mode) || '60'];
-    const done2 = ds2 && tasks2.every(t => ds2.done[t.id]);
-    const isToday2 = i === 0;
-    const d2 = new Date(base); d2.setDate(d2.getDate() + i);
-    const dot = document.createElement('div');
-    dot.className = 'week-dot' + (done2 ? ' done' : '') + (isToday2 ? ' today' : '');
-    dot.innerHTML = `<span class="dot-day">${DAYS[d2.getDay()]}</span><svg class="dot-icon" viewBox="0 0 14 14">${done2 ? '<polyline points="2,7 6,11 12,3" stroke-width="2"/>' : '<circle cx="7" cy="7" r="3" fill="currentColor" opacity="0.3"/>'}</svg>`;
+  const dots=document.getElementById('week-dots'); dots.innerHTML='';
+  for(let i=-6;i<=0;i++){
+    const k=dayKey(i),ds2=state[k];
+    const tasks2=TASKS[(ds2&&ds2.mode)||'60'];
+    const done2=ds2&&tasks2.every(t=>ds2.done[t.id]);
+    const isToday2=i===0;
+    const d2=new Date(base); d2.setDate(d2.getDate()+i);
+    const dot=document.createElement('div');
+    dot.className='week-dot'+(done2?' done':'')+(isToday2?' today':'');
+    dot.innerHTML=`<span class="dot-day">${DAYS[d2.getDay()]}</span><svg class="dot-icon" viewBox="0 0 14 14">${done2?'<polyline points="2,7 6,11 12,3" stroke-width="2"/>':'<circle cx="7" cy="7" r="3" fill="currentColor" opacity="0.3"/>'}</svg>`;
     dots.appendChild(dot);
   }
 }
 
 // ===== QUIZ =====
-async function startQuiz(task) {
-  currentQuizTaskId = task.id;
-  quizQuestions = [];
-  quizAnswers = [];
-  quizIdx = 0;
-  quizAnswered = false;
-  document.getElementById('quiz-title').textContent = task.name;
+function startQuiz(task) {
+  currentQuizTaskId=task.id;
+  quizQuestions=buildQuestions(task.qtype, task.qcount);
+  quizAnswers=[];
+  quizIdx=0;
+  quizAnswered=false;
+  document.getElementById('quiz-title').textContent=task.name;
   showScreen('screen-quiz');
-  renderQuizLoading(task.qcount);
-  try {
-    quizQuestions = await generateQuestions(task.qtype, task.qcount);
-    renderQuestion();
-  } catch(e) {
-    document.getElementById('quiz-body').innerHTML = `
-      <div style="padding:40px 0;text-align:center;color:var(--muted);font-size:14px">
-        問題の生成に失敗しました。<br>インターネット接続を確認してください。<br><br>
-        <button class="q-btn" style="max-width:200px;margin:0 auto;display:block" onclick="exitQuiz()">戻る</button>
-      </div>`;
-  }
-}
-
-function renderQuizLoading(n) {
-  document.getElementById('quiz-prog-fill').style.width = '0%';
-  document.getElementById('quiz-body').innerHTML = `
-    <div class="quiz-loading">
-      <div class="spinner"></div>
-      <div class="loading-text">AIが問題を${n}問生成中...</div>
-    </div>`;
-}
-
-async function generateQuestions(type, count) {
-  const prompt = type === 'part5'
-    ? `あなたはTOEIC Part 5（短文穴埋め）の問題作成者です。
-TOEIC 600〜700点レベルの問題を${count}問作成してください。
-文法・語彙・前置詞・接続詞など多様なテーマを含めてください。
-
-以下のJSON形式のみで返答してください（前置きや説明は不要）:
-[
-  {
-    "q": "問題文（___で空欄を示す）",
-    "choices": ["A. 選択肢1", "B. 選択肢2", "C. 選択肢3", "D. 選択肢4"],
-    "answer": 0,
-    "explanation": "解説（なぜこの答えか、文法ポイントを含む）"
-  }
-]
-answerは正解の選択肢のindex（0〜3）。`
-    : `あなたはTOEIC Part 7（長文読解）の問題作成者です。
-TOEIC 600〜700点レベルの短めのビジネス文書（メール・お知らせ・広告など）を1つ作り、その文書に関する問題を${count}問作成してください。
-
-以下のJSON形式のみで返答してください（前置きや説明は不要）:
-[
-  {
-    "passage": "読み取り文（最初の問題のみ設定、他はnull）",
-    "q": "設問文",
-    "choices": ["A. 選択肢1", "B. 選択肢2", "C. 選択肢3", "D. 選択肢4"],
-    "answer": 0,
-    "explanation": "解説"
-  }
-]`;
-
-  const res = await fetch(ANTHROPIC_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4000,
-      messages: [{ role: 'user', content: prompt }]
-    })
-  });
-  const data = await res.json();
-  const text = data.content.map(c => c.text || '').join('');
-  const clean = text.replace(/```json|```/g, '').trim();
-  return JSON.parse(clean);
+  renderQuestion();
 }
 
 function renderQuestion() {
-  const total = quizQuestions.length;
-  const q = quizQuestions[quizIdx];
-  quizAnswered = false;
-  document.getElementById('quiz-prog-fill').style.width = Math.round((quizIdx / total) * 100) + '%';
+  const total=quizQuestions.length, q=quizQuestions[quizIdx];
+  quizAnswered=false;
+  document.getElementById('quiz-prog-fill').style.width=Math.round((quizIdx/total)*100)+'%';
 
-  const passageHtml = q.passage
-    ? `<div class="q-text" style="font-size:13px;margin-bottom:12px">${q.passage.replace(/\n/g,'<br>')}</div>` : '';
+  const passageHtml=q.passage?`<div class="q-passage">${q.passage}</div>`:'';
+  const choicesHtml=q.choices.map((c,i)=>`<div class="q-choice" id="choice-${i}" onclick="selectAnswer(${i})"><div class="q-choice-label">${String.fromCharCode(65+i)}</div><div class="q-choice-text">${c.replace(/^[A-D]\.\s*/,'')}</div></div>`).join('');
 
-  const choicesHtml = q.choices.map((c, i) => `
-    <div class="q-choice" id="choice-${i}" onclick="selectAnswer(${i})">
-      <div class="q-choice-label">${String.fromCharCode(65+i)}</div>
-      <div class="q-choice-text">${c.replace(/^[A-D]\.\s*/,'')}</div>
-    </div>`).join('');
-
-  document.getElementById('quiz-body').innerHTML = `
+  document.getElementById('quiz-body').innerHTML=`
     <div class="q-meta"><span class="q-num">${quizIdx+1}</span> / ${total}</div>
     ${passageHtml}
     <div class="q-text">${q.q}</div>
     <div class="q-choices">${choicesHtml}</div>
-    <div class="q-explanation" id="q-explanation">
-      <div class="q-exp-label">解説</div>
-      <div id="q-exp-text"></div>
-    </div>
-    <div class="q-nav">
-      <button class="q-btn" id="next-btn-quiz" onclick="nextQuestion()" disabled>${quizIdx+1 < total ? '次の問題 →' : '結果を見る'}</button>
-    </div>
+    <div class="q-explanation" id="q-explanation"><div class="q-exp-label">解説</div><div id="q-exp-text"></div></div>
+    <div class="q-nav"><button class="q-btn" id="next-btn-quiz" onclick="nextQuestion()" disabled>${quizIdx+1<total?'次の問題 →':'結果を見る'}</button></div>
   `;
 }
 
 function selectAnswer(idx) {
-  if (quizAnswered) return;
-  quizAnswered = true;
-  const q = quizQuestions[quizIdx];
-  const correct = q.answer;
-  quizAnswers.push({ selected: idx, correct });
-
-  for (let i = 0; i < q.choices.length; i++) {
-    const el = document.getElementById('choice-' + i);
-    if (i === correct) {
-      el.classList.add('correct');
-      el.innerHTML += '<span class="q-result-icon">✓</span>';
-    } else if (i === idx && idx !== correct) {
-      el.classList.add('wrong');
-      el.innerHTML += '<span class="q-result-icon">✗</span>';
-    }
+  if(quizAnswered)return;
+  quizAnswered=true;
+  const q=quizQuestions[quizIdx], correct=q.answer;
+  quizAnswers.push({selected:idx, correct});
+  for(let i=0;i<q.choices.length;i++){
+    const el=document.getElementById('choice-'+i);
+    if(i===correct){el.classList.add('correct');el.innerHTML+='<span class="q-result-icon">✓</span>';}
+    else if(i===idx&&idx!==correct){el.classList.add('wrong');el.innerHTML+='<span class="q-result-icon">✗</span>';}
   }
-
-  document.getElementById('q-exp-text').textContent = q.explanation;
+  document.getElementById('q-exp-text').textContent=q.explanation;
   document.getElementById('q-explanation').classList.add('show');
-  document.getElementById('next-btn-quiz').disabled = false;
+  document.getElementById('next-btn-quiz').disabled=false;
 }
 
 function nextQuestion() {
   quizIdx++;
-  if (quizIdx < quizQuestions.length) {
-    renderQuestion();
-  } else {
-    showResult();
-  }
+  if(quizIdx<quizQuestions.length) renderQuestion(); else showResult();
 }
 
 function showResult() {
-  const total = quizAnswers.length;
-  const correctCount = quizAnswers.filter(a => a.selected === a.correct).length;
-  const pct = Math.round(correctCount / total * 100);
-
-  const key = dayKey(offset);
-  const ds = dayState(key);
-  ds.done[currentQuizTaskId] = true;
-  ds.scores[currentQuizTaskId] = { correct: correctCount, total };
+  const total=quizAnswers.length;
+  const correctCount=quizAnswers.filter(a=>a.selected===a.correct).length;
+  const pct=Math.round(correctCount/total*100);
+  const key=dayKey(offset), ds=dayState(key);
+  ds.done[currentQuizTaskId]=true;
+  ds.scores[currentQuizTaskId]={correct:correctCount,total};
   save();
 
-  const msg = pct >= 80 ? '🎉 素晴らしい！' : pct >= 60 ? '👍 なかなか良い！' : '📚 復習しよう';
-  const color = pct >= 80 ? 'var(--success)' : pct >= 60 ? 'var(--accent)' : 'var(--danger)';
+  const msg=pct>=80?'🎉 素晴らしい！':pct>=60?'👍 なかなか良い！':'📚 復習しよう';
+  const color=pct>=80?'var(--success)':pct>=60?'var(--accent)':'var(--danger)';
 
-  // Build review cards
-  const reviewHtml = quizQuestions.map((q, i) => {
-    const ans = quizAnswers[i];
-    const ok = ans && ans.selected === ans.correct;
-    const shortQ = q.q.length > 36 ? q.q.slice(0, 36) + '…' : q.q;
-
-    const passageHtml = q.passage
-      ? `<div class="review-passage">${q.passage.replace(/\n/g, '<br>')}</div>` : '';
-
-    const choicesHtml = q.choices.map((c, ci) => {
-      const label = String.fromCharCode(65 + ci);
-      const text = c.replace(/^[A-D]\.\s*/, '');
-      const isCorrect = ci === q.answer;
-      const isWrongPick = ans && ci === ans.selected && !isCorrect;
-      const cls = isCorrect ? 'is-correct' : isWrongPick ? 'is-wrong-pick' : '';
-      const icon = isCorrect ? ' ✓' : isWrongPick ? ' ✗' : '';
-      return `<div class="review-choice-row ${cls}">
-        <span class="review-choice-label">${label}${icon}</span>
-        <span class="review-choice-text">${text}</span>
-      </div>`;
+  const reviewHtml=quizQuestions.map((q,i)=>{
+    const ans=quizAnswers[i], ok=ans&&ans.selected===ans.correct;
+    const shortQ=q.q.length>36?q.q.slice(0,36)+'…':q.q;
+    const passageHtml=q.passage?`<div class="review-passage">${q.passage}</div>`:'';
+    const choicesHtml=q.choices.map((c,ci)=>{
+      const label=String.fromCharCode(65+ci), text=c.replace(/^[A-D]\.\s*/,'');
+      const isCorrect=ci===q.answer, isWrongPick=ans&&ci===ans.selected&&!isCorrect;
+      const cls=isCorrect?'is-correct':isWrongPick?'is-wrong-pick':'';
+      const icon=isCorrect?' ✓':isWrongPick?' ✗':'';
+      return `<div class="review-choice-row ${cls}"><span class="review-choice-label">${label}${icon}</span><span class="review-choice-text">${text}</span></div>`;
     }).join('');
-
-    return `<div class="review-card ${ok ? 'correct-card' : 'wrong'}" id="rc-${i}">
+    return `<div class="review-card ${ok?'correct-card':'wrong'}" id="rc-${i}">
       <div class="review-header" onclick="toggleReview(${i})">
-        <span class="review-ox">${ok ? '⭕' : '❌'}</span>
-        <span class="review-qnum">${i + 1}</span>
+        <span class="review-ox">${ok?'⭕':'❌'}</span>
+        <span class="review-qnum">${i+1}</span>
         <span class="review-qtext">${shortQ}</span>
         <span class="review-chevron">▼</span>
       </div>
@@ -615,49 +563,35 @@ function showResult() {
         ${passageHtml}
         <div class="review-full-q">${q.q}</div>
         <div class="review-choices-list">${choicesHtml}</div>
-        <div class="review-exp-box">
-          <div class="review-exp-label">解説</div>
-          ${q.explanation}
-        </div>
+        <div class="review-exp-box"><div class="review-exp-label">解説</div>${q.explanation}</div>
       </div>
     </div>`;
   }).join('');
 
-  // Auto-expand wrong answers
-  document.getElementById('result-body').innerHTML = `
+  document.getElementById('result-body').innerHTML=`
     <div class="result-score-card">
       <div class="result-score-label">スコア</div>
       <div class="result-score-num" style="color:${color}">${correctCount}<span class="result-score-total"> / ${total}</span></div>
       <div class="result-score-pct">${pct}% 正解</div>
       <div class="result-score-msg">${msg}</div>
     </div>
-    <div class="result-breakdown">
-      <div class="result-breakdown-title" style="margin-bottom:12px">問題ごとの結果　<span style="font-size:11px;color:var(--muted);font-family:var(--mono)">タップで答え・解説を表示</span></div>
+    <div style="margin-bottom:20px">
+      <div class="result-breakdown-title">問題ごとの結果　<span style="font-size:11px;color:var(--muted);font-family:var(--mono)">タップで答え・解説を表示</span></div>
       ${reviewHtml}
     </div>
     <button class="result-done-btn" onclick="exitResult()">トレーニングに戻る</button>
     <div style="height:20px"></div>
   `;
 
-  // Auto-open wrong answers
-  quizAnswers.forEach((a, i) => {
-    if (a.selected !== a.correct) toggleReview(i);
-  });
-
+  quizAnswers.forEach((a,i)=>{ if(a.selected!==a.correct) toggleReview(i); });
   showScreen('screen-result');
 }
 
-function toggleReview(i) {
-  const card = document.getElementById('rc-' + i);
-  if (card) card.classList.toggle('open');
-}
-
+function toggleReview(i) { const c=document.getElementById('rc-'+i); if(c)c.classList.toggle('open'); }
 function exitQuiz() { showScreen('screen-home'); render(); }
 function exitResult() { showScreen('screen-home'); render(); }
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').catch(() => {});
-}
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
 render();
 </script>
 </body>
