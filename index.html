@@ -246,7 +246,8 @@
     </button>
   </div>
   <div class="task-scroll" id="task-list"></div>
-  <div class="bottom-section">
+  <div class="task-scroll" id="free-panel" style="display:none"></div>
+  <div class="bottom-section" id="bottom-section">
     <div class="progress-row">
       <span class="progress-label">Progress</span>
       <span class="progress-pct" id="progress-pct">0%</span>
@@ -833,19 +834,119 @@ const PART5_BANK = [
   {q:'The conference keynote speaker was ___ inspiring to the audience.',choices:["A. particular", "B. particularly", "C. particulars", "D. particularize"],answer:1,translation:'会議の基調講演者は聴衆にとって特に感動的でした。',explanation:'形容詞 inspiring を修飾するには副詞が必要。particularly（特に）が正解。'},
   {q:'Please ___ your travel expenses before submitting them for reimbursement.',choices:["A. itemize", "B. item", "C. itemized", "D. items"],answer:0,translation:'払い戻しの申請前に出張費を項目別に記載してください。',explanation:'Please の後ろには動詞の原形が来ます。itemize（項目別に記載する）が正解。'},
   {q:'The company will hold ___ interviews for the position starting next week.',choices:["A. individual", "B. individually", "C. individuality", "D. individualize"],answer:0,translation:'会社は来週から、そのポジションの個別面接を行います。',explanation:'名詞 interviews を修飾するには形容詞が必要。individual（個別の）が正解。'},
+
+  {q:'The company\'s ___ to customer satisfaction is well known.',choices:["A. commit", "B. committed", "C. commitment", "D. committing"],answer:2,translation:'会社の顧客満足へのコミットメントはよく知られています。',explanation:'冠詞 The と前置詞 to の間には名詞が来ます。commitment（コミットメント・献身）が正解。'},
+  {q:'She gave a ___ presentation that impressed all the investors.',choices:["A. convince", "B. convincing", "C. convinced", "D. convincingly"],answer:1,translation:'彼女は全ての投資家を感動させる説得力のあるプレゼンをしました。',explanation:'名詞 presentation を修飾するには形容詞が必要。convincing（説得力のある）が正解。'},
+  {q:'The ___ of the new branch office was celebrated last Friday.',choices:["A. establish", "B. established", "C. establishment", "D. establishing"],answer:2,translation:'新しい支店オフィスの設立は先週金曜日に祝われました。',explanation:'冠詞 The の後ろには名詞が来ます。establishment（設立）が正解。'},
+  {q:'Please handle all customer inquiries ___.',choices:["A. profession", "B. professional", "C. professionally", "D. professionalism"],answer:2,translation:'全ての顧客の問い合わせをプロとして対応してください。',explanation:'動詞 handle を修飾するには副詞が必要。professionally（プロとして）が正解。'},
+  {q:'The ___ report will be submitted to the board next week.',choices:["A. revise", "B. revised", "C. revising", "D. revision"],answer:1,translation:'修正されたレポートは来週取締役会に提出されます。',explanation:'名詞 report を修飾するには形容詞（過去分詞）が必要。revised（修正された）が正解。'},
+  {q:'His ___ to detail makes him an excellent editor.',choices:["A. attend", "B. attention", "C. attentive", "D. attentively"],answer:1,translation:'細部への注意力が彼を優れた編集者にしています。',explanation:'所有格 His の後ろには名詞が来ます。attention（注意力）が正解。attention to detail で「細部への注意力」。'},
+  {q:'The ___ of the project depends on the team\'s cooperation.',choices:["A. succeed", "B. success", "C. successful", "D. successfully"],answer:1,translation:'プロジェクトの成功はチームの協力にかかっています。',explanation:'冠詞 The の後ろには名詞が来ます。success（成功）が正解。'},
+  {q:'We need someone who is ___ in handling complex data analysis.',choices:["A. experience", "B. experienced", "C. experiencing", "D. experiences"],answer:1,translation:'複雑なデータ分析の処理に経験がある人が必要です。',explanation:'be 動詞の後ろで補語となる形容詞が必要。experienced（経験のある）が正解。'},
+  {q:'The ___ in sales this quarter exceeded all projections.',choices:["A. grow", "B. growing", "C. grown", "D. growth"],answer:3,translation:'今四半期の売上の成長は全ての予測を超えました。',explanation:'冠詞 The の後ろには名詞が来ます。growth（成長）が正解。'},
+  {q:'The manager made a ___ decision to postpone the product launch.',choices:["A. strategy", "B. strategic", "C. strategically", "D. strategize"],answer:1,translation:'マネージャーは製品発売を延期するという戦略的な決断をしました。',explanation:'名詞 decision を修飾するには形容詞が必要。strategic（戦略的な）が正解。'},
+  {q:'By the time the client arrives, we ___ the presentation.',choices:["A. finish", "B. finished", "C. will have finished", "D. are finishing"],answer:2,translation:'クライアントが到着するまでに、私たちはプレゼンを終えているでしょう。',explanation:'by the time〜（〜するまでに）は未来完了形 will have finished が正解。'},
+  {q:'The new procedures ___ by all staff since last month.',choices:["A. follow", "B. are followed", "C. have been followed", "D. were followed"],answer:2,translation:'先月から全スタッフによって新しい手順が守られています。',explanation:'since last month（先月から）という現在完了を示す語句があるので have been followed が正解。'},
+  {q:'If the budget ___ approved, we can begin the project immediately.',choices:["A. is", "B. was", "C. will be", "D. would be"],answer:0,translation:'予算が承認されれば、すぐにプロジェクトを開始できます。',explanation:'If節で現在の条件を表す場合は現在形 is が正解。'},
+  {q:'The shipment ___ before we realized the error.',choices:["A. had already left", "B. has already left", "C. already leaves", "D. already left"],answer:0,translation:'私たちがミスに気づく前に出荷品はすでに出発していました。',explanation:'主節の動詞（realized）より前の出来事は過去完了形 had already left が正解。'},
+  {q:'Sales figures ___ every quarter by the finance department.',choices:["A. compile", "B. compiles", "C. are compiled", "D. is compiled"],answer:2,translation:'売上数字は毎四半期、財務部門によって集計されます。',explanation:'主語 Sales figures は複数形で、かつ「集計される」受け身の関係。are compiled が正解。'},
+  {q:'The CEO ___ the annual report when the fire alarm went off.',choices:["A. read", "B. was reading", "C. has read", "D. reads"],answer:1,translation:'火災警報が鳴ったとき、CEOは年次報告書を読んでいました。',explanation:'過去のある時点に進行中だった動作は過去進行形 was reading が正解。'},
+  {q:'We ___ our quarterly targets if we maintain this pace.',choices:["A. will meet", "B. would meet", "C. meet", "D. have met"],answer:0,translation:'このペースを維持すれば、四半期目標を達成できます。',explanation:'現在の条件（if we maintain）に基づく未来の予測は will meet が正解。'},
+  {q:'The office furniture ___ to the new building next month.',choices:["A. moves", "B. is moving", "C. will be moved", "D. has moved"],answer:2,translation:'オフィス家具は来月新しいビルに移動されます。',explanation:'家具は「移動される」受け身の関係。未来なので will be moved が正解。'},
+  {q:'The team ___ on this project for three months before the client canceled it.',choices:["A. worked", "B. has worked", "C. had been working", "D. was working"],answer:2,translation:'クライアントがキャンセルする前に、チームは3ヶ月間このプロジェクトに取り組んでいました。',explanation:'過去のある時点まで継続していた動作は過去完了進行形 had been working が正解。'},
+  {q:'Please make sure the forms ___ out completely before submission.',choices:["A. fill", "B. filling", "C. are filled", "D. filled"],answer:2,translation:'提出前にフォームが完全に記入されていることを確認してください。',explanation:'フォームは「記入される」受け身の関係。are filled out が正解。'},
+  {q:'The meeting was rescheduled ___ short notice.',choices:["A. at", "B. on", "C. with", "D. by"],answer:0,translation:'会議は急な通知で予定変更されました。',explanation:'at short notice で「急に・直前に」という慣用表現。'},
+  {q:'___ all the challenges, the team delivered excellent results.',choices:["A. Despite", "B. Although", "C. However", "D. Even"],answer:0,translation:'全ての困難にもかかわらず、チームは優れた結果を出しました。',explanation:'Despite は名詞句の前に置いて「〜にもかかわらず」を表します。Although は節を導く接続詞なので不正解。'},
+  {q:'The product is available ___ order only.',choices:["A. in", "B. by", "C. on", "D. for"],answer:2,translation:'その製品は受注のみで販売されています。',explanation:'on order で「受注で・注文により」という表現。'},
+  {q:'She has been with the company ___ its founding.',choices:["A. for", "B. during", "C. since", "D. from"],answer:2,translation:'彼女は会社の設立以来ずっと在籍しています。',explanation:'since は起点を示し「〜以来」という意味。since its founding で「設立以来」。'},
+  {q:'The report should be submitted ___ no later than Friday.',choices:["A. in", "B. at", "C. on", "D. by"],answer:3,translation:'レポートは遅くとも金曜日までに提出されるべきです。',explanation:'no later than Friday で「遅くとも金曜日までに」。by が正解。'},
+  {q:'___ the new policy takes effect, all staff must be retrained.',choices:["A. When", "B. Until", "C. Before", "D. Despite"],answer:0,translation:'新しい方針が施行されたら、全スタッフが再研修を受けなければなりません。',explanation:'「新しい方針が施行されたら」という時を表す when が正解。'},
+  {q:'The conference will be held ___ the Hilton Hotel downtown.',choices:["A. in", "B. at", "C. on", "D. inside"],answer:1,translation:'会議は市内のヒルトンホテルで開催されます。',explanation:'特定の施設には at を使います。at the Hilton Hotel が正解。'},
+  {q:'Please complete the survey ___ your earliest convenience.',choices:["A. in", "B. at", "C. on", "D. by"],answer:1,translation:'ご都合のつき次第、アンケートにご回答ください。',explanation:'at your earliest convenience で「ご都合のつき次第」という定型表現。'},
+  {q:'The invoice must be paid ___ full within 30 days.',choices:["A. at", "B. in", "C. with", "D. by"],answer:1,translation:'請求書は30日以内に全額支払われなければなりません。',explanation:'in full で「全額・完全に」という表現。'},
+  {q:'___ the manager\'s approval, the project can proceed.',choices:["A. With", "B. By", "C. In", "D. For"],answer:0,translation:'マネージャーの承認があれば、プロジェクトを進めることができます。',explanation:'with the manager\'s approval で「マネージャーの承認があれば」という表現。'},
+  {q:'The new software will ___ the need for manual data entry.',choices:["A. eliminate", "B. ignore", "C. prevent", "D. avoid"],answer:0,translation:'新しいソフトウェアは手動データ入力の必要性をなくします。',explanation:'eliminate（排除する・なくす）が文脈に最も合います。'},
+  {q:'Please ___ the attached document for your reference.',choices:["A. refer", "B. review", "C. revise", "D. remind"],answer:1,translation:'参考のために添付の文書をご確認ください。',explanation:'review（確認する・見直す）が文脈に最も合います。refer は refer to〜（〜を参照する）の形で使います。'},
+  {q:'The company ___ a new headquarters in Singapore last year.',choices:["A. opened", "B. launched", "C. started", "D. created"],answer:0,translation:'会社は昨年シンガポールに新しい本社を開設しました。',explanation:'opened（開設した）が施設に対して最も自然な動詞です。'},
+  {q:'We need to ___ the contract terms before signing.',choices:["A. negotiate", "B. argue", "C. debate", "D. dispute"],answer:0,translation:'署名する前に契約条件を交渉する必要があります。',explanation:'negotiate（交渉する）が契約に関して最も適切。'},
+  {q:'The HR department will ___ the best candidate for the position.',choices:["A. select", "B. elect", "C. vote", "D. appoint"],answer:0,translation:'人事部がそのポジションに最適な候補者を選びます。',explanation:'select（選ぶ）が採用に関して最も一般的。'},
+  {q:'All employees must ___ the company\'s code of conduct.',choices:["A. agree", "B. obey", "C. adhere to", "D. follow through"],answer:2,translation:'全社員は会社の行動規範を遵守しなければなりません。',explanation:'adhere to〜（〜を遵守する）が最も正式で適切。'},
+  {q:'The new system will ___ our ability to track inventory.',choices:["A. increase", "B. enhance", "C. improve", "D. all of these are correct"],answer:1,translation:'新しいシステムは在庫管理能力を高めます。',explanation:'enhance（高める・強化する）が能力・性能の向上に最も適切。'},
+  {q:'Please ___ the meeting minutes to all participants.',choices:["A. send", "B. distribute", "C. deliver", "D. circulate"],answer:3,translation:'会議の議事録を全参加者に回覧してください。',explanation:'circulate（回覧する・配布する）が議事録に対して最も自然。'},
+  {q:'The company ___ its carbon footprint by 30% over five years.',choices:["A. decreased", "B. reduced", "C. lowered", "D. cut"],answer:1,translation:'会社は5年間でカーボンフットプリントを30%削減しました。',explanation:'reduce（削減する）が数値の削減に最も一般的。'},
+  {q:'We should ___ the risks before making a final decision.',choices:["A. assess", "B. guess", "C. predict", "D. imagine"],answer:0,translation:'最終決定を下す前にリスクを評価すべきです。',explanation:'assess（評価する・査定する）がリスク管理に最も適切。'},
+  {q:'The manager ___ the team work overtime to meet the deadline.',choices:["A. made", "B. did", "C. had", "D. let"],answer:0,translation:'マネージャーは締め切りに間に合わせるためにチームに残業させました。',explanation:'make 人 do で「人に〜させる（強制）」という使役構文。made が正解。'},
+  {q:'Could you ___ the report proofread before sending it?',choices:["A. make", "B. have", "C. let", "D. get"],answer:1,translation:'送る前にレポートを校正してもらえますか？',explanation:'have 物 過去分詞 で「物を〜してもらう」という使役構文。have が正解。'},
+  {q:'The new policy ___ employees choose their own work hours.',choices:["A. makes", "B. has", "C. lets", "D. gets"],answer:2,translation:'新しい方針により、社員は自分の勤務時間を選べるようになります。',explanation:'let 人 do で「人が〜するのを許可する」という使役構文。lets が正解。'},
+  {q:'We need to ___ the system updated before the client visit.',choices:["A. make", "B. have", "C. let", "D. do"],answer:1,translation:'クライアント訪問前にシステムを更新してもらう必要があります。',explanation:'have 物 過去分詞 で「物を〜してもらう」。have the system updated が正解。'},
+  {q:'The new office is ___ the old one in terms of size.',choices:["A. twice as large as", "B. twice larger than", "C. two times large", "D. two times larger"],answer:0,translation:'新しいオフィスは広さの点で古いオフィスの2倍の大きさです。',explanation:'倍数表現は「数字 + as 形容詞 as」の形。twice as large as が正解。'},
+  {q:'This quarter\'s results are ___ we had expected.',choices:["A. better as", "B. better than", "C. more good than", "D. much better as"],answer:1,translation:'今四半期の結果は私たちが期待していたよりも良かったです。',explanation:'比較級は「比較級 + than」の形。better than が正解。'},
+  {q:'The ___ the project advances, the more resources we will need.',choices:["A. more", "B. further", "C. farther", "D. most"],answer:1,translation:'プロジェクトが進むほど、より多くのリソースが必要になります。',explanation:'the+比較級〜the+比較級 の構文。further（さらに進んだ）が正解。'},
+  {q:'Our new model is ___ more energy-efficient than the previous version.',choices:["A. consider", "B. considerable", "C. considerably", "D. consideration"],answer:2,translation:'新モデルは以前のバージョンよりもかなりエネルギー効率が高いです。',explanation:'比較級を強調するには副詞が必要。considerably（かなり）が正解。'},
+  {q:'The employee ___ submitted the best proposal will receive a bonus.',choices:["A. who", "B. which", "C. whose", "D. whom"],answer:0,translation:'最も良い提案を提出した社員がボーナスを受け取ります。',explanation:'先行詞が人（the employee）で主格の関係代名詞は who が正解。'},
+  {q:'Please review the contract, ___ outlines all the terms and conditions.',choices:["A. who", "B. that", "C. which", "D. what"],answer:2,translation:'全ての条件を概説している契約書を確認してください。',explanation:'先行詞が物（the contract）で、カンマの後の非制限用法は which が正解。'},
+  {q:'The company has not decided ___ to expand into the Asian market.',choices:["A. whether", "B. if", "C. that", "D. what"],answer:0,translation:'会社はアジア市場に進出するかどうかをまだ決めていません。',explanation:'decide whether to do で「〜するかどうか決める」という表現。whether が正解。'},
+  {q:'___ suggested the idea was never revealed.',choices:["A. What", "B. That", "C. Who", "D. Whoever"],answer:2,translation:'そのアイデアを提案したのが誰なのかは明かされませんでした。',explanation:'主語節を導く疑問詞として Who（誰が）が正解。'},
+  {q:'If the meeting ___ canceled, I would have attended the conference.',choices:["A. was not", "B. were not", "C. had not been", "D. is not"],answer:2,translation:'会議がキャンセルされていなかったなら、私はカンファレンスに参加していたでしょう。',explanation:'過去の事実と反対の仮定（仮定法過去完了）。had not been が正解。'},
+  {q:'___ it not been for your support, the project would have failed.',choices:["A. Had", "B. If", "C. Were", "D. Should"],answer:0,translation:'あなたのサポートがなければ、プロジェクトは失敗していたでしょう。',explanation:'Had it not been for〜 は If it had not been for〜の倒置形。Had が正解。'},
+  {q:'Please ___ free to contact us if you need any assistance.',choices:["A. feel", "B. be", "C. make", "D. get"],answer:0,translation:'ご支援が必要な場合は、遠慮なくご連絡ください。',explanation:'feel free to do で「遠慮なく〜する」という定型表現。feel が正解。'},
+  {q:'We look ___ to hearing from you soon.',choices:["A. up", "B. after", "C. forward", "D. out"],answer:2,translation:'近いうちにご連絡をいただけることを楽しみにしています。',explanation:'look forward to 〜ing で「〜を楽しみにする」という定型表現。forward が正解。'},
+  {q:'The new product did not ___ up to expectations.',choices:["A. live", "B. meet", "C. hold", "D. come"],answer:0,translation:'新製品は期待に応えられませんでした。',explanation:'live up to expectations で「期待に応える」という慣用表現。live が正解。'},
+  {q:'Could you ___ me in on the latest developments?',choices:["A. put", "B. fill", "C. bring", "D. catch"],answer:1,translation:'最新の動向について教えていただけますか？',explanation:'fill someone in on〜 で「〜について詳しく教える」という表現。fill が正解。'},
+  {q:'We need to ___ track of all expenses during the project.',choices:["A. take", "B. keep", "C. make", "D. hold"],answer:1,translation:'プロジェクト中に全ての経費を把握し続ける必要があります。',explanation:'keep track of〜 で「〜を把握し続ける・追跡する」という慣用表現。keep が正解。'},
+  {q:'The new manager quickly ___ control of the situation.',choices:["A. got", "B. took", "C. made", "D. had"],answer:1,translation:'新しいマネージャーはすぐに状況をコントロール下に置きました。',explanation:'take control of〜 で「〜を掌握する」という慣用表現。took が正解。'},
+  {q:'Please ___ into account all the risks before deciding.',choices:["A. take", "B. put", "C. bring", "D. carry"],answer:0,translation:'決定する前に全てのリスクを考慮してください。',explanation:'take into account で「考慮する」という慣用表現。take が正解。'},
+  {q:'The launch of the new product ___ place next month.',choices:["A. will take", "B. will make", "C. will have", "D. will do"],answer:0,translation:'新製品の発売は来月行われます。',explanation:'take place で「行われる・開催される」という慣用表現。will take が正解。'},
+  {q:'We are doing our best to ___ the situation under control.',choices:["A. keep", "B. make", "C. have", "D. hold"],answer:0,translation:'私たちは状況をコントロール下に置くために最善を尽くしています。',explanation:'keep〜under control で「〜をコントロール下に置く」という表現。keep が正解。'},
+  {q:'The board voted to ___ forward with the merger proposal.',choices:["A. go", "B. move", "C. press", "D. carry"],answer:1,translation:'取締役会は合併提案を進めることに票決しました。',explanation:'move forward with〜 で「〜を進める」という表現。move が正解。'},
+  {q:'___ of the employees attended the training session.',choices:["A. Most", "B. Almost", "C. Nearly", "D. Majority"],answer:0,translation:'社員のほとんどが研修セッションに出席しました。',explanation:'Most of the〜（〜のほとんど）は定番の数量表現。Almost や Nearly は副詞なので直接名詞の前には置けません。'},
+  {q:'There are ___ opportunities for career advancement in this company.',choices:["A. many", "B. much", "C. a great deal of", "D. a large amount of"],answer:0,translation:'この会社にはキャリアアップの機会がたくさんあります。',explanation:'opportunities は可算名詞の複数形。many が正解。much・a great deal of・a large amount of は不可算名詞に使います。'},
+  {q:'We have received ___ feedback from our customers this quarter.',choices:["A. many", "B. a number of", "C. a great deal of", "D. several"],answer:2,translation:'今四半期に顧客から多くのフィードバックを受け取りました。',explanation:'feedback は不可算名詞。a great deal of（多くの）が正解。'},
+  {q:'___ staff member is required to complete the annual training.',choices:["A. All", "B. Every", "C. Each of", "D. Some"],answer:1,translation:'全ての社員が年次研修を完了することが求められます。',explanation:'every は単数扱いで後ろに単数名詞。Every staff member が正解。'},
+  {q:'The company spent ___ on research and development last year.',choices:["A. many money", "B. a large number of money", "C. a large amount of money", "D. many amounts of money"],answer:2,translation:'会社は昨年、研究開発に多額のお金を費やしました。',explanation:'money は不可算名詞。a large amount of money が正解。'},
+  {q:'The management team reached ___ agreement on the new policy.',choices:["A. a", "B. an", "C. the", "D. no article needed"],answer:0,translation:'経営チームは新しい方針について合意に達しました。',explanation:'reach an agreement（合意に達する）は定番表現。agreement は母音で始まらないので a が正解。'},
+  {q:'She has ___ MBA from Harvard Business School.',choices:["A. a", "B. an", "C. the", "D. no article needed"],answer:1,translation:'彼女はハーバードビジネススクールのMBAを持っています。',explanation:'MBA の M は母音（エム）の発音で始まるため an が正解。'},
+  {q:'We need to find ___ solution to this problem as soon as possible.',choices:["A. a", "B. an", "C. the", "D. no article needed"],answer:0,translation:'できるだけ早くこの問題の解決策を見つける必要があります。',explanation:'solution は子音で始まるので a が正解。特定の解決策ではないので the は不正解。'},
+  {q:'The new regulations ___ into effect starting next month.',choices:["A. come", "B. will come", "C. are coming", "D. will be come"],answer:1,translation:'新しい規制は来月から効力を持ちます。',explanation:'come into effect（効力を持つ）は自動詞表現なので受動態にはなりません。未来の事実なので will come が正解。'},
+  {q:'Employees are ___ to dress professionally at all client meetings.',choices:["A. expect", "B. expected", "C. expecting", "D. expectation"],answer:1,translation:'社員は全てのクライアント会議でプロらしく装うことが期待されています。',explanation:'are の後ろには過去分詞が来て受動態を作ります。expected（期待されている）が正解。'},
+  {q:'The budget ___ significantly since the project started.',choices:["A. reduced", "B. has been reduced", "C. is reducing", "D. was reducing"],answer:1,translation:'プロジェクトが始まってから予算は大幅に削減されています。',explanation:'since the project started（始まってから）は現在完了を示す表現。has been reduced が正解。'},
+  {q:'New employees ___ a comprehensive orientation program.',choices:["A. provide", "B. are provided", "C. are provided with", "D. provided with"],answer:2,translation:'新入社員には包括的なオリエンテーションプログラムが提供されます。',explanation:'provide 人 with 物 の受動態は be provided with 物 になります。are provided with が正解。'},
+  {q:'The company decided ___ its office space to accommodate more employees.',choices:["A. expand", "B. to expand", "C. expanding", "D. expanded"],answer:1,translation:'会社はより多くの社員を収容するためにオフィスの広さを拡大することを決めました。',explanation:'decide to do で「〜することを決める」という表現。to expand が正解。'},
+  {q:'We appreciate ___ the time to review our proposal.',choices:["A. you take", "B. you to take", "C. your taking", "D. that you take"],answer:2,translation:'私たちの提案を確認するためにお時間をいただき感謝します。',explanation:'appreciate の目的語には動名詞が来ます。your taking（あなたが〜してくれること）が正解。'},
+  {q:'Please avoid ___ personal emails during work hours.',choices:["A. send", "B. to send", "C. sending", "D. sent"],answer:2,translation:'勤務時間中に個人メールを送るのを避けてください。',explanation:'avoid の後ろには動名詞（〜ing形）が来ます。sending が正解。'},
+  {q:'The manager recommended ___ the meeting until everyone was available.',choices:["A. postpone", "B. to postpone", "C. postponing", "D. postponed"],answer:2,translation:'マネージャーは全員が参加できるまで会議を延期することを勧めました。',explanation:'recommend の後ろには動名詞（〜ing形）が来ます。postponing が正解。'},
+  {q:'The team finished ___ the report just before the deadline.',choices:["A. write", "B. to write", "C. writing", "D. written"],answer:2,translation:'チームは締め切り直前にレポートを書き終えました。',explanation:'finish の後ろには動名詞（〜ing形）が来ます。writing が正解。'},
+  {q:'She is considering ___ for a promotion this year.',choices:["A. apply", "B. to apply", "C. applying", "D. applied"],answer:2,translation:'彼女は今年昇進に応募することを検討しています。',explanation:'consider の後ろには動名詞（〜ing形）が来ます。applying が正解。'},
+  {q:'He managed ___ the project on time despite the difficulties.',choices:["A. complete", "B. to complete", "C. completing", "D. completed"],answer:1,translation:'彼は困難にもかかわらず、プロジェクトを期限通りに完了させることができました。',explanation:'manage to do で「なんとか〜する」という表現。to complete が正解。'},
+  {q:'The client agreed ___ the revised contract terms.',choices:["A. accept", "B. to accept", "C. accepting", "D. accepted"],answer:1,translation:'クライアントは修正された契約条件を受け入れることに同意しました。',explanation:'agree to do で「〜することに同意する」という表現。to accept が正解。'},
+  {q:'You ___ submit the form online or in person.',choices:["A. can either", "B. either can", "C. can", "D. are able either to"],answer:0,translation:'フォームはオンラインまたは直接提出することができます。',explanation:'either A or B（AかBのどちらか）の表現で can either submit が正解。'},
+  {q:'Staff ___ not use company vehicles for personal trips.',choices:["A. should", "B. will", "C. must", "D. can"],answer:2,translation:'スタッフは個人の旅行に会社の車両を使用してはなりません。',explanation:'禁止を表すには must not が最も強い表現で適切。'},
+  {q:'The report ___ be ready by Friday at the latest.',choices:["A. must", "B. should", "C. would", "D. could"],answer:0,translation:'レポートは遅くとも金曜日までに準備できていなければなりません。',explanation:'必須・義務を表すには must が最も適切。'},
+  {q:'___ you need further assistance, please do not hesitate to call us.',choices:["A. If", "B. Should", "C. Were", "D. Had"],answer:1,translation:'さらにご支援が必要でしたら、遠慮なくお電話ください。',explanation:'Should you〜 は If you should〜の倒置形で「万が一〜の場合は」という丁寧な表現。'},
+  {q:'The new employee has ___ impressed everyone with her dedication.',choices:["A. already", "B. yet", "C. still", "D. just recently"],answer:0,translation:'新入社員は既に献身的な姿勢で全員を感動させています。',explanation:'already（すでに）が肯定文の現在完了に適切。yet は否定文・疑問文に使います。'},
+  {q:'The project is ___ behind schedule, but we expect to catch up.',choices:["A. slightly", "B. slight", "C. slightest", "D. slighted"],answer:0,translation:'プロジェクトは若干予定より遅れていますが、追いつく見込みです。',explanation:'動詞句 is behind を修飾するには副詞が必要。slightly（わずかに）が正解。'},
+  {q:'We ___ appreciate your continued support.',choices:["A. great", "B. greatly", "C. greater", "D. greatest"],answer:1,translation:'あなたの継続的なサポートに大変感謝しています。',explanation:'動詞 appreciate を修飾するには副詞が必要。greatly（大変・非常に）が正解。'},
+  {q:'The success of the campaign was ___ due to the team\'s creativity.',choices:["A. large", "B. largely", "C. largest", "D. enlarging"],answer:1,translation:'キャンペーンの成功は主にチームの創造性によるものでした。',explanation:'was due to を修飾するには副詞が必要。largely（主に・大部分は）が正解。'},
+  {q:'All applications will be reviewed, ___ the applicant\'s background.',choices:["A. regardless of", "B. despite", "C. in spite", "D. no matter"],answer:0,translation:'応募者の経歴にかかわらず、全ての応募が審査されます。',explanation:'regardless of〜（〜にかかわらず）が正解。in spite は in spite of の形で使います。'},
+  {q:'The merger is subject to ___ approval.',choices:["A. regulate", "B. regulated", "C. regulatory", "D. regulation"],answer:2,translation:'合併は規制当局の承認を必要とします。',explanation:'名詞 approval を修飾するには形容詞が必要。regulatory（規制の）が正解。'},
+  {q:'We will keep you ___ of any developments in the project.',choices:["A. inform", "B. informed", "C. informing", "D. information"],answer:1,translation:'プロジェクトの進展についてお知らせし続けます。',explanation:'keep 人 informed で「人に常に最新情報を伝える」という表現。informed が正解。'},
+  {q:'The proposal was well ___ by the committee.',choices:["A. receive", "B. receiving", "C. received", "D. reception"],answer:2,translation:'提案は委員会に好意的に受け入れられました。',explanation:'well received（好意的に受け入れられた）は定番の表現。received が正解。'},
+  {q:'The company\'s expansion plans are ___ on securing additional funding.',choices:["A. conditional", "B. contingent", "C. dependent", "D. reliant"],answer:1,translation:'会社の拡大計画は追加資金の確保を条件としています。',explanation:'contingent on〜（〜を条件として）はビジネスで頻出の表現。'},
+  {q:'___ the report is finalized, it will be distributed to all stakeholders.',choices:["A. Once", "B. Until", "C. Although", "D. Whereas"],answer:0,translation:'報告書が最終決定され次第、全ての利害関係者に配布されます。',explanation:'once（〜したら・〜次第）が「完了次第」を表す最適な接続詞。'},
+  {q:'The company has made significant ___ in its sustainability efforts.',choices:["A. stride", "B. strides", "C. striding", "D. stridden"],answer:1,translation:'会社は持続可能性への取り組みで大きな前進を遂げました。',explanation:'make strides（前進する・著しい進歩をする）は慣用表現。strides が正解。'},
 ];
 const PART7_BANK = [
   {passage:`From: Sarah Chen <s.chen@techcorp.com>\nTo: All Staff\nSubject: Office Closure Notice\nDate: March 10\n\nDear Team,\n\nPlease be informed that our main office will be closed on March 15 (Friday) for scheduled maintenance. All employees are expected to work from home on that day.\n\nPlease ensure that you have access to all necessary files and tools before March 14. IT support will be available via email throughout the day.\n\nThank you for your cooperation.\n\nSarah Chen\nOffice Manager`,questions:[
     {q:"Why will the office be closed on March 15?",choices:["A. A public holiday","B. Scheduled maintenance","C. A company event","D. Bad weather"],answer:1,explanation:"メールに 'closed on March 15 for scheduled maintenance' とあるため、定期メンテナンスが理由です。"},
     {q:"What are employees expected to do on March 15?",choices:["A. Come to the office early","B. Take a day off","C. Work from home","D. Attend a training session"],answer:2,explanation:"'All employees are expected to work from home on that day' と明記されています。"},
-    {q:"What does Sarah Chen recommend employees do before March 14?",choices:["A. Submit their reports","B. Contact their managers","C. Back up all data","D. Access necessary files and tools"],answer:3,explanation:"'ensure that you have access to all necessary files and tools before March 14' と書かれています。"},
+    {q:"What should employees do before March 14?",choices:["A. Submit their reports","B. Contact their managers","C. Back up all data","D. Access necessary files and tools"],answer:3,explanation:"'ensure that you have access to all necessary files and tools before March 14' と書かれています。"},
   ]},
   {passage:`JOB POSTING\n\nPosition: Marketing Coordinator\nDepartment: Marketing\nLocation: New York, NY\nEmployment Type: Full-time\n\nResponsibilities:\n- Coordinate marketing campaigns across digital and print channels\n- Analyze campaign performance and prepare monthly reports\n- Collaborate with the design team on promotional materials\n\nRequirements:\n- Bachelor's degree in Marketing or related field\n- Minimum 2 years of experience in marketing\n- Proficiency in Microsoft Office and marketing software\n\nTo apply, send your resume and cover letter to hr@company.com by April 30.`,questions:[
     {q:"What type of position is being advertised?",choices:["A. Part-time","B. Contract","C. Full-time","D. Temporary"],answer:2,explanation:"求人票に 'Employment Type: Full-time' と明記されています。"},
     {q:"How much experience is required for this position?",choices:["A. 1 year","B. 2 years","C. 3 years","D. 5 years"],answer:1,explanation:"'Minimum 2 years of experience in marketing' と記載されています。"},
     {q:"How should applicants submit their application?",choices:["A. By mail","B. In person","C. By phone","D. By email"],answer:3,explanation:"'send your resume and cover letter to hr@company.com' とあり、メールでの応募が指定されています。"},
   ]},
-  {passage:`RIVERSIDE CAFE\nMonthly Newsletter - April Edition\n\nNew Spring Menu!\nWe are excited to introduce our spring menu featuring fresh seasonal ingredients.\n\nSpecial Offer\nThroughout April, enjoy 15% off all beverages when you show this newsletter on your phone. Valid Monday through Friday only.\n\nLoyalty Program Update\nOur loyalty app has been updated! Members now earn double points on weekends.\n\nOpening Hours: Mon-Fri 7:00 AM - 9:00 PM / Sat-Sun 8:00 AM - 8:00 PM`,questions:[
+  {passage:`RIVERSIDE CAFE\nMonthly Newsletter - April Edition\n\nNew Spring Menu!\nWe are excited to introduce our spring menu featuring fresh seasonal ingredients. Highlights include Avocado Toast with poached eggs and Strawberry Matcha Latte.\n\nSpecial Offer\nThroughout April, enjoy 15% off all beverages when you show this newsletter on your phone. Valid Monday through Friday only.\n\nLoyalty Program Update\nOur loyalty app has been updated! Members now earn double points on weekends.\n\nOpening Hours: Mon-Fri 7:00 AM - 9:00 PM / Sat-Sun 8:00 AM - 8:00 PM`,questions:[
     {q:"What discount is offered in April?",choices:["A. 10% off all food","B. 15% off all beverages","C. 20% off the new menu","D. Free drink with meal"],answer:1,explanation:"'enjoy 15% off all beverages when you show this newsletter' と書かれています。"},
     {q:"When is the beverage discount valid?",choices:["A. Weekends only","B. Every day","C. Monday through Friday","D. Saturday and Sunday"],answer:2,explanation:"'Valid Monday through Friday only' と明記されています。"},
     {q:"What change was made to the loyalty program?",choices:["A. Members get free items","B. Points expire faster","C. Members earn double points on weekends","D. New members get a bonus"],answer:2,explanation:"'Members now earn double points on weekends' と記載されています。"},
@@ -855,19 +956,69 @@ const PART7_BANK = [
     {q:"How many elevators will be out of service?",choices:["A. One","B. Two","C. Three","D. All"],answer:1,explanation:"'elevators 1 and 3 will be out of service' とあり、2基が使用不可となります。"},
     {q:"How can tenants contact building management?",choices:["A. By email","B. By visiting the office","C. By calling ext. 200","D. By submitting a form"],answer:2,explanation:"'contact the building management office at ext. 200' と記載されています。"},
   ]},
-  {passage:`From: David Wong\nTo: Marketing Team\nSubject: Q3 Campaign Results\n\nHi Team,\n\nI am happy to share the results of our Q3 marketing campaign. Overall, we saw a 23% increase in website traffic and a 15% rise in conversion rates compared to Q2.\n\nThe email campaign was particularly successful, achieving an open rate of 35%, well above the industry average of 22%. Social media engagement also improved significantly.\n\nHowever, our paid advertising spending exceeded the budget by 8%. Going forward, we need to allocate resources more carefully.\n\nLet us discuss these findings at our next team meeting.\n\nBest regards,\nDavid`,questions:[
+  {passage:`From: David Wong\nTo: Marketing Team\nSubject: Q3 Campaign Results\n\nHi Team,\n\nI am happy to share the results of our Q3 marketing campaign. Overall, we saw a 23% increase in website traffic and a 15% rise in conversion rates compared to Q2.\n\nThe email campaign was particularly successful, achieving an open rate of 35%, well above the industry average of 22%. Social media engagement also improved significantly.\n\nHowever, our paid advertising spending exceeded the budget by 8%. Going forward, we need to allocate resources more carefully.\n\nBest regards,\nDavid`,questions:[
     {q:"What was the open rate for the email campaign?",choices:["A. 22%","B. 23%","C. 35%","D. 40%"],answer:2,explanation:"'achieving an open rate of 35%' と明記されています。"},
     {q:"What concern does David mention about the campaign?",choices:["A. Low social media engagement","B. Decreased website traffic","C. Overspending on paid advertising","D. Poor email open rates"],answer:2,explanation:"'paid advertising spending exceeded the budget by 8%' と書かれています。"},
-    {q:"What does David suggest doing next?",choices:["A. Ending the marketing campaign","B. Discussing findings at the next team meeting","C. Hiring more marketing staff","D. Reducing the social media budget"],answer:1,explanation:"'Let us discuss these findings at our next team meeting' と提案されています。"},
+    {q:"By how much did website traffic increase?",choices:["A. 8%","B. 15%","C. 22%","D. 23%"],answer:3,explanation:"'we saw a 23% increase in website traffic' と明記されています。"},
+  ]},
+  {passage:`MEMORANDUM\n\nTo: All Department Heads\nFrom: Human Resources\nDate: May 5\nRe: Annual Performance Review Schedule\n\nPlease be advised that annual performance reviews will be conducted from June 1 to June 30. All managers are required to complete evaluations for their direct reports by June 25.\n\nEvaluation forms are available on the company intranet under the HR section. Completed forms must be submitted electronically.\n\nIf you have any questions, please contact the HR department at extension 305.`,questions:[
+    {q:"When must managers complete evaluations?",choices:["A. By June 1","B. By June 15","C. By June 25","D. By June 30"],answer:2,explanation:"'All managers are required to complete evaluations for their direct reports by June 25' と明記されています。"},
+    {q:"Where can evaluation forms be found?",choices:["A. At the HR office","B. On the company intranet","C. Via email from HR","D. At the reception desk"],answer:1,explanation:"'Evaluation forms are available on the company intranet under the HR section' と記載されています。"},
+    {q:"How should completed forms be submitted?",choices:["A. By mail","B. In person","C. By fax","D. Electronically"],answer:3,explanation:"'Completed forms must be submitted electronically' と明記されています。"},
+  ]},
+  {passage:`Grand Opening Sale!\n\nTechWorld Electronics is proud to announce the grand opening of our new downtown store at 250 Main Street.\n\nTo celebrate, we are offering special discounts on all products from July 10 to July 17.\n\n- 20% off all laptops and tablets\n- 15% off all smartphones\n- 10% off all accessories\n\nAdditionally, the first 50 customers each day will receive a free gift bag valued at $30.\n\nStore hours: 9:00 AM to 9:00 PM daily.\nFor more information, visit www.techworld.com`,questions:[
+    {q:"Where is the new store located?",choices:["A. 150 Main Street","B. 205 Main Street","C. 250 Main Street","D. 520 Main Street"],answer:2,explanation:"'new downtown store at 250 Main Street' と明記されています。"},
+    {q:"What discount is offered on smartphones?",choices:["A. 10%","B. 15%","C. 20%","D. 25%"],answer:1,explanation:"'15% off all smartphones' と記載されています。"},
+    {q:"What do the first 50 customers each day receive?",choices:["A. A discount voucher","B. A free smartphone","C. A gift card","D. A free gift bag"],answer:3,explanation:"'the first 50 customers each day will receive a free gift bag' と書かれています。"},
+  ]},
+  {passage:`From: Linda Park\nTo: John Smith\nSubject: Conference Room Booking\n\nHi John,\n\nI would like to reserve Conference Room B for our team meeting next Thursday, March 18, from 2:00 PM to 4:00 PM.\n\nWe will need the projector and whiteboard. Could you also arrange for coffee and water to be available?\n\nPlease confirm the booking at your earliest convenience.\n\nThank you,\nLinda`,questions:[
+    {q:"What room does Linda want to reserve?",choices:["A. Conference Room A","B. Conference Room B","C. Conference Room C","D. The main hall"],answer:1,explanation:"'reserve Conference Room B' と明記されています。"},
+    {q:"What time is the meeting scheduled to end?",choices:["A. 2:00 PM","B. 3:00 PM","C. 4:00 PM","D. 5:00 PM"],answer:2,explanation:"'from 2:00 PM to 4:00 PM' と記載されています。"},
+    {q:"What does Linda request in addition to equipment?",choices:["A. Lunch","B. Printed handouts","C. Coffee and water","D. A microphone"],answer:2,explanation:"'arrange for coffee and water to be available' と書かれています。"},
+  ]},
+  {passage:`TRAINING ANNOUNCEMENT\n\nSubject: Mandatory Customer Service Training\n\nAll customer-facing staff are required to attend a customer service training session.\n\nSession Details:\nDate: Friday, September 12\nTime: 10:00 AM - 12:00 PM\nLocation: Training Room 3, 2nd Floor\n\nTopics covered:\n- Handling customer complaints effectively\n- Communication skills for customer interactions\n- Using the new customer management system\n\nAttendance is mandatory. If you are unable to attend due to an urgent matter, please notify your supervisor in advance and contact HR to arrange an alternative session.`,questions:[
+    {q:"Who is required to attend the training?",choices:["A. All employees","B. Managers only","C. Customer-facing staff","D. New employees only"],answer:2,explanation:"'All customer-facing staff are required to attend' と明記されています。"},
+    {q:"Where will the training be held?",choices:["A. Training Room 1, 1st Floor","B. Training Room 2, 1st Floor","C. Training Room 3, 2nd Floor","D. The main conference room"],answer:2,explanation:"'Training Room 3, 2nd Floor' と記載されています。"},
+    {q:"What should staff do if they cannot attend?",choices:["A. Skip the training","B. Watch a recording","C. Notify their supervisor and contact HR","D. Send an email to the trainer"],answer:2,explanation:"'notify your supervisor in advance and contact HR to arrange an alternative session' と書かれています。"},
+  ]},
+  {passage:`PRESS RELEASE\n\nFor Immediate Release\n\nGlobalTech Inc. Announces Record Annual Revenue\n\nGlobalTech Inc. today announced its financial results for the fiscal year ending December 31. The company reported annual revenue of $2.8 billion, representing a 12% increase from the previous year.\n\nNet income rose to $420 million, up 18% year-over-year. The strong performance was driven by growth in the company's cloud services division, which saw revenue increase by 35%.\n\n"We are very pleased with our results," said CEO Michael Brown. "Our investments in cloud technology are clearly paying off."\n\nGlobalTech employs approximately 15,000 people worldwide.`,questions:[
+    {q:"By how much did annual revenue increase?",choices:["A. 8%","B. 12%","C. 18%","D. 35%"],answer:1,explanation:"'representing a 12% increase from the previous year' と明記されています。"},
+    {q:"Which division showed the strongest growth?",choices:["A. Hardware division","B. Software division","C. Cloud services division","D. Retail division"],answer:2,explanation:"'growth in the company's cloud services division, which saw revenue increase by 35%' と記載されています。"},
+    {q:"How many people does GlobalTech employ?",choices:["A. Approximately 1,500","B. Approximately 5,000","C. Approximately 10,000","D. Approximately 15,000"],answer:3,explanation:"'GlobalTech employs approximately 15,000 people worldwide' と書かれています。"},
+  ]},
+  {passage:`From: Operations Team\nTo: All Staff\nSubject: New Expense Reimbursement Policy\n\nEffective October 1, the company will implement a new expense reimbursement policy.\n\nKey changes:\n1. All expense claims must be submitted within 30 days of the expense being incurred.\n2. Receipts are required for all expenses over $25.\n3. Meal expenses are capped at $50 per person per day.\n4. International travel requires pre-approval from your department head.\n\nExpense reports must be submitted through the new online portal at expenses.company.com.\n\nFor questions, contact the Finance department at finance@company.com.`,questions:[
+    {q:"When does the new policy take effect?",choices:["A. September 1","B. October 1","C. November 1","D. January 1"],answer:1,explanation:"'Effective October 1, the company will implement a new expense reimbursement policy' と明記されています。"},
+    {q:"Within how many days must expense claims be submitted?",choices:["A. 14 days","B. 21 days","C. 30 days","D. 60 days"],answer:2,explanation:"'must be submitted within 30 days of the expense being incurred' と記載されています。"},
+    {q:"What is the daily meal expense limit per person?",choices:["A. $25","B. $35","C. $50","D. $75"],answer:2,explanation:"'Meal expenses are capped at $50 per person per day' と書かれています。"},
+  ]},
+  {passage:`PRODUCT RECALL NOTICE\n\nImportant Safety Information\n\nABC Electronics is voluntarily recalling its Model X200 portable charger due to a potential overheating issue that could pose a fire hazard.\n\nAffected products:\n- Model X200 portable chargers purchased between January 1 and August 31 of this year\n- Serial numbers beginning with XC2 or XC3\n\nCustomers should immediately stop using the affected product and contact our customer service at 1-800-555-0100 or recall@abcelectronics.com to receive a full refund or replacement.\n\nWe sincerely apologize for any inconvenience caused.`,questions:[
+    {q:"Why is the product being recalled?",choices:["A. Poor battery life","B. Screen malfunction","C. Potential overheating issue","D. Charging port defect"],answer:2,explanation:"'due to a potential overheating issue that could pose a fire hazard' と明記されています。"},
+    {q:"Which serial numbers are affected?",choices:["A. XC1 or XC2","B. XC2 or XC3","C. XC3 or XC4","D. All X200 models"],answer:1,explanation:"'Serial numbers beginning with XC2 or XC3' と記載されています。"},
+    {q:"What can customers receive by contacting customer service?",choices:["A. A discount on a new product","B. A repair service","C. Store credit","D. A full refund or replacement"],answer:3,explanation:"'to receive a full refund or replacement' と書かれています。"},
+  ]},
+  {passage:`From: HR Department\nTo: All Employees\nSubject: Annual Company Picnic\n\nWe are delighted to announce that this year's annual company picnic will be held on Saturday, August 23, at Riverside Park.\n\nEvent Schedule:\n11:00 AM - Gates open\n12:00 PM - Lunch served\n2:00 PM - Games and activities begin\n5:00 PM - Event concludes\n\nThe event is open to employees and their immediate family members. Please register by August 10 so we can plan accordingly.\n\nTransportation will be provided from the main office. Buses will depart at 10:30 AM and return at 5:30 PM.\n\nWe look forward to seeing everyone there!`,questions:[
+    {q:"Where will the company picnic be held?",choices:["A. Central Park","B. Greenfield Park","C. Riverside Park","D. Lakeside Park"],answer:2,explanation:"'annual company picnic will be held on Saturday, August 23, at Riverside Park' と明記されています。"},
+    {q:"By when must employees register?",choices:["A. August 1","B. August 10","C. August 15","D. August 23"],answer:1,explanation:"'Please register by August 10' と記載されています。"},
+    {q:"What time do buses depart from the main office?",choices:["A. 10:00 AM","B. 10:30 AM","C. 11:00 AM","D. 11:30 AM"],answer:1,explanation:"'Buses will depart at 10:30 AM' と書かれています。"},
+  ]},
+  {passage:`WORKSHOP INVITATION\n\nLeadership Development Workshop\n\nYou are invited to attend our exclusive Leadership Development Workshop designed for mid-level managers.\n\nDate: Thursday, November 6\nTime: 9:00 AM to 5:00 PM\nVenue: Grand Conference Center, Room 401\nCost: Complimentary for all registered participants\n\nWorkshop Highlights:\n- Strategic thinking and decision-making\n- Building and motivating high-performance teams\n- Effective communication techniques\n- Managing change in the workplace\n\nTo register, visit our website at www.leadershipworkshop.com or call 555-0192 by October 25.\n\nSeating is limited to 30 participants.`,questions:[
+    {q:"Who is the workshop designed for?",choices:["A. New employees","B. Senior executives","C. Mid-level managers","D. All staff members"],answer:2,explanation:"'designed for mid-level managers' と明記されています。"},
+    {q:"What is the cost of the workshop?",choices:["A. $100","B. $250","C. $500","D. Complimentary"],answer:3,explanation:"'Cost: Complimentary for all registered participants' と記載されています。"},
+    {q:"By when must participants register?",choices:["A. October 15","B. October 25","C. November 1","D. November 6"],answer:1,explanation:"'call 555-0192 by October 25' と書かれています。"},
+  ]},
+  {passage:`TRAVEL ADVISORY\n\nTo: Sales Team\nFrom: Travel Department\nSubject: Updated Business Travel Guidelines\n\nPlease note the following updates to our business travel policy, effective immediately.\n\n1. All flights must be booked at least 14 days in advance to qualify for company rates.\n2. Hotel accommodations should not exceed $180 per night without prior approval.\n3. Economy class is required for flights under 6 hours. Business class may be requested for longer flights with manager approval.\n4. All travel must be booked through our approved travel portal at travel.company.com.\n\nReceipts for all expenses must be submitted within 21 days of returning from travel.\n\nFor assistance, contact the Travel Department at ext. 410.`,questions:[
+    {q:"How far in advance must flights be booked to qualify for company rates?",choices:["A. 7 days","B. 10 days","C. 14 days","D. 21 days"],answer:2,explanation:"'All flights must be booked at least 14 days in advance to qualify for company rates' と明記されています。"},
+    {q:"What is the maximum hotel cost per night without prior approval?",choices:["A. $120","B. $150","C. $180","D. $200"],answer:2,explanation:"'Hotel accommodations should not exceed $180 per night without prior approval' と記載されています。"},
+    {q:"Within how many days must receipts be submitted after returning?",choices:["A. 7 days","B. 14 days","C. 21 days","D. 30 days"],answer:2,explanation:"'Receipts for all expenses must be submitted within 21 days of returning from travel' と書かれています。"},
   ]},
 ];
 // ===== APP STATE =====
-const TASKS = {
-  '30': [
-    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
-    { id:'vocab', name:'単語学習', hint:'ランダム出題 · 20語', time:'10分', vocab:true },
+const TASKS = [
+    { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 15問', time:'10分', quiz:true, qtype:'part5', qcount:15 },
+    { id:'vocab', name:'単語学習', hint:'ランダム出題 · 30語', time:'10分', vocab:true, vcount:30 },
     { id:'p7', name:'Part 7 長文読解', hint:'ランダム出題 · 1セット', time:'10分', quiz:true, qtype:'part7', qcount:3 },
-  ],
+];
+const TASKS_OBJ = {
   '60': [
     { id:'p5', name:'Part 5 文法・語彙', hint:'ランダム出題 · 10問', time:'10分', quiz:true, qtype:'part5', qcount:10 },
     { id:'vocab', name:'単語学習', hint:'ランダム出題 · 20語', time:'10分', vocab:true },
@@ -878,8 +1029,8 @@ const TASKS = {
 
 const DAYS = ['日','月','火','水','木','金','土'];
 let state = {};
-try { state = JSON.parse(localStorage.getItem('toeic_v5') || '{}'); } catch(e) {}
-function save() { try { localStorage.setItem('toeic_v5', JSON.stringify(state)); } catch(e) {} }
+try { state = JSON.parse(localStorage.getItem('toeic_v6') || '{}'); } catch(e) {}
+function save() { try { localStorage.setItem('toeic_v6', JSON.stringify(state)); } catch(e) {} }
 
 const base = new Date(); base.setHours(0,0,0,0);
 let offset = 0;
@@ -901,8 +1052,7 @@ function calcStreak() {
   let s=0;
   for(let i=0;i>=-365;i--){
     const k=dayKey(i),ds=state[k]; if(!ds)break;
-    const tasks=TASKS[ds.mode||'60'];
-    if(tasks.every(t=>ds.done[t.id]))s++; else if(i<0)break;
+    if(TASKS.every(t=>ds.done[t.id]))s++; else if(i<0)break;
   }
   return s;
 }
@@ -932,17 +1082,13 @@ function buildQuestions(qtype, qcount) {
 // ===== HOME RENDER =====
 function render() {
   const key=dayKey(offset), ds=dayState(key), isToday=offset===0;
-  const tasks=TASKS[ds.mode||'60'];
+  const tasks=TASKS;
   const d=new Date(base); d.setDate(d.getDate()+offset);
   const m=d.getMonth()+1, dd=d.getDate(), dow=DAYS[d.getDay()];
   document.getElementById('date-text').textContent=`${m}月${dd}日（${dow}）`;
   document.getElementById('today-label').textContent=isToday?'TODAY':'';
   document.getElementById('prev-btn').disabled=offset<=-30;
   document.getElementById('next-btn').disabled=offset>=0;
-  document.getElementById('btn-30').className='mode-btn'+(ds.mode==='30'?' active':'');
-  document.getElementById('btn-60').className='mode-btn'+(ds.mode==='60'?' active':'');
-  document.getElementById('btn-30').disabled=!isToday;
-  document.getElementById('btn-60').disabled=!isToday;
 
   const list=document.getElementById('task-list'); list.innerHTML='';
   const doneCount=tasks.filter(t=>ds.done[t.id]).length;
@@ -952,16 +1098,17 @@ function render() {
     if (t.quiz && isToday) {
       const el=document.createElement('div');
       el.className='quiz-launch'+(done?' done':'');
-      if (!done) el.onclick=()=>startQuiz(t);
-      else el.style.cursor='default';
+      el.onclick=()=>startQuiz(t);
       const scoreStr=done&&score?`<span class="quiz-score-badge">${score.correct}/${score.total}問正解</span>`:'';
-      el.innerHTML=`<div class="quiz-launch-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><div class="quiz-launch-body"><div class="quiz-launch-name">${t.name}</div><div class="quiz-launch-hint">${done?'完了 '+scoreStr:t.hint}</div></div><span class="quiz-launch-time">${t.time}</span>`;
+      const retryBadge=done?`<span style="font-size:10px;color:var(--success);background:rgba(22,163,74,0.1);border-radius:99px;padding:2px 8px;font-family:var(--mono);cursor:pointer">再挑戦 ▶</span>`:'';
+      el.innerHTML=`<div class="quiz-launch-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><div class="quiz-launch-body"><div class="quiz-launch-name">${t.name}</div><div class="quiz-launch-hint" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">${done?scoreStr+' '+retryBadge:t.hint}</div></div><span class="quiz-launch-time">${t.time}</span>`;
       list.appendChild(el);
     } else if (t.vocab && isToday) {
       const el=document.createElement('div');
       el.className='vocab-launch'+(done?' done':'');
-      if(!done) el.onclick=()=>startVocab(t); else el.style.cursor='default';
-      el.innerHTML=`<div class="vocab-launch-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="vocab-launch-body"><div class="vocab-launch-name">${t.name}</div><div class="vocab-launch-hint">${done?'完了':t.hint}</div></div><span class="vocab-launch-time">${t.time}</span>`;
+      el.onclick=()=>startVocab(t);
+      const vRetry=done?`<span style="font-size:10px;color:var(--success);background:rgba(22,163,74,0.1);border-radius:99px;padding:2px 8px;font-family:var(--mono)">再挑戦 ▶</span>`:'';
+      el.innerHTML=`<div class="vocab-launch-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="vocab-launch-body"><div class="vocab-launch-name">${t.name}</div><div class="vocab-launch-hint" style="display:flex;align-items:center;gap:6px">${done?'完了 '+vRetry:t.hint}</div></div><span class="vocab-launch-time">${t.time}</span>`;
       list.appendChild(el);
     } else {
       const el=document.createElement('div');
@@ -986,8 +1133,7 @@ function render() {
   const dots=document.getElementById('week-dots'); dots.innerHTML='';
   for(let i=-6;i<=0;i++){
     const k=dayKey(i),ds2=state[k];
-    const tasks2=TASKS[(ds2&&ds2.mode)||'60'];
-    const done2=ds2&&tasks2.every(t=>ds2.done[t.id]);
+    const done2=ds2&&TASKS.every(t=>ds2.done[t.id]);
     const isToday2=i===0;
     const d2=new Date(base); d2.setDate(d2.getDate()+i);
     const dot=document.createElement('div');
@@ -1068,9 +1214,11 @@ function showResult() {
   const correctCount=quizAnswers.filter(a=>a.selected===a.correct).length;
   const pct=Math.round(correctCount/total*100);
   const key=dayKey(offset), ds=dayState(key);
-  ds.done[currentQuizTaskId]=true;
-  ds.scores[currentQuizTaskId]={correct:correctCount,total};
-  save();
+  if (!String(currentQuizTaskId).startsWith('free_')) {
+    ds.done[currentQuizTaskId]=true;
+    ds.scores[currentQuizTaskId]={correct:correctCount,total};
+    save();
+  }
 
   const msg=pct>=80?'🎉 素晴らしい！':pct>=60?'👍 なかなか良い！':'📚 復習しよう';
   const color=pct>=80?'var(--success)':pct>=60?'var(--accent)':'var(--danger)';
@@ -1123,18 +1271,21 @@ function showResult() {
 }
 
 function toggleReview(i) { const c=document.getElementById('rc-'+i); if(c)c.classList.toggle('open'); }
-function exitQuiz() { showScreen('screen-home'); render(); }
-function exitResult() { showScreen('screen-home'); render(); }
+function exitQuiz() { showScreen('screen-home'); render(); if(currentTab==='free') setTab('free'); }
+function exitResult() { showScreen('screen-home'); render(); if(currentTab==='free') setTab('free'); }
 
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
 render();
 
 // ===== VOCAB =====
+let currentTab = 'daily';
 let vocabCategory = 'all';
+let currentVocabCount = 20;
 
 function startVocab(task) {
   currentQuizTaskId=task.id;
   vocabCategory='all';
+  currentVocabCount = task.vcount || 20;
   showScreen('screen-vocab');
   renderVocabCategory();
 }
@@ -1166,7 +1317,7 @@ function renderVocabCategory() {
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px">
       <div style="font-size:13px;color:var(--text);margin-bottom:4px;font-weight:500">${vocabCategory==='all'?'すべての単語':vocabCategory} <span style="font-family:var(--mono);color:var(--accent)">${available}語</span></div>
-      <div style="font-size:12px;color:var(--muted)">ランダムに20語出題（${available<20?available:20}語）</div>
+      <div style="font-size:12px;color:var(--muted)">ランダムに${Math.min(currentVocabCount,available)}語出題</div>
     </div>
     <button class="vocab-btn primary" onclick="startVocabStudy()" style="width:100%;margin-bottom:8px">学習スタート →</button>
     <button class="vocab-btn" onclick="exitVocab()" style="width:100%">戻る</button>
@@ -1181,7 +1332,7 @@ function selectVocabCat(cat) {
 
 function startVocabStudy() {
   const filtered = vocabCategory==='all' ? VOCAB_BANK : VOCAB_BANK.filter(w=>w.pos===vocabCategory);
-  vocabWords = shuffle(filtered).slice(0, Math.min(20, filtered.length));
+  vocabWords = shuffle(filtered).slice(0, Math.min(currentVocabCount, filtered.length));
   vocabIdx = 0;
   renderVocab();
 }
@@ -1211,7 +1362,9 @@ function nextVocab() { if(vocabIdx+1<vocabWords.length){vocabIdx++;renderVocab()
 function prevVocab() { if(vocabIdx>0){vocabIdx--;renderVocab();} }
 function finishVocab() {
   const key=dayKey(offset),ds=dayState(key);
-  ds.done[currentQuizTaskId]=true; save();
+  if (!String(currentQuizTaskId).startsWith('free_')) {
+    ds.done[currentQuizTaskId]=true; save();
+  }
   showVocabResult();
 }
 
@@ -1248,6 +1401,46 @@ function showVocabResult() {
   `;
 }
 function exitVocab() { showScreen('screen-home'); render(); }
+
+function setTab(tab) {
+  currentTab = tab;
+  document.getElementById('btn-daily').className = 'mode-btn' + (tab==='daily'?' active':'');
+  document.getElementById('btn-free').className = 'mode-btn' + (tab==='free'?' active':'');
+  document.getElementById('task-list').style.display = tab==='daily' ? '' : 'none';
+  document.getElementById('free-panel').style.display = tab==='free' ? '' : 'none';
+  document.getElementById('bottom-section').style.display = tab==='daily' ? '' : 'none';
+  if (tab==='free') renderFreePanel();
+}
+
+function renderFreePanel() {
+  const panel = document.getElementById('free-panel');
+  const freeTasks = [
+    { label:'Part 5 練習（15問）', desc:'文法・語彙 15問', icon:'📝', onclick:"startQuiz({id:'free_p5_15',name:'Part 5 練習（15問）',quiz:true,qtype:'part5',qcount:15})" },
+    { label:'Part 5 練習（30問）', desc:'文法・語彙 30問', icon:'📝', onclick:"startQuiz({id:'free_p5_30',name:'Part 5 練習（30問）',quiz:true,qtype:'part5',qcount:30})" },
+    { label:'Part 5 練習（50問）', desc:'文法・語彙 50問', icon:'📝', onclick:"startQuiz({id:'free_p5_50',name:'Part 5 練習（50問）',quiz:true,qtype:'part5',qcount:50})" },
+    { label:'Part 7 練習（1パッセージ）', desc:'長文読解 3問', icon:'📄', onclick:"startQuiz({id:'free_p7_1',name:'Part 7 練習（1パッセージ）',quiz:true,qtype:'part7',qcount:3})" },
+    { label:'Part 7 練習（3パッセージ）', desc:'長文読解 9問', icon:'📄', onclick:"startQuiz({id:'free_p7_3',name:'Part 7 練習（3パッセージ）',quiz:true,qtype:'part7',qcount:9})" },
+    { label:'Part 7 練習（5パッセージ）', desc:'長文読解 15問', icon:'📄', onclick:"startQuiz({id:'free_p7_5',name:'Part 7 練習（5パッセージ）',quiz:true,qtype:'part7',qcount:15})" },
+    { label:'単語学習（30語）', desc:'カテゴリを選んで練習', icon:'📚', onclick:"startVocab({id:'free_vocab_30',name:'単語学習',vocab:true,vcount:30})" },
+    { label:'単語学習（50語）', desc:'カテゴリを選んで練習', icon:'📚', onclick:"startVocab({id:'free_vocab_50',name:'単語学習',vocab:true,vcount:50})" },
+  ];
+
+  panel.innerHTML = freeTasks.map(t => `
+    <div onclick="${t.onclick}" style="
+      display:flex; align-items:center; gap:14px; padding:16px;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:14px; margin-bottom:8px; cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    ">
+      <div style="width:38px;height:38px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">${t.icon}</div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px">${t.label}</div>
+        <div style="font-size:11px;color:var(--muted)">${t.desc}</div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><polyline points="6,3 11,8 6,13"/></svg>
+    </div>
+  `).join('');
+}
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
 render();
 </script>
